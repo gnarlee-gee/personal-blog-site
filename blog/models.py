@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from pagedown.widgets import AdminPagedownWidget
 
 # Note, if you add another field when you already have fields filled
 # make sure to run makemigrations and migrate!

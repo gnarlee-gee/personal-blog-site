@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY') # Instead of your actual secret key
 
 DEBUG = os.environ.get('DEBUG_VALUE', '') == 'True'
 
-ALLOWED_HOSTS = ['django-personal-blog-site.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -44,8 +44,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+    #local apps
     'blog',
+    
+    # third party
+    'pagedown.apps.PagedownConfig', # for markdown editor
+    'markdown_deux', # for markdown rendering
 ]
 
 MIDDLEWARE = [

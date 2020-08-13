@@ -13,3 +13,5 @@ ex: heroku run python manage.py migrate (need to create a new table btw)
 
 To access bash in heroku for linux commands
 heroku run bash (we will be in our root folder by default)
+
+heroku config:set env_var=val   # sets environment variable to value
