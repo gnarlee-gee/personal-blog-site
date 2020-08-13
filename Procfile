@@ -1,1 +1,1 @@
-web: gunicorn home_site.wsgi
+web: gunicorn home_site.wsgi:application --log-file - --log-level debug
