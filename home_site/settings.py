@@ -34,7 +34,7 @@ SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
 
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['django-personal-blog-site.herokuapp.com','127.0.0.1']
 
 
 # Application definition
