@@ -15,3 +15,7 @@ To access bash in heroku for linux commands
 heroku run bash (we will be in our root folder by default)
 
 heroku config:set env_var=val   # sets environment variable to value
+
+# Django
+Rendering markdown on page(s)
+https://github.com/timmyomahony/django-pagedown/issues/18#issuecomment-37535535
