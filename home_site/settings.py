@@ -32,7 +32,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY') # Instead of your actual secret key
 
 DEBUG = os.environ.get('DEBUG_VALUE', '') == 'True'
 
-ALLOWED_HOSTS = ['charles-grealy.herokuapp.com/', '127.0.0.1',]
+ALLOWED_HOSTS = ['charles-grealy.herokuapp.com', '127.0.0.1',]
 
 
 # Application definition
