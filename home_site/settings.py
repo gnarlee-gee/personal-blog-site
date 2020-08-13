@@ -11,7 +11,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
-import dotenv
+import django_heroku
+
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -22,17 +23,14 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 # SECURITY WARNING: keep the secret key used in production secret!
 # Add .env variables anywhere before SECRET_KEY
-dotenv_file = os.path.join(BASE_DIR, ".env")
-if os.path.isfile(dotenv_file):
-    dotenv.load_dotenv(dotenv_file)
 
 # Update secret key
-SECRET_KEY = os.environ['SECRET_KEY'] # Instead of your actual secret key
+SECRET_KEY = os.environ.get('SECRET_KEY') # Instead of your actual secret key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = True
 
-DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
+DEBUG = os.environ.get('DEBUG_VALUE', '') != 'False'
 
 ALLOWED_HOSTS = ['django-personal-blog-site.herokuapp.com','127.0.0.1']
 
@@ -130,3 +128,5 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
+
+django_heroku.settings(locals())

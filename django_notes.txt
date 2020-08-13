@@ -1,0 +1,5 @@
+# pip freeze output all pip installs!
+pipreqs solves the problem. It generates project-level requirement.txt file.
+
+Install pipreqs: pip install pipreqs
+Generate project-level requirement.txt file: pipreqs /path/to/your/project/ requirements file would be saved in /path/to/your/project/requirements.txt
