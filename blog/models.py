@@ -10,7 +10,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     
     # field for our html <title>
-    title_tag = models.CharField(max_length=255, default="My Freaking Awesome Blog")
+    title_tag = models.CharField(max_length=255, default="")
 
     # on_delete will delete all posts by admin IF we delete that admin
     author = models.ForeignKey(User, on_delete=models.CASCADE) 

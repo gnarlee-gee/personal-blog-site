@@ -4,5 +4,12 @@ pipreqs solves the problem. It generates project-level requirement.txt file.
 Install pipreqs: pip install pipreqs
 Generate project-level requirement.txt file: pipreqs /path/to/your/project/ requirements file would be saved in /path/to/your/project/requirements.txt
 
-# Not django related but Github related
+# Github
 Use SSH to clone! Not by HTTP which will ask for u/n and p/w every push
+
+# Heroku
+heroku run [shell commands]
+ex: heroku run python manage.py migrate (need to create a new table btw)
+
+To access bash in heroku for linux commands
+heroku run bash (we will be in our root folder by default)
