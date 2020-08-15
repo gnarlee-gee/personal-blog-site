@@ -19,3 +19,7 @@ heroku config:set env_var=val   # sets environment variable to value
 # Django
 Rendering markdown on page(s)
 https://github.com/timmyomahony/django-pagedown/issues/18#issuecomment-37535535
+
+
+# Postgres
+https://stackoverflow.com/questions/7695962/postgresql-password-authentication-failed-for-user-postgres

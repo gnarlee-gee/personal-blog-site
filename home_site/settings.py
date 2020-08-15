@@ -86,10 +86,16 @@ WSGI_APPLICATION = 'home_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+# Changed database to postgres according to djangogirls
+# https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation/
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'djangogirls',
+        'USER': 'charles_grealy',
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
