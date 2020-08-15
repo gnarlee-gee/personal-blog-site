@@ -86,14 +86,16 @@ WSGI_APPLICATION = 'home_site.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
+DATABASEPASS = os.environ.get('DATABASE_PASSWORD')
+
 # Changed database to postgres according to djangogirls
 # https://tutorial-extensions.djangogirls.org/en/optional_postgresql_installation/
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'djangogirls',
+        'NAME': 'charlesgrealy',
         'USER': 'charles_grealy',
-        'PASSWORD': '',
+        'PASSWORD': os.getenv('DATABASE_PASSWORD'),
         'HOST': 'localhost',
         'PORT': '',
     }
