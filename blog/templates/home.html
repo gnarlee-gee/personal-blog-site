@@ -4,6 +4,7 @@
 
 
 <h1>Posts</h1>
+<hr>
 <ul>
 {% for post in object_list %}
     <li>
@@ -12,7 +13,7 @@
         <!-- | {{ post.author.first_name }} 
         {{ post.author.last_name }} <!-- - {{ post.author.email }} --><br/>
         <!-- {{ post.body|markdown }} -->
-        {{ post.post_date }}
+        {{ post.date }}
     </li>
 {% endfor %}
 </ul>

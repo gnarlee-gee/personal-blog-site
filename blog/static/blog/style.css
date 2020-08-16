@@ -1,9 +1,11 @@
-
-
 .hover-text {
     color: #303030;
     font-family: 'Roboto Mono', monospace;
     font-weight: 700;
+}
+
+h1 {
+    font-family: 'Lato', sans-serif;
 }
 
 .hover-text:hover {
