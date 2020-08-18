@@ -3,17 +3,18 @@
 {% load markdown_deux_tags %}
 
 
-<h1>Posts</h1>
+<h5 class="posts-heading">Posts</h5>
 <hr>
 <ul>
 {% for post in object_list %}
-    <li>
+    <li >
         <!-- url 'actual name from our urls' then post's primary key -->
-        <a href="{% url 'post-detail' post.pk %}">{{ post.title }}</a> 
+        <a href="{% url 'post-detail' post.pk %}" class="posts-info">{{ post.title }}</a> 
         <!-- | {{ post.author.first_name }} 
-        {{ post.author.last_name }} <!-- - {{ post.author.email }} --><br/>
+        {{ post.author.last_name }} <!-- - {{ post.author.email }} -->
         <!-- {{ post.body|markdown }} -->
-        {{ post.date }}
+        <!-- date template: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
+        <span class="post-date">{{ post.date|date:'F d, Y' }}</span>
     </li>
 {% endfor %}
 </ul>

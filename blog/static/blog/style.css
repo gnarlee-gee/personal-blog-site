@@ -1,13 +1,50 @@
-.hover-text {
-    color: #303030;
-    font-family: 'Roboto Mono', monospace;
-    font-weight: 700;
+body {
+    background-color: #F6F6F6;
 }
 
-h1 {
-    font-family: 'Lato', sans-serif;
+.container {
+    background-color: #FFFFFF;
+    border-radius: 8px;
+}
+
+.hover-text {
+    color: #303030;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 800;
 }
 
 .hover-text:hover {
-    color: #808080;
+    color: #696969;
+}
+
+.main-container {
+    padding-bottom: 10px;
+}
+
+.navbar-brand {
+    color: #373737;
+}
+
+.navbar-container {
+    background-color: #F6F6F6;
+}
+.post-date {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+    color: #696969;
+}
+
+.posts-heading {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 700;
+}
+
+.posts-info {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+}
+
+::selection {
+    color: white;
+    background: #ee4444;
 }
