@@ -48,3 +48,15 @@ body {
     color: white;
     background: #ee4444;
 }
+
+/* This works on post_details.html for the markdown */
+/* p {
+    color: blue;
+} */
+
+code {
+    padding: 10px 10px 10px 10px;
+    border-radius: 3px;
+    color: #ffcd57;
+    background-color: #363636;
+}
