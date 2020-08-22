@@ -23,33 +23,26 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg">
+    <!-- <nav class="navbar navbar-expand-lg">
         <div class="container navbar-container">
             <a class="navbar-brand navbar-inner hover-text" href="{% url 'home' %}">Charles Grealy</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon colored-text"></span>
             </button>
-
-
-            <!-- <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-            </ul>
-        </div> -->
         </div>
-    </nav>
+    </nav> -->
 
-    <br>
-    <div class="container main-container">
-        <!-- Everything above block will be on EVERY page that uses extends -->
+    <!-- <br> -->
+    <!-- <div class="container main-container"> -->
+    <!-- Everything above block will be on EVERY page that uses extends -->
+    <div class="main-container">
         {% block content %}
 
         {% endblock %}
-        <!-- Likewise, everything below endblock will be on every page -->
     </div>
+    <!-- Likewise, everything below endblock will be on every page -->
+    <!-- </div> -->
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"

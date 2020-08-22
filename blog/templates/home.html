@@ -2,21 +2,48 @@
 {% block content %}
 {% load markdown_deux_tags %}
 
+<style>
+    .post-box {
+        background-color: #20262e;
+        color: #fff;
+        border-radius: 3px;
+        padding: 10px 20px 0 20px;
+        height: 200px;
+        margin: 10px;
+        text-align: center;
+    }
+
+    .wrapper {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-gap: 10px;
+        margin: auto;
+    }
+
+    .post-date {
+        margin: auto;
+    }
+
+    .posts-info {
+        display: flex;
+    }
+</style>
 
 <h5 class="posts-heading">Posts</h5>
 <hr>
-<ul>
-{% for post in object_list %}
-    <li >
+<div class="wrapper">
+    {% for post in object_list %}
+
+    <div class="post-box">
         <!-- url 'actual name from our urls' then post's primary key -->
-        <a href="{% url 'post-detail' post.pk %}" class="posts-info">{{ post.title }}</a> 
+        <a href="{% url 'post-detail' post.pk %}" class="posts-info"><span class="post-date">{{ post.date|date:'F d, Y' }}</span></a>
         <!-- | {{ post.author.first_name }} 
-        {{ post.author.last_name }} <!-- - {{ post.author.email }} -->
+    {{ post.author.last_name }} <!-- - {{ post.author.email }} -->
         <!-- {{ post.body|markdown }} -->
         <!-- date template: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
-        <span class="post-date">{{ post.date|date:'F d, Y' }}</span>
-    </li>
-{% endfor %}
-</ul>
+        <!-- <span class="post-date">{{ post.date|date:'F d, Y' }}</span> -->
+    </div>
+    {% endfor %}
+</div>
 
 {% endblock %}

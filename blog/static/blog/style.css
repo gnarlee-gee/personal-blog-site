@@ -18,7 +18,9 @@ body {
 }
 
 .main-container {
-    padding-bottom: 10px;
+    margin: auto;
+    width: 800px;
+    height: 800px;
 }
 
 .navbar-brand {
@@ -32,6 +34,7 @@ body {
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     color: #696969;
+
 }
 
 .posts-heading {
@@ -42,6 +45,7 @@ body {
 .posts-info {
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
+    margin: auto;
 }
 
 ::selection {
