@@ -5,13 +5,26 @@
 <style>
     .post-box {
         background-color: #20262e;
-        color: #fff;
         border-radius: 3px;
-        padding: 10px 20px 0 20px;
-        height: 200px;
-        margin: 10px;
-        text-align: center;
+        padding: 20px 20px 20px 20px;
+        height: 220px;
+        width: 220px;
+        margin: 5px;
+        display: flex;
     }
+
+    .post-box:hover {
+        animation-name: background-color;
+        animation-duration: 500ms;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes background-color {
+        100% {
+            background-color: red;
+        }
+    }
+
 
     .wrapper {
         display: grid;
@@ -34,15 +47,17 @@
 <div class="wrapper">
     {% for post in object_list %}
 
-    <div class="post-box">
-        <!-- url 'actual name from our urls' then post's primary key -->
-        <a href="{% url 'post-detail' post.pk %}" class="posts-info"><span class="post-date">{{ post.date|date:'F d, Y' }}</span></a>
-        <!-- | {{ post.author.first_name }} 
+    <a href="{% url 'post-detail' post.pk %}" class="posts-info">
+        <div class="post-box">
+            <!-- url 'actual name from our urls' then post's primary key -->
+            <p class="post-date">{{ post.date|date:'F d, Y' }}</p>
+            <!-- | {{ post.author.first_name }} 
     {{ post.author.last_name }} <!-- - {{ post.author.email }} -->
-        <!-- {{ post.body|markdown }} -->
-        <!-- date template: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
-        <!-- <span class="post-date">{{ post.date|date:'F d, Y' }}</span> -->
-    </div>
+            <!-- {{ post.body|markdown }} -->
+            <!-- date template: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
+            <!-- <span class="post-date">{{ post.date|date:'F d, Y' }}</span> -->
+        </div>
+    </a>
     {% endfor %}
 </div>
 
