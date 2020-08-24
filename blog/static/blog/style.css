@@ -17,11 +17,6 @@ body {
     color: #696969;
 }
 
-.main-container {
-    margin: auto;
-    width: 800px;
-    height: 800px;
-}
 
 .navbar-brand {
     color: #373737;
@@ -31,6 +26,7 @@ body {
     background-color: #F6F6F6;
 }
 .post-date {
+    margin: auto;
     font-family: 'Roboto', sans-serif;
     font-weight: 300;
     color: #696969;
@@ -42,6 +38,7 @@ body {
 }
 
 .posts-info {
+    display: flex;
     font-family: 'Roboto', sans-serif;
     font-weight: 700;
     margin: auto;
@@ -49,6 +46,30 @@ body {
 
 .posts-info:hover {
     text-decoration: none;
+}
+
+.post-box:hover {
+    animation-name: background-color;
+    animation-duration: 500ms;
+    animation-fill-mode: forwards;
+}
+
+.post-section {
+    margin: auto;
+    width: 50vw;
+}
+
+@keyframes background-color {
+    100% {
+        background-color: red;
+    }
+}
+
+.wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+    margin: auto;
 }
 
 ::selection {
@@ -67,4 +88,17 @@ pre, code {
     border-radius: 3px;
     color: #ffcd57;
     background-color: #363636;
+}
+
+.about-me {
+    
+    width: 100vw;
+    height: 100vh;
+    background-color: red;
+}
+
+#title-name {
+    font-size: 600px;
+    font-family: 'Alata', sans-serif;
+    text-align: center;
 }

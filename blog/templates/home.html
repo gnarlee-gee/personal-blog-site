@@ -2,63 +2,42 @@
 {% block content %}
 {% load markdown_deux_tags %}
 
-<style>
-    .post-box {
-        background-color: #20262e;
-        border-radius: 3px;
-        padding: 20px 20px 20px 20px;
-        height: 220px;
-        width: 220px;
-        margin: 5px;
-        display: flex;
-    }
-
-    .post-box:hover {
-        animation-name: background-color;
-        animation-duration: 500ms;
-        animation-fill-mode: forwards;
-    }
-
-    @keyframes background-color {
-        100% {
-            background-color: red;
-        }
-    }
+<link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet"><style>
 
 
-    .wrapper {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        grid-gap: 10px;
-        margin: auto;
-    }
 
-    .post-date {
-        margin: auto;
-    }
 
-    .posts-info {
-        display: flex;
-    }
+
+
+
 </style>
 
-<h5 class="posts-heading">Posts</h5>
-<hr>
-<div class="wrapper">
-    {% for post in object_list %}
+<div class="about-me">
+<h1 id="title-name">Hi</h1>
 
-    <a href="{% url 'post-detail' post.pk %}" class="posts-info">
-        <div class="post-box">
-            <!-- url 'actual name from our urls' then post's primary key -->
-            <p class="post-date">{{ post.date|date:'F d, Y' }}</p>
-            <!-- | {{ post.author.first_name }} 
+</div>
+
+
+
+<div class="post-section">
+    <h5 class="posts-heading">Posts</h5>
+    <hr>
+    <div class="wrapper">
+        {% for post in object_list %}
+
+        <a href="{% url 'post-detail' post.pk %}" class="posts-info">
+            <div class="post-box">
+                <!-- url 'actual name from our urls' then post's primary key -->
+                <p class="post-date">{{ post.date|date:'F d, Y' }}</p>
+                <!-- | {{ post.author.first_name }} 
     {{ post.author.last_name }} <!-- - {{ post.author.email }} -->
-            <!-- {{ post.body|markdown }} -->
-            <!-- date template: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
-            <!-- <span class="post-date">{{ post.date|date:'F d, Y' }}</span> -->
-        </div>
-    </a>
-    {% endfor %}
+                <!-- {{ post.body|markdown }} -->
+                <!-- date template: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
+                <!-- <span class="post-date">{{ post.date|date:'F d, Y' }}</span> -->
+            </div>
+        </a>
+        {% endfor %}
+    </div>
 </div>
 
 {% endblock %}
