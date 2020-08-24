@@ -12,18 +12,28 @@
 
 
 </style>
+
+<div class="nav"></div>
 <div class="grid-container">
-    <div class="information"><p style="color:white;">information</p></div>
-    <div class="about-me"><!-- <p style="color:red;"> about me</p>--></div>
-    <div class="my-name"><!-- <p style="color:white;"> leave empty?</p>--> </div>
-    <div class="nav"><!--<p style="color:white;"> nav bar</p>--> </div>
-  </div>
+    <div class="page">
+        <div class="sidepane">
+
+        </div>
+        <div class="about-me">
+
+        </div>
+        <div class="footer">
+
+        </div>
+    </div>
+</div>
 
 
 
 
 
-<div class="post-section">
+
+<!-- <div class="post-section">
     <h5 class="posts-heading">Posts</h5>
     <hr>
     <div class="wrapper">
@@ -32,16 +42,16 @@
         <a href="{% url 'post-detail' post.pk %}" class="posts-info">
             <div class="post-box">
                 <!-- url 'actual name from our urls' then post's primary key -->
-                <p class="post-date">{{ post.date|date:'F d, Y' }}</p>
-                <!-- | {{ post.author.first_name }} 
+<!-- <p class="post-date">{{ post.date|date:'F d, Y' }}</p> -->
+<!-- | {{ post.author.first_name }} 
     {{ post.author.last_name }} <!-- - {{ post.author.email }} -->
-                <!-- {{ post.body|markdown }} -->
-                <!-- date template: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
-                <!-- <span class="post-date">{{ post.date|date:'F d, Y' }}</span> -->
-            </div>
+<!-- {{ post.body|markdown }} -->
+<!-- date template: https://docs.djangoproject.com/en/3.1/ref/templates/builtins/#date -->
+<!-- <span class="post-date">{{ post.date|date:'F d, Y' }}</span> -->
+<!-- </div>
         </a>
         {% endfor %}
     </div>
-</div>
+</div> -->
 
 {% endblock %}
