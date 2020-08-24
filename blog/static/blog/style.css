@@ -107,11 +107,26 @@ code {
 
 .grid-container {
     display: grid;
-    grid-template-columns: 0.7fr 1fr 1.3fr 1fr 1.1fr 0.9fr;
-    grid-template-rows: 0.1fr 1.9fr;
-    gap: 20px 1px;
-    grid-template-areas: ". my-name nav nav nav ."". about-me information information information .";
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+    "information"
+    "about-me"
+    "my-name";
 }
+
+@media (min-width: 800px) {
+    .grid-container {
+        grid-template-columns: 0.7fr 1fr 1.3fr 1fr 1.1fr 0.9fr;
+        grid-template-rows: 0.1fr 1.9fr;
+        grid-row-gap: 30px;
+        grid-column-gap: 50px;
+        grid-template-areas: 
+        ". my-name nav nav nav ."
+        ". about-me information information information .";
+    }
+}
+
 
 .information {
     width: 100%;
