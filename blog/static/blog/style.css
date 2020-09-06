@@ -134,7 +134,7 @@ code {
   background-color: green;
 
   display: grid;
-  grid-template-rows: 35px auto;
+  grid-template-rows: 40px auto;
   grid-template-columns: repeat(5, 1fr);
 }
 
@@ -154,6 +154,26 @@ code {
   justify-items: center;
   overflow: auto;
   overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+.nav:hover {
+  overflow-x: auto;
+}
+
+.nav {
+  scrollbar-width: thin;
+  scrollbar-color: blue;
+}
+.nav::-webkit-scrollbar {
+  height: 5px;
+}
+.nav::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.nav::-webkit-scrollbar-thumb {
+  background-color: blue;
+  border-radius: 30px;
 }
 
 .info {
