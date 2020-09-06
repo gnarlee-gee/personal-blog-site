@@ -139,12 +139,21 @@ code {
 }
 
 .nav {
-  display: grid;
-  grid-template-rows: 35px;
-  grid-template-columns: repeat(5, 1fr);
   grid-column: 1/6;
   grid-row: 1;
   background-color: pink;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  display: grid;
+  grid-template-rows: 35px;
+  grid-template-columns: repeat(5, 1fr);
+  column-gap: 20px;
+  height: 100%;
+  align-items: center;
+  justify-items: center;
+  overflow: auto;
+  overflow-y: hidden;
 }
 
 .info {
