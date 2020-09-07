@@ -114,7 +114,7 @@ code {
   display: grid;
   /* grid is 6 x 3 (col x row) */
   grid-template-columns: 300px 1fr;
-  grid-template-rows: 40px 1fr 30px;
+  grid-template-rows: 60px 1fr 30px;
   grid-template-areas:
     "sidepane nav"
     "sidepane info"
@@ -124,23 +124,35 @@ code {
 }
 
 .nav {
-  display: grid;
   background-color: pink;
-  grid-template-rows: 40px;
-  grid-template-columns: repeat(5, 1fr);
   height: 100%;
+  position: sticky;
+  display: grid;
+  grid-template-rows: 60px;
+  grid-template-columns: repeat(5, 1fr);
+
+  grid-template-areas: "home projects blog resume contact";
+
   overflow: auto;
   overflow-y: hidden;
   overflow-x: hidden;
-  grid-template-areas: "home projects blog resume contact";
+  -webkit-overflow-scrolling: touch;
 }
 
-/* .nav {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-areas: "home projects blog resume contact";
-  justify-self: stretch;
-} */
+.nav::-webkit-scrollbar {
+  height: 5px;
+}
+.nav::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+.nav::-webkit-scrollbar-thumb:horizontal {
+  background-color: red;
+  border-radius: 10px;
+}
+
+.nav:hover {
+  overflow-x: auto;
+}
 
 .sidepane {
   grid-area: sidepane;
@@ -150,6 +162,7 @@ code {
 .home {
   grid-area: home;
   background-color: pink;
+  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -158,6 +171,7 @@ code {
 .projects {
   grid-area: projects;
   background-color: pink;
+  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,6 +180,7 @@ code {
 .blog {
   grid-area: blog;
   background-color: pink;
+  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -174,6 +189,7 @@ code {
 .resume {
   grid-area: resume;
   background-color: pink;
+  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -182,6 +198,7 @@ code {
 .contact {
   grid-area: contact;
   background-color: pink;
+  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -206,7 +223,7 @@ code {
     height: 100vh;
     /* grid is 6 x 3 (col x row) */
     grid-template-columns: 1fr;
-    grid-template-rows: 40px 1fr 30px;
+    grid-template-rows: 60px 1fr 30px;
     grid-template-areas:
       "nav"
       "info"
@@ -214,6 +231,22 @@ code {
   }
   .sidepane {
     display: none;
+  }
+
+  .nav {
+    display: grid;
+    background-color: pink;
+    grid-template-rows: 60px;
+    grid-template-columns: repeat(5, 100px);
+    height: 100%;
+    overflow: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+    grid-template-areas: "home projects blog resume contact";
+  }
+
+  .nav:hover {
+    overflow-x: scroll;
   }
 }
 
