@@ -6,6 +6,7 @@
 
 body {
   background-color: #f6f6f6;
+  margin: 0;
 }
 
 /* .container {
@@ -107,19 +108,31 @@ code {
 }
 
 .page-container {
-  height: 90vh;
-  width: 80vw;
+  height: 100vh;
+  width: 100vw;
 
   display: grid;
   /* grid is 6 x 3 (col x row) */
-  grid-template-columns: 300px 1fr 1fr 1fr 1fr 1fr;
-  grid-template-rows: 40px auto 30px;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: 40px 1fr 30px;
   grid-template-areas:
-    "sidepane home projects blog resume contact"
-    "sidepane about-me about-me about-me about-me about-me"
-    "footer footer footer footer footer footer";
+    "sidepane nav"
+    "sidepane info"
+    "footer footer";
 
   background-color: #f6f6f6;
+}
+
+.nav {
+  display: grid;
+  background-color: pink;
+  grid-template-rows: 40px;
+  grid-template-columns: repeat(5, 1fr);
+  height: 100%;
+  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
+  grid-template-areas: "home projects blog resume contact";
 }
 
 /* .nav {
@@ -137,31 +150,46 @@ code {
 .home {
   grid-area: home;
   background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .projects {
   grid-area: projects;
   background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .blog {
   grid-area: blog;
   background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .resume {
   grid-area: resume;
   background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .contact {
   grid-area: contact;
   background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.about-me {
-  grid-area: about-me;
-  background-color: red;
+.info {
+  grid-area: info;
+  background-color: rgb(49, 49, 51);
 }
 
 .footer {
@@ -169,17 +197,20 @@ code {
   background-color: green;
 }
 
-@media all and (max-width: 992px) {
+@media all and (max-width: 900px) {
+  .info {
+    padding-left: 10px;
+  }
   .page-container {
     display: grid;
+    height: 100vh;
     /* grid is 6 x 3 (col x row) */
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
-    grid-template-rows: 40px 1fr 1fr 30px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40px 1fr 30px;
     grid-template-areas:
-      "home projects blog resume contact"
-      "about-me about-me about-me about-me about-me"
-      "about-me about-me about-me about-me about-me"
-      "footer footer footer footer footer";
+      "nav"
+      "info"
+      "footer";
   }
   .sidepane {
     display: none;
