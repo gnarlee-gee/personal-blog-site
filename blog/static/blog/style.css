@@ -104,16 +104,16 @@ code {
   align-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: yellow;
+  background-color: #404040;
 }
 
 .page-container {
-  height: 100vh;
-  width: 100vw;
+  height: 70vh;
+  width: 70vw;
 
   display: grid;
   /* grid is 6 x 3 (col x row) */
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: minmax(150px, .2fr) 1fr;
   grid-template-rows: 60px 1fr 30px;
   grid-template-areas:
     "sidepane nav"
@@ -137,14 +137,18 @@ code {
   overflow-y: hidden;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
+
+  /* grid-gap: 10px; */
 }
 
 .nav::-webkit-scrollbar {
-  height: 5px;
+  height: 8px;
 }
+
 .nav::-webkit-scrollbar-track {
   background-color: transparent;
 }
+
 .nav::-webkit-scrollbar-thumb:horizontal {
   background-color: red;
   border-radius: 10px;
@@ -166,6 +170,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 10px 0 10px;
 }
 
 .projects {
@@ -175,6 +180,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 10px 0 10px;
 }
 
 .blog {
@@ -184,6 +190,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 10px 0 10px;
 }
 
 .resume {
@@ -193,6 +200,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 10px 0 10px;
 }
 
 .contact {
@@ -202,6 +210,7 @@ code {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 0 10px 0 10px;
 }
 
 .info {
@@ -218,6 +227,7 @@ code {
   .info {
     padding-left: 10px;
   }
+
   .page-container {
     display: grid;
     height: 100vh;
@@ -229,6 +239,7 @@ code {
       "info"
       "footer";
   }
+
   .sidepane {
     display: none;
   }
@@ -237,16 +248,17 @@ code {
     display: grid;
     background-color: pink;
     grid-template-rows: 60px;
-    grid-template-columns: repeat(5, 100px);
+    grid-template-columns: repeat(5, 120px);
     height: 100%;
     overflow: auto;
     overflow-y: hidden;
     overflow-x: hidden;
     grid-template-areas: "home projects blog resume contact";
+    align-items: space-evenly;
   }
 
   .nav:hover {
-    overflow-x: scroll;
+    overflow-x: auto;
   }
 }
 
