@@ -125,8 +125,7 @@ code {
 
 .nav {
   background-color: pink;
-  height: 100%;
-  width: 100%;
+  width: 100vw;
 
   /* display: grid;
   grid-template-rows: 40px;
@@ -136,7 +135,7 @@ code {
   display: flex;
   overflow: auto;
   overflow-y: hidden;
-  overflow-x: hidden;
+  overflow-x: scroll;
   -webkit-overflow-scrolling: touch;
   align-content: space-around;
   justify-content: space-around;
@@ -144,7 +143,7 @@ code {
   /* grid-gap: 10px; */
 }
 .nav::-webkit-scrollbar {
-  height: 8px;
+  height: 4px;
 }
 
 .nav::-webkit-scrollbar-track {
@@ -157,7 +156,7 @@ code {
 }
 
 .nav:hover {
-  overflow-x: auto;
+  overflow-x: scroll;
 }
 
 .sidepane {
@@ -276,12 +275,12 @@ code {
   .nav {
     display: grid;
     background-color: pink;
-    overflow-x: auto;
-    width: 100%;
+    width: 100vw;
 
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 60px;
 
+    
     /* margin: auto 0; */
     overflow: auto;
     overflow-y: hidden;
@@ -293,7 +292,7 @@ code {
 
 
   .nav:hover {
-    overflow-x: auto;
+    overflow-x: scroll;
   }
 }
 
