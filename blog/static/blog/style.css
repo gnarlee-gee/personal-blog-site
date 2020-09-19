@@ -7,6 +7,7 @@
 body {
   background-color: #f6f6f6;
   margin: 0;
+  font-family: 'Open Sans', sans-serif;
 }
 
 /* .container {
@@ -104,12 +105,19 @@ code {
   align-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: #404040;
+  background-color: #2D3645;
 }
 
 .page-container {
-  height: 70vh;
-  width: 70vw;
+  height: 75vh;
+  width: 75vw;
+
+  border: 10px solid #242424;
+  border-radius: 10px;
+
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
 
   display: grid;
   /* grid is 6 x 3 (col x row) */
@@ -120,12 +128,15 @@ code {
     "sidepane info"
     "footer footer";
 
-  background-color: #f6f6f6;
+  background-color: #242424;
 }
 
 .nav {
-  background-color: pink;
-  width: 100vw;
+  background-color: #3d3d3d;
+  color: rgb(243, 243, 243);
+  width: 100%;
+
+  border-top-right-radius: 5px 5px;
 
   /* display: grid;
   grid-template-rows: 40px;
@@ -161,7 +172,9 @@ code {
 
 .sidepane {
   grid-area: sidepane;
-  background-color: orange;
+  background-color: #353535;
+
+  border-top-left-radius: 5px 5px;
 
   display: grid;
   grid-template-rows: 40px 1fr;
@@ -178,18 +191,22 @@ code {
 
 }
 .menu-title {
+  font-weight: 600;
+  grid-area: menu-title;
   align-self: center;
   justify-self: center;
+  color: #ccc;
 }
 
 .menu-items {
+  grid-area: menu-items;
   color: white;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .home {
-  background-color: pink;
+  /* background-color: pink; */
   /* padding: 10px; */
   display: flex;
   align-items: center;
@@ -198,7 +215,7 @@ code {
 }
 
 .projects {
-  background-color: pink;
+  /* background-color: pink; */
   /* padding: 10px; */
   display: flex;
   align-items: center;
@@ -207,7 +224,7 @@ code {
 }
 
 .blog {
-  background-color: pink;
+  /* background-color: pink; */
   /* padding: 10px; */
   display: flex;
   align-items: center;
@@ -216,7 +233,7 @@ code {
 }
 
 .resume {
-  background-color: pink;
+  /* background-color: pink; */
   /* padding: 10px; */
   display: flex;
   align-items: center;
@@ -225,7 +242,7 @@ code {
 }
 
 .contact {
-  background-color: pink;
+  /* background-color: pink; */
   /* padding: 10px; */
   display: flex;
   align-items: center;
@@ -235,12 +252,19 @@ code {
 
 .info {
   grid-area: info;
-  background-color: rgb(49, 49, 51);
+  font-size: 20px;
+  background-color: #181818;
+  font-family: 'Source Code Pro', monospace;
+  color: #A8D6DC;
 }
 
 .footer {
   grid-area: footer;
-  background-color: green;
+  background-color: #1A8BDC;
+  color: white;
+
+  border-bottom-right-radius: 5px 5px;
+  border-bottom-left-radius: 5px 5px;
 }
 
 @media all and (max-width: 1024px) {
@@ -252,6 +276,7 @@ code {
   width: 100vw;
 }
   .page-container {
+    border: none;
     display: grid;
     height: 100vh;
     width: 100vw;
@@ -264,9 +289,6 @@ code {
       "footer";
   }
 
-  .page-container > {
-    margin: auto 0;
-  }
 
   .sidepane {
     display: none;
