@@ -1,3 +1,71 @@
+/* ubuntu-regular - latin */
+@font-face {
+  font-family: 'Ubuntu Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/ubuntusans/ubuntu-v15-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Ubuntu Regular'), local('Ubuntu-Regular'),
+       url('fonts/ubuntusans/ubuntu-v15-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ubuntusans/ubuntu-v15-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/ubuntusans/ubuntu-v15-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ubuntusans/ubuntu-v15-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/ubuntusans/ubuntu-v15-latin-regular.svg#Ubuntu') format('svg'); /* Legacy iOS */
+}
+/* ubuntu-500 - latin */
+@font-face {
+  font-family: 'Ubuntu Semibold';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/ubuntusans/ubuntu-v15-latin-500.eot'); /* IE9 Compat Modes */
+  src: local('Ubuntu Medium'), local('Ubuntu-Medium'),
+       url('fonts/ubuntusans/ubuntu-v15-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ubuntusans/ubuntu-v15-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/ubuntusans/ubuntu-v15-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ubuntusans/ubuntu-v15-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/ubuntusans/ubuntu-v15-latin-500.svg#Ubuntu') format('svg'); /* Legacy iOS */
+}
+/* ubuntu-700 - latin */
+@font-face {
+  font-family: 'Ubuntu Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/ubuntusans/ubuntu-v15-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Ubuntu Bold'), local('Ubuntu-Bold'),
+       url('fonts/ubuntusans/ubuntu-v15-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ubuntusans/ubuntu-v15-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/ubuntusans/ubuntu-v15-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ubuntusans/ubuntu-v15-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/ubuntusans/ubuntu-v15-latin-700.svg#Ubuntu') format('svg'); /* Legacy iOS */
+}
+
+
+/* ubuntu-mono-regular - latin */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'),
+       url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.svg#UbuntuMono') format('svg'); /* Legacy iOS */
+}
+/* ubuntu-mono-700 - latin */
+@font-face {
+  font-family: 'Ubuntu Mono Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Ubuntu Mono Bold'), local('UbuntuMono-Bold'),
+       url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.svg#UbuntuMono') format('svg'); /* Legacy iOS */
+}
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -6,8 +74,10 @@
 
 body {
   background-color: #f6f6f6;
-  margin: 0;
-  font-family: 'Open Sans', sans-serif;
+  margin: 0 auto;
+  font: 100%/1.5 'Ubuntu Mono', monospace;
+  font-weight: 400;
+  text-align: left;
 }
 
 /* .container {
@@ -93,11 +163,11 @@ code {
   background-color: #363636;
 }
 
-#hi {
+/* #hi {
   font-size: 20px;
   font-family: "Alata", sans-serif;
   text-align: center;
-}
+} */
 
 .grid-container {
   display: grid;
@@ -109,15 +179,14 @@ code {
 }
 
 .page-container {
-  height: 65vh;
-  width: 50vw;
+  height: 95vh;
+  width: 97vw;
 
-  border: 10px solid #242424;
-  border-radius: 10px;
+  /* border: 30px solid #242424; */
 
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
-  -moz-box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
-  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
 
   display: grid;
   /* grid is 6 x 3 (col x row) */
@@ -144,17 +213,20 @@ code {
 
   grid-template-areas: "home projects blog resume contact"; */
   display: flex;
-  overflow: auto;
+  flex-shrink: 1;
   flex-wrap: nowrap;
+
+  /* overflow: auto;
   overflow-y: hidden;
-  overflow-x: auto;
+  overflow-x: auto; */
   -webkit-overflow-scrolling: touch;
   align-content: space-evenly;
   justify-content: space-evenly;
 
   /* grid-gap: 10px; */
 }
-.nav::-webkit-scrollbar {
+
+/* .nav::-webkit-scrollbar {
   height: 4px;
 }
 
@@ -169,7 +241,7 @@ code {
 
 .nav:hover {
   overflow-x: scroll;
-}
+} */
 
 .sidepane {
   grid-area: sidepane;
@@ -179,7 +251,7 @@ code {
 
   display: grid;
   grid-template-rows: 40px 1fr;
-  grid-template-columns: 30px 1fr 10px;
+  grid-template-columns: 20px 1fr;
 
   grid-template-areas:
     ". menu-title ."
@@ -189,8 +261,9 @@ code {
   -webkit-overflow-scrolling: touch;
 
 }
+
 .menu-title {
-  font-weight: 600;
+  font-weight: 700;
   grid-area: menu-title;
   align-self: center;
   justify-self: center;
@@ -254,10 +327,9 @@ code {
 
 .info {
   grid-area: info;
-  font-size: 20px;
   background-color: #181818;
-  font-family: 'Source Code Pro', monospace;
   color: #A8D6DC;
+  padding: 2em;
   overflow: auto;
 }
 
@@ -271,14 +343,15 @@ code {
   border-bottom-left-radius: 5px 5px;
 }
 
-@media all and (max-width: 1024px) {
+@media all and (max-width: 44em) {
   .info {
-    padding-left: 10px;
     grid-area: info;
   }
-.grid-container {
-  width: 100vw;
-}
+
+  .grid-container {
+    width: 100vw;
+  }
+
   .page-container {
     border: none;
     display: grid;
@@ -300,13 +373,13 @@ code {
 
   .nav {
     display: grid;
-    background-color: pink;
+    background-color: rgb(94, 94, 94);
     width: 100vw;
 
     grid-template-columns: repeat(5, 1fr);
     grid-template-rows: 60px;
+    border-top-right-radius: 0;
 
-    
     /* margin: auto 0; */
     overflow: auto;
     overflow-y: hidden;
