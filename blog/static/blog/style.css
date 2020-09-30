@@ -1,102 +1,94 @@
-/* ubuntu-regular - latin */
+/* source-sans-pro-regular - latin */
 @font-face {
-  font-family: 'Ubuntu Regular';
+  font-family: 'Source Sans Regular';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/ubuntusans/ubuntu-v15-latin-regular.eot');
-  /* IE9 Compat Modes */
-  src: local('Ubuntu Regular'), local('Ubuntu-Regular'),
-    url('fonts/ubuntusans/ubuntu-v15-latin-regular.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('fonts/ubuntusans/ubuntu-v15-latin-regular.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('fonts/ubuntusans/ubuntu-v15-latin-regular.woff') format('woff'),
-    /* Modern Browsers */
-    url('fonts/ubuntusans/ubuntu-v15-latin-regular.ttf') format('truetype'),
-    /* Safari, Android, iOS */
-    url('fonts/ubuntusans/ubuntu-v15-latin-regular.svg#Ubuntu') format('svg');
-  /* Legacy iOS */
+  src: url('../fonts/source-sans-pro-v14-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Source Sans Pro Regular'), local('SourceSansPro-Regular'),
+       url('../fonts/source-sans-pro-v14-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/source-sans-pro-v14-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/source-sans-pro-v14-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/source-sans-pro-v14-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/source-sans-pro-v14-latin-regular.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+}
+/* source-sans-pro-600 - latin */
+@font-face {
+  font-family: 'Source Sans Semibold';
+  font-style: normal;
+  font-weight: 600;
+  src: url('../fonts/source-sans-pro-v14-latin-600.eot'); /* IE9 Compat Modes */
+  src: local('Source Sans Pro SemiBold'), local('SourceSansPro-SemiBold'),
+       url('../fonts/source-sans-pro-v14-latin-600.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/source-sans-pro-v14-latin-600.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/source-sans-pro-v14-latin-600.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/source-sans-pro-v14-latin-600.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/source-sans-pro-v14-latin-600.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+}
+/* source-sans-pro-700 - latin */
+@font-face {
+  font-family: 'Source Sans Bold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/source-sans-pro-v14-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Source Sans Pro Bold'), local('SourceSansPro-Bold'),
+       url('../fonts/source-sans-pro-v14-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/source-sans-pro-v14-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/source-sans-pro-v14-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/source-sans-pro-v14-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/source-sans-pro-v14-latin-700.svg#SourceSansPro') format('svg'); /* Legacy iOS */
+}
+/* source-sans-pro-900 - latin */
+@font-face {
+  font-family: 'Source Sans Black';
+  font-style: normal;
+  font-weight: 900;
+  src: url('../fonts/source-sans-pro-v14-latin-900.eot'); /* IE9 Compat Modes */
+  src: local('Source Sans Pro Black'), local('SourceSansPro-Black'),
+       url('../fonts/source-sans-pro-v14-latin-900.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/source-sans-pro-v14-latin-900.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/source-sans-pro-v14-latin-900.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/source-sans-pro-v14-latin-900.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/source-sans-pro-v14-latin-900.svg#SourceSansPro') format('svg'); /* Legacy iOS */
 }
 
-/* ubuntu-500 - latin */
+/* source-code-pro-regular - latin */
 @font-face {
-  font-family: 'Ubuntu Semibold';
+  font-family: 'Source Code Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/source-code-pro-v13-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Source Code Pro Regular'), local('SourceCodePro-Regular'),
+       url('../fonts/source-code-pro-v13-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/source-code-pro-v13-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/source-code-pro-v13-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/source-code-pro-v13-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/source-code-pro-v13-latin-regular.svg#SourceCodePro') format('svg'); /* Legacy iOS */
+}
+/* source-code-pro-500 - latin */
+@font-face {
+  font-family: 'Source Code Medium';
   font-style: normal;
   font-weight: 500;
-  src: url('fonts/ubuntusans/ubuntu-v15-latin-500.eot');
-  /* IE9 Compat Modes */
-  src: local('Ubuntu Medium'), local('Ubuntu-Medium'),
-    url('fonts/ubuntusans/ubuntu-v15-latin-500.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('fonts/ubuntusans/ubuntu-v15-latin-500.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('fonts/ubuntusans/ubuntu-v15-latin-500.woff') format('woff'),
-    /* Modern Browsers */
-    url('fonts/ubuntusans/ubuntu-v15-latin-500.ttf') format('truetype'),
-    /* Safari, Android, iOS */
-    url('fonts/ubuntusans/ubuntu-v15-latin-500.svg#Ubuntu') format('svg');
-  /* Legacy iOS */
+  src: url('../fonts/source-code-pro-v13-latin-500.eot'); /* IE9 Compat Modes */
+  src: local('Source Code Pro Medium'), local('SourceCodePro-Medium'),
+       url('../fonts/source-code-pro-v13-latin-500.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/source-code-pro-v13-latin-500.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/source-code-pro-v13-latin-500.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/source-code-pro-v13-latin-500.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/source-code-pro-v13-latin-500.svg#SourceCodePro') format('svg'); /* Legacy iOS */
 }
-
-/* ubuntu-700 - latin */
+/* source-code-pro-700 - latin */
 @font-face {
-  font-family: 'Ubuntu Bold';
+  font-family: 'Source Code Bold';
   font-style: normal;
   font-weight: 700;
-  src: url('fonts/ubuntusans/ubuntu-v15-latin-700.eot');
-  /* IE9 Compat Modes */
-  src: local('Ubuntu Bold'), local('Ubuntu-Bold'),
-    url('fonts/ubuntusans/ubuntu-v15-latin-700.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('fonts/ubuntusans/ubuntu-v15-latin-700.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('fonts/ubuntusans/ubuntu-v15-latin-700.woff') format('woff'),
-    /* Modern Browsers */
-    url('fonts/ubuntusans/ubuntu-v15-latin-700.ttf') format('truetype'),
-    /* Safari, Android, iOS */
-    url('fonts/ubuntusans/ubuntu-v15-latin-700.svg#Ubuntu') format('svg');
-  /* Legacy iOS */
-}
-
-
-/* ubuntu-mono-regular - latin */
-@font-face {
-  font-family: 'Ubuntu Mono';
-  font-style: normal;
-  font-weight: 400;
-  src: url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.eot');
-  /* IE9 Compat Modes */
-  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'),
-    url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.woff') format('woff'),
-    /* Modern Browsers */
-    url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.ttf') format('truetype'),
-    /* Safari, Android, iOS */
-    url('fonts/ubuntucode/ubuntu-mono-v10-latin-regular.svg#UbuntuMono') format('svg');
-  /* Legacy iOS */
-}
-
-/* ubuntu-mono-700 - latin */
-@font-face {
-  font-family: 'Ubuntu Mono Bold';
-  font-style: normal;
-  font-weight: 700;
-  src: url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.eot');
-  /* IE9 Compat Modes */
-  src: local('Ubuntu Mono Bold'), local('UbuntuMono-Bold'),
-    url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.eot?#iefix') format('embedded-opentype'),
-    /* IE6-IE8 */
-    url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.woff2') format('woff2'),
-    /* Super Modern Browsers */
-    url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.woff') format('woff'),
-    /* Modern Browsers */
-    url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.ttf') format('truetype'),
-    /* Safari, Android, iOS */
-    url('fonts/ubuntusans/ubuntu-mono-v10-latin-700.svg#UbuntuMono') format('svg');
-  /* Legacy iOS */
+  src: url('../fonts/source-code-pro-v13-latin-700.eot'); /* IE9 Compat Modes */
+  src: local('Source Code Pro Bold'), local('SourceCodePro-Bold'),
+       url('../fonts/source-code-pro-v13-latin-700.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('../fonts/source-code-pro-v13-latin-700.woff2') format('woff2'), /* Super Modern Browsers */
+       url('../fonts/source-code-pro-v13-latin-700.woff') format('woff'), /* Modern Browsers */
+       url('../fonts/source-code-pro-v13-latin-700.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('../fonts/source-code-pro-v13-latin-700.svg#SourceCodePro') format('svg'); /* Legacy iOS */
 }
 
 * {
@@ -108,7 +100,7 @@
 body {
   background-color: #f6f6f6;
   margin: 0 auto;
-  font: 100%/1.5 'Ubuntu Mono', monospace;
+  font: 100%/1.5 'Source Code Regular', monospace;
   font-weight: 400;
   text-align: left;
 }
@@ -167,7 +159,7 @@ code {
 .nav {
   visibility: show;
 
-  font: 100%/1.5 'Ubuntu Regular', monospace;
+  font: 100%/1.5 'Source Sans Regular', sans-serif;
 
   background-color: #181818;
   color: rgb(243, 243, 243);
@@ -219,16 +211,26 @@ code {
 
   display: grid;
   grid-template-rows: 40px 1fr;
-  grid-template-columns: 20px 1fr;
+  grid-template-columns: 1fr;
 
   grid-template-areas:
-    ". menu-title ."
-    ". menu-items .";
+    "menu-title"
+    "menu-items";
 
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 
 }
+
+.sidepane-icon {
+  margin-bottom: 5px;
+}
+
+.menu-icons {
+  grid-area: menu-icons;
+  justify-self: center;
+}
+
 
 .menu-title {
   font-weight: 700;
@@ -242,10 +244,30 @@ code {
   grid-area: menu-items;
   color: white;
   text-overflow: ellipsis;
+
+  display: grid;
+  grid-template-rows: repeat(5, 28px);
+  grid-template-columns: 55px 1fr;
+  column-gap: 10px;
+  /* icontype-icon-position title-side */
+  grid-template-areas:
+  "html-icon-1 home-side"
+  "folder-icon-2 blog-side";
 }
 
-.menu-items p {
-  margin-bottom: 5px;
+.html-icon-1 {
+  grid-area: html-icon-1;
+  justify-self: right;
+}
+
+.folder-icon-2 {
+  grid-area: folder-icon-2;
+  justify-self: right;
+}
+
+.menu-items > p {
+  font: 100%/1.5 'Source Sans Regular', sans-serif;
+  margin-bottom: 0;
 }
 
 .home {
@@ -347,7 +369,7 @@ code {
 
 /* TODO: Change font type to source code/sans */
   .nav {
-    font: 90%/1.5 'Ubuntu Regular', monospace;
+    font: 100%/1.5 'Source Sans Regular', sans-serif;
 
   }
 
