@@ -146,7 +146,7 @@ code {
 
   display: grid;
   /* grid is 6 x 3 (col x row) */
-  grid-template-columns: minmax(175px, .2fr) 1fr;
+  grid-template-columns: minmax(200px, .2fr) 1fr;
   grid-template-rows: 40px 1fr 30px;
   grid-template-areas:
     "sidepane nav"
@@ -245,33 +245,31 @@ code {
   grid-area: menu-items;
   /* height: 28px; */
   display: grid;
-  grid-template-rows: 28px 28px 1fr;
+  grid-template-rows: 28px 28px repeat(auto-fill, 28px);
   z-index: 1;
 
   grid-template-areas:
   "home-box"
   "blog-box"
-  "blog-posts";
+  "contact-box";
+}
+
+.contact-box {
+  grid-row-start: 5;
+  grid-row-end: 6;
 }
 
 .home-box {
   grid-area: home-box;
-  background-color: rgba(255, 0, 0, 0.5);
+  /* background-color: rgba(255, 0, 0, 0.5); */
 }
 
 .blog-box {
   grid-area: blog-box;
-  background-color: rgba(0, 247, 255, 0.5);
+  /* background-color: rgba(0, 247, 255, 0.5); */
 }
 
-.blog-posts {
-  grid-area: blog-posts;
-  margin-left: 50px;
-  font: 100%/1.95 'Source Sans Regular', sans-serif;
-  color: white;
 
-  display: none; /*default: block*/
-}
 
 .blog-posts > p {
   margin: 0;
@@ -285,44 +283,115 @@ code {
   text-overflow: ellipsis;
 
   display: grid;
-  grid-template-rows: 28px 28px 1fr;
+  grid-template-rows: 28px repeat(auto-fill, 28px) 28px;
   grid-template-columns: 55px 1fr;
   column-gap: 10px;
   /* icontype-icon-position title-side */
-  grid-template-areas:
+  /* grid-template-areas:
   "html-icon-1 home-side"
-  "folder-icon-2 blog-side";
+  "folder-icon-1 blog-side"
+  "html-icon-2 contact-side"; */
 }
 
 .html-icon-1 {
-  grid-area: html-icon-1;
   justify-self: right;
   align-self: center;
-}
 
-.folder-icon-2 {
-  grid-area: folder-icon-2;
-  justify-self: right;
-  align-self: center;
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
 .home-side {
-  grid-area: home-side;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 2;
 }
 
-.home-side > p,
-.blog-side > p {
-  margin: 0;
+.folder-icon-1 {
+  justify-self: right;
+  align-self: center;
+  
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 
 .blog-side {
-  grid-area: blog-side;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 2;
+  grid-row-end: 3;
 }
 
+.html-icon-2 {
+  justify-self: right;
+  align-self: center;
+  
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 3; /*change these values*/
+  grid-row-end: 4;/*change these values*/
+}
+
+/* TODO:
+on click we need to add however many p tags
+to the start and end of both html-icon-2 
+and contact 
+our function in script.js gives us how many we
+need to add
+now we just need the on click function to modify
+the grid values */
+
+
+
+.contact-side {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;/*change these values*/
+  grid-row-end: 4;/*change these values*/
+}
+
+
+
+
+
+.home-side > p,
+.blog-side > p,
+.contact-side > p {
+  margin: 0;
+}
+
+
+
 .menu-items > p, 
-.blog-side > p {
+.blog-side > p,
+.home-side > p,
+.contact-side > p {
   font: 100%/1.95 'Source Sans Regular', sans-serif;
   margin-bottom: 0;
+}
+
+.blog-posts {
+  /* margin-left: 50px; */
+  font: 100%/1.95 'Source Sans Regular', sans-serif;
+  color: white;
+
+  /* display: grid; default: block */
+  /* grid-template-rows: repeat(auto-fit, 28px); */
+}
+
+.blog-posts > p{
+  /* margin-left: 50px; */
+  height: 28px;
+  font: 100%/1.5 'Source Sans Regular', sans-serif;
+  color: white;
+
+  /* display: grid; default: block */
+  /* grid-template-rows: repeat(auto-fit, 28px); */
 }
 
 .home {

@@ -1,9 +1,22 @@
 // Change right arrow to a down arrow on click and vice versa
+
+function getCountOfP() {
+    const blogPosts = document.querySelector('.blog-posts');
+    const numOfP = blogPosts.children.length;
+    console.log('Num of P');
+    console.log(numOfP);
+}
+
 function dropDownBlog() {
     const blogBox = document.querySelector('.blog-box');
     const rightArrow = document.querySelector("#right-arrow");
     const downArrow = document.querySelector("#down-arrow");
     const posts = document.querySelector('.blog-posts')
+
+    if (rightArrow.style.display == 'inline-block'){
+        posts.style.display = 'none';
+    }
+
     blogBox.addEventListener('click', event => {
         if (rightArrow.style.display == 'inline-block'){
             rightArrow.style.display = 'none';
@@ -40,5 +53,10 @@ function dropDownBlog() {
     // })
 }
 
+
+
 // after page loads activate function
-window.onload = dropDownBlog;
+window.onload = function () {
+    dropDownBlog();
+    getCountOfP();
+}

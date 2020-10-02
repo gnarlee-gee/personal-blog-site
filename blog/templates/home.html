@@ -29,11 +29,15 @@
                 <div class="blog-box">
 
                 </div>
-                <div class="blog-posts">
-                    {% for post in object_list %}
-                    <p>{{ post.title }}</p>
-                    {% endfor %}
-                </div>
+
+
+                <!-- <div class="sidepane-icon html-icon-2" style="height: 22px; display: block;"><i class="fab fa-html5 fa-lg"
+                    style="color:red; font-size: 22px; width: 21.33px"></i></div> -->
+                <!-- <div class="contact-box" style="display: block;">
+                <p>
+                    contact.html
+                </p>
+            </div> -->
             </div>
             <div class="menu-items">
 
@@ -49,7 +53,7 @@
                 </p> -->
 
                 <!-- drop down arrow below -->
-                <div class="sidepane-icon folder-icon-2" style="height: 22px;">
+                <div class="sidepane-icon folder-icon-1" style="height: 22px;">
                     <i class="fa fa-caret-down" id="down-arrow" aria-hidden="true" style="display: none;"></i>
                     <i class="fa fa-caret-right" id="right-arrow" style="display: inline-block; margin-right: 7px;"
                         aria-hidden="true"></i><i class="fas fa-folder fa-lg" style="color: rgb(255, 208, 0);"></i>
@@ -59,8 +63,27 @@
                         blog
                         <!--<i class="fas fa-folder-open" style="color: rgb(255, 208, 0);"></i>-->
                     </p>
+                    <div class="blog-posts" style="display: none;">
+                        {% for post in object_list %}
+                        <p>{{ post.date|date:'F d, Y' }}</p>
+                        {% endfor %}
+                    </div>
                 </div>
-                
+                <div class="sidepane-icon html-icon-2" style="height: 22px;"><i class="fab fa-html5 fa-lg"
+                        style="color:red; font-size: 22px; width: 21.33px"></i></div>
+                <div class="contact-side">
+                    <p>
+                        contact.html
+                    </p>
+                </div>
+                <!-- <div class="sidepane-icon html-icon-2" style="height: 22px;"><i class="fab fa-html5 fa-lg"
+                        style="color:red; font-size: 22px; width: 21.33px"></i></div>
+                <div class="contact-side">
+                    <p>
+                        contact.html
+                    </p>
+                </div> -->
+
                 <!-- <p>
                     resume.html
                 </p>
