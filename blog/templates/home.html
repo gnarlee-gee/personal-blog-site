@@ -15,7 +15,7 @@
 
 <div class="grid-container">
     <div class="page-container">
-        <div class="sidepane">
+        <div class="sidepane" id="sidepane1" style="z-index: 100;">
             <div class="menu-title">
                 charles-grealy
             </div>
@@ -42,7 +42,7 @@
             <div class="menu-items">
 
                 <div class="sidepane-icon html-icon-1" style="height: 22px;"><i class="fab fa-html5 fa-lg"
-                        style="color:red; font-size: 22px; width: 21.33px"></i></div>
+                        style="color:red; font-size: 22px; width: 18.33px"></i></div>
                 <div class="home-side">
                     <p>
                         home.html
@@ -65,12 +65,20 @@
                     </p>
                     <div class="blog-posts" style="display: none;">
                         {% for post in object_list %}
-                        <p>{{ post.date|date:'F d, Y' }}</p>
+                        <p style="margin-right: 20px; margin-left: -24px;">{{ post.title }}</p>
+                        <!-- <p>{{ post.date|date:'F d, Y' }}</p> -->
                         {% endfor %}
                     </div>
                 </div>
                 <div class="sidepane-icon html-icon-2" style="height: 22px;"><i class="fab fa-html5 fa-lg"
-                        style="color:red; font-size: 22px; width: 21.33px"></i></div>
+                        style="color:red; font-size: 22px; width: 18.33px"></i></div>
+                <div class="resume-side">
+                    <p>
+                        resume.html
+                    </p>
+                </div>
+                <div class="sidepane-icon html-icon-3" style="height: 22px;"><i class="fab fa-html5 fa-lg"
+                        style="color:red; font-size: 22px; width: 18.33px"></i></div>
                 <div class="contact-side">
                     <p>
                         contact.html
@@ -180,6 +188,5 @@
         {% endfor %}
     </div>
 </div> -->
-
 
 {% endblock %}

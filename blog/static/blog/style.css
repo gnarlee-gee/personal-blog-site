@@ -146,7 +146,7 @@ code {
 
   display: grid;
   /* grid is 6 x 3 (col x row) */
-  grid-template-columns: minmax(200px, .2fr) 1fr;
+  grid-template-columns: minmax(200px, auto) 1fr;
   grid-template-rows: 40px 1fr 30px;
   grid-template-areas:
     "sidepane nav"
@@ -217,7 +217,7 @@ code {
     "menu-title"
     "menu-items";
 
-  overflow: auto;
+  overflow: none;
   -webkit-overflow-scrolling: touch;
 
 }
@@ -283,14 +283,14 @@ code {
   text-overflow: ellipsis;
 
   display: grid;
-  grid-template-rows: 28px repeat(auto-fill, 28px) 28px;
+  grid-template-rows: 28px repeat(auto-fill, 28px);
   grid-template-columns: 55px 1fr;
   column-gap: 10px;
   /* icontype-icon-position title-side */
   /* grid-template-areas:
   "html-icon-1 home-side"
   "folder-icon-1 blog-side"
-  "html-icon-2 contact-side"; */
+  "html-icon-2 resume-side"; */
 }
 
 .html-icon-1 {
@@ -327,6 +327,13 @@ code {
   grid-row-end: 3;
 }
 
+.resume-side {
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 3;/*change these values*/
+  grid-row-end: 4;/*change these values*/
+}
+
 .html-icon-2 {
   justify-self: right;
   align-self: center;
@@ -337,6 +344,23 @@ code {
   grid-row-end: 4;/*change these values*/
 }
 
+.contact-side {  
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
+.html-icon-3 {
+  justify-self: right;
+  align-self: center;
+  
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 4;
+  grid-row-end: 5;
+}
+
 /* TODO:
 on click we need to add however many p tags
 to the start and end of both html-icon-2 
@@ -344,16 +368,16 @@ and contact
 our function in script.js gives us how many we
 need to add
 now we just need the on click function to modify
-the grid values */
+the grid values
+
+They should start at 3 and end at 4
+So we should add 3 + numOfP to the start
+and add 4 + numOfP to the end
+*/
 
 
 
-.contact-side {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;/*change these values*/
-  grid-row-end: 4;/*change these values*/
-}
+
 
 
 
@@ -361,6 +385,7 @@ the grid values */
 
 .home-side > p,
 .blog-side > p,
+.resume-side > p,
 .contact-side > p {
   margin: 0;
 }
@@ -370,6 +395,7 @@ the grid values */
 .menu-items > p, 
 .blog-side > p,
 .home-side > p,
+.resume-side > p,
 .contact-side > p {
   font: 100%/1.95 'Source Sans Regular', sans-serif;
   margin-bottom: 0;
@@ -444,12 +470,16 @@ the grid values */
   grid-area: info;
   background-color: #181818;
   color: #A8D6DC;
-  padding: 2em;
+  padding: 1em 2em 2em 2em;
   overflow: auto;
   overflow-y: scroll;
   overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
 
+}
+
+.info > p {
+  margin: 0;
 }
 
 .footer {
