@@ -169,8 +169,10 @@ code {
 
   display: grid;
   grid-template-rows: 40px;
-  grid-template-columns: repeat(5, 1fr);
+  /* grid-template-columns: repeat(5, 1fr); */
 
+
+  /* do this but with numbers in javascript */
   grid-template-areas: "home projects blog resume contact";
   /* display: flex;
   flex-shrink: 1;
@@ -280,22 +282,17 @@ code {
 .menu-items {
   grid-area: menu-items;
   color: white;
-  text-overflow: ellipsis;
 
   display: grid;
   grid-template-rows: 28px repeat(auto-fill, 28px);
   grid-template-columns: 55px 1fr;
   column-gap: 10px;
-  /* icontype-icon-position title-side */
-  /* grid-template-areas:
-  "html-icon-1 home-side"
-  "folder-icon-1 blog-side"
-  "html-icon-2 resume-side"; */
 }
 
 .html-icon-1 {
   justify-self: right;
   align-self: center;
+
 
   grid-column-start: 1;
   grid-column-end: 2;
@@ -327,7 +324,16 @@ code {
   grid-row-end: 3;
 }
 
-.resume-side {
+.posts {
+  font: 100%/1.95 'Source Sans Regular', sans-serif;
+  color: white;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 25ch; 
+}
+
+.projects-side {
   grid-column-start: 2;
   grid-column-end: 3;
   grid-row-start: 3;/*change these values*/
@@ -344,12 +350,14 @@ code {
   grid-row-end: 4;/*change these values*/
 }
 
-.contact-side {  
+.resume-side {
   grid-column-start: 2;
   grid-column-end: 3;
-  grid-row-start: 4;
-  grid-row-end: 5;
+  grid-row-start: 4;/*change these values*/
+  grid-row-end: 5;/*change these values*/
 }
+
+
 
 .html-icon-3 {
   justify-self: right;
@@ -357,8 +365,25 @@ code {
   
   grid-column-start: 1;
   grid-column-end: 2;
-  grid-row-start: 4;
-  grid-row-end: 5;
+  grid-row-start: 4; /*change these values*/
+  grid-row-end: 5;/*change these values*/
+}
+
+.contact-side {  
+  grid-column-start: 2;
+  grid-column-end: 3;
+  grid-row-start: 5;
+  grid-row-end: 6;
+}
+
+.html-icon-4 {
+  justify-self: right;
+  align-self: center;
+  
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 5;
+  grid-row-end: 6;
 }
 
 /* TODO:
@@ -385,39 +410,34 @@ and add 4 + numOfP to the end
 
 .home-side > p,
 .blog-side > p,
+.projects-side > p,
 .resume-side > p,
 .contact-side > p {
   margin: 0;
 }
 
+/* .home-side > p {
+  font: 100%/2.1 'Source Sans Regular', sans-serif;
+  margin-bottom: 0;
+} */
 
 
-.menu-items > p, 
-.blog-side > p,
-.home-side > p,
-.resume-side > p,
-.contact-side > p {
-  font: 100%/1.95 'Source Sans Regular', sans-serif;
+.home-side > p {
+  font: 100%/2.25 'Source Sans Regular', sans-serif;
   margin-bottom: 0;
 }
 
-.blog-posts {
-  /* margin-left: 50px; */
-  font: 100%/1.95 'Source Sans Regular', sans-serif;
-  color: white;
-
-  /* display: grid; default: block */
-  /* grid-template-rows: repeat(auto-fit, 28px); */
+.blog-side > p {
+  font: 100%/1.9 'Source Sans Regular', sans-serif;
+  margin-bottom: 0;
 }
 
-.blog-posts > p{
-  /* margin-left: 50px; */
-  height: 28px;
+.menu-items > p, 
+.projects-side > p,
+.resume-side > p,
+.contact-side > p {
   font: 100%/1.5 'Source Sans Regular', sans-serif;
-  color: white;
-
-  /* display: grid; default: block */
-  /* grid-template-rows: repeat(auto-fit, 28px); */
+  margin-bottom: 0;
 }
 
 .home {

@@ -41,8 +41,8 @@
             </div>
             <div class="menu-items">
 
-                <div class="sidepane-icon html-icon-1" style="height: 22px;"><i class="fab fa-html5 fa-lg"
-                        style="color:red; font-size: 22px; width: 18.33px"></i></div>
+                <div class="sidepane-icon html-icon-1" style="width: 22px; height: 21px;"><img
+                        src="https://img.icons8.com/color/26/000000/html-5.png" /></div>
                 <div class="home-side">
                     <p>
                         home.html
@@ -54,9 +54,38 @@
 
                 <!-- drop down arrow below -->
                 <div class="sidepane-icon folder-icon-1" style="height: 22px;">
-                    <i class="fa fa-caret-down" id="down-arrow" aria-hidden="true" style="display: none;"></i>
-                    <i class="fa fa-caret-right" id="right-arrow" style="display: inline-block; margin-right: 7px;"
-                        aria-hidden="true"></i><i class="fas fa-folder fa-lg" style="color: rgb(255, 208, 0);"></i>
+                    <svg id="down-arrow" style="display: none; position: relative; left: 8; margin-bottom: 3px;"
+                        xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="22" viewBox="0 0 172 172"
+                        style=" fill:#000000;">
+                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <path d="M0,172v-172h172v172z" fill="none"></path>
+                            <g fill="#ecf0f1">
+                                <path
+                                    d="M86,100.84217l-32.75883,-32.75883l-10.75,10.75l43.50883,43.50883l43.50883,-43.50883l-10.75,-10.75z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg>
+                    <svg id="right-arrow" style="margin-bottom: 3px;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                        width="24" height="22" viewBox="0 0 226 226" style=" fill:#000000;">
+                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
+                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
+                            style="mix-blend-mode: normal">
+                            <path d="M0,226v-226h226v226z" fill="none"></path>
+                            <g fill="#ecf0f1">
+                                <path
+                                    d="M123.08525,113l-43.04358,-43.04358l14.125,-14.125l57.16858,57.16858l-57.16858,57.16858l-14.125,-14.125z">
+                                </path>
+                            </g>
+                        </g>
+                    </svg><img id="folder-closed" style="margin-bottom: 5px;"
+                        src="https://img.icons8.com/office/20/000000/folder-invoices.png" /></i>
+                    <img id="folder-open" style="margin-bottom: 5px; display: none;"
+                        src="https://img.icons8.com/office/20/000000/live-folder.png" />
                 </div>
                 <div class="blog-side">
                     <p>
@@ -65,20 +94,27 @@
                     </p>
                     <div class="blog-posts" style="display: none;">
                         {% for post in object_list %}
-                        <p style="margin-right: 20px; margin-left: -24px;">{{ post.title }}</p>
+                        <p class="posts" style="margin-right: 20px; margin-left: -18px;">{{ post.title }}</p>
                         <!-- <p>{{ post.date|date:'F d, Y' }}</p> -->
                         {% endfor %}
                     </div>
                 </div>
-                <div class="sidepane-icon html-icon-2" style="height: 22px;"><i class="fab fa-html5 fa-lg"
-                        style="color:red; font-size: 22px; width: 18.33px"></i></div>
+                <div class="sidepane-icon html-icon-2" style="width: 22px;"><img
+                    src="https://img.icons8.com/color/26/000000/html-5.png" /></div>
+            <div class="projects-side">
+                <p>
+                    projects.html
+                </p>
+            </div>
+                <div class="sidepane-icon html-icon-3" style="width: 22px;"><img
+                        src="https://img.icons8.com/color/26/000000/html-5.png" /></div>
                 <div class="resume-side">
                     <p>
                         resume.html
                     </p>
                 </div>
-                <div class="sidepane-icon html-icon-3" style="height: 22px;"><i class="fab fa-html5 fa-lg"
-                        style="color:red; font-size: 22px; width: 18.33px"></i></div>
+                <div class="sidepane-icon html-icon-4" style="width: 22px;"><img
+                    src="https://img.icons8.com/color/26/000000/html-5.png" /></div>
                 <div class="contact-side">
                     <p>
                         contact.html
