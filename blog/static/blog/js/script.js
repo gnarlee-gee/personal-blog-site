@@ -4,6 +4,7 @@ window.onload = function () {
     const numOfPosts = blogPosts.children.length;
     blogClick(numOfPosts);
     initializeNavGrid(numOfPosts);
+    resizeSidepane();
 }
 
 
@@ -85,4 +86,21 @@ function initializeNavGrid(numOfPosts) {
     const totalMenuItems = (numOfPosts + 4).toString();
 
     navBar.style.setProperty('grid-template-columns', `repeat(${totalMenuItems}, 1fr)`);
+}
+
+function resizeSidepane() {
+    $(function () {
+        $(".sidepane").resizable({
+            handles: "e",
+            minWidth: 200,
+            alsoResize: ".blog-posts"
+        })
+    });
+    $(function () {
+        $(".blog-posts").resizable({
+            handles: "e",
+            minWidth: 132,
+            
+        })
+    });
 }

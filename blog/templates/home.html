@@ -13,9 +13,14 @@
 
 </style>
 
+
+
+
 <div class="grid-container">
     <div class="page-container">
-        <div class="sidepane" id="sidepane1" style="z-index: 100;">
+        <!-- draggable="true" -->
+
+        <div class="sidepane"  style="z-index: 0;">
             <div class="menu-title">
                 charles-grealy
             </div>
@@ -94,7 +99,9 @@
                     </p>
                     <div class="blog-posts" style="display: none;">
                         {% for post in object_list %}
-                        <p class="posts" style="margin-right: 20px; margin-left: -18px;">{{ post.title }}</p>
+                        <p class="posts" style="margin-left: -18px;">
+                            {{ post.title }} 
+                        </p>
                         <!-- <p>{{ post.date|date:'F d, Y' }}</p> -->
                         {% endfor %}
                     </div>
@@ -224,5 +231,12 @@
         {% endfor %}
     </div>
 </div> -->
+
+<script>
+    // $(document).ready(function(){
+
+    //     $('.sidepane').resizable();
+    // });
+</script>
 
 {% endblock %}
