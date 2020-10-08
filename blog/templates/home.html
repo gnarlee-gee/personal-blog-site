@@ -74,8 +74,9 @@
                             </g>
                         </g>
                     </svg>
-                    <svg id="right-arrow" style="margin-bottom: 3px; display: inline-block;" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                        width="24" height="22" viewBox="0 0 226 226" style=" fill:#000000;">
+                    <svg id="right-arrow" style="margin-bottom: 3px; display: inline-block;"
+                        xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="22" viewBox="0 0 226 226"
+                        style=" fill:#000000;">
                         <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
                             stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
                             font-family="none" font-weight="none" font-size="none" text-anchor="none"
@@ -99,7 +100,24 @@
                     </p>
                     <div class="blog-posts" style="display: none;">
                         {% for post in object_list %}
-                        <p class="posts" style="margin-left: -18px;">
+
+                        <p class="posts" style="margin-left: -18px; vertical-align: middle;">
+
+                            <svg style="vertical-align: text-bottom;" mlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="22" height="22"
+                                viewBox="0 0 172 172" style=" fill:#000000;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
+                                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                    text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#ffffff">
+                                        <path
+                                            d="M45.01563,12.09375c-9.675,0 -17.46875,7.79375 -17.46875,17.46875v107.5c0,9.675 7.79375,17.46875 17.46875,17.46875h81.96875c9.675,0 17.46875,-7.79375 17.46875,-17.46875v-107.5c0,-9.675 -7.79375,-17.46875 -17.46875,-17.46875zM45.01563,20.15625h81.96875c5.24062,0 9.40625,4.16563 9.40625,9.40625v107.5c0,5.24062 -4.16563,9.40625 -9.40625,9.40625h-81.96875c-5.24063,0 -9.40625,-4.16563 -9.40625,-9.40625v-107.5c0,-5.24062 4.16562,-9.40625 9.40625,-9.40625zM45.01563,29.5625v20.15625h81.96875v-20.15625zM50.39063,68.53125c-2.28438,0 -4.03125,1.74688 -4.03125,4.03125c0,2.28437 1.74687,4.03125 4.03125,4.03125h68.53125c2.28437,0 4.03125,-1.74688 4.03125,-4.03125c0,-2.28437 -1.74688,-4.03125 -4.03125,-4.03125zM50.39063,88.6875c-2.28438,0 -4.03125,1.74688 -4.03125,4.03125c0,2.28437 1.74687,4.03125 4.03125,4.03125h68.53125c2.28437,0 4.03125,-1.74688 4.03125,-4.03125c0,-2.28437 -1.74688,-4.03125 -4.03125,-4.03125zM50.39063,108.84375c-2.28438,0 -4.03125,1.74688 -4.03125,4.03125c0,2.28437 1.74687,4.03125 4.03125,4.03125h35.60938c2.28437,0 4.03125,-1.74688 4.03125,-4.03125c0,-2.28437 -1.74688,-4.03125 -4.03125,-4.03125z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            
                             {{ post.title }}
                         </p>
                         <!-- <p>{{ post.date|date:'F d, Y' }}</p> -->

@@ -81,7 +81,6 @@ function setBlogPostsGrid(operation, numOfPosts) {
             postBox.style.zIndex = 2;
             postBox.style.gridRowStart = i + 3;
             postBox.style.gridRowEnd = i + 4;
-            let x = document.getElementsByClassName('.blog-posts');
         }
         document.querySelector('.projects-box').style.gridRowStart = i + 3;
         document.querySelector('.projects-box').style.gridRowEnd = i + 4;
