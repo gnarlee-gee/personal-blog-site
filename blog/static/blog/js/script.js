@@ -2,6 +2,7 @@
 window.onload = function () {
     const blogPosts = document.querySelector('.blog-posts');
     const numOfPosts = blogPosts.children.length;
+    setIdBlogPosts(blogPosts, numOfPosts);
     initializeSidePane();
     blogClick(numOfPosts);
     initializeNavGrid(numOfPosts);
@@ -9,6 +10,13 @@ window.onload = function () {
     addToNavBar();
     isInNav();
     removeFromNavBar();
+}
+
+// Sets ID for each post
+function setIdBlogPosts(blogPosts, numOfPosts){
+    for(let i = 0; i < numOfPosts; i++){
+        blogPosts.children[i].setAttribute('id', `post-${i+1}`);
+    }
 }
 
 
@@ -73,19 +81,20 @@ function setBlogPostsGrid(operation, numOfPosts) {
             postBox.style.zIndex = 2;
             postBox.style.gridRowStart = i + 3;
             postBox.style.gridRowEnd = i + 4;
+            let x = document.getElementsByClassName('.blog-posts');
         }
-        console.log('i is: ', i)
         document.querySelector('.projects-box').style.gridRowStart = i + 3;
         document.querySelector('.projects-box').style.gridRowEnd = i + 4;
         document.querySelector('.resume-box').style.gridRowStart = i + 4;
         document.querySelector('.resume-box').style.gridRowEnd = i + 5;
         document.querySelector('.contact-box').style.gridRowStart = i + 5;
         document.querySelector('.contact-box').style.gridRowEnd = i + 6;
-    } else {
+    } else if (operation == 'default') {
         for (let i = 0; i < children.length - 1; i++) {
             let post = document.querySelector(`.post-box-${i}`);
             post.remove();
         }
+        console.log(operation, 'in here')
         document.querySelector('.projects-box').style.gridRowStart = 3;
         document.querySelector('.projects-box').style.gridRowEnd = 4;
         document.querySelector('.resume-box').style.gridRowStart = 4;
