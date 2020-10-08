@@ -2,15 +2,19 @@
 window.onload = function () {
     const blogPosts = document.querySelector('.blog-posts');
     const numOfPosts = blogPosts.children.length;
+    initializeSidePane();
     blogClick(numOfPosts);
     initializeNavGrid(numOfPosts);
     resizeSidepane();
+    addToNavBar();
+    isInNav();
+    removeFromNavBar();
 }
 
 
 // Moves ".html" items and their icons down according to number of posts
 // when the drop down folder is clicked
-function changeContactRows(operation, numOfPosts) {
+function changeIconTextRows(operation, numOfPosts) {
     let projectsRowStartNum = (numOfPosts + 3).toString();
     let projectsRowEndNum = projectsRowStartNum.toString(projectsRowStartNum++);
     let resumeRowStartNum = (numOfPosts + 4).toString();
@@ -54,6 +58,44 @@ function changeContactRows(operation, numOfPosts) {
     }
 }
 
+// Adds and removes grid items on click
+function setBlogPostsGrid(operation, numOfPosts) {
+    let parent = document.querySelector('.blog-posts');
+    let children = parent.children;
+
+    if (operation == 'change') {
+        let i = 0;
+        for (; i < children.length - 1; i++) {
+            let postBox = document.createElement('div');
+            postBox.setAttribute('class', `post-box-${i}`);
+            document.getElementById("sidepane-div").appendChild(postBox);
+            postBox = document.querySelector(`.post-box-${i}`);
+            postBox.style.zIndex = 2;
+            postBox.style.gridRowStart = i + 3;
+            postBox.style.gridRowEnd = i + 4;
+        }
+        console.log('i is: ', i)
+        document.querySelector('.projects-box').style.gridRowStart = i + 3;
+        document.querySelector('.projects-box').style.gridRowEnd = i + 4;
+        document.querySelector('.resume-box').style.gridRowStart = i + 4;
+        document.querySelector('.resume-box').style.gridRowEnd = i + 5;
+        document.querySelector('.contact-box').style.gridRowStart = i + 5;
+        document.querySelector('.contact-box').style.gridRowEnd = i + 6;
+    } else {
+        for (let i = 0; i < children.length - 1; i++) {
+            let post = document.querySelector(`.post-box-${i}`);
+            post.remove();
+        }
+        document.querySelector('.projects-box').style.gridRowStart = 3;
+        document.querySelector('.projects-box').style.gridRowEnd = 4;
+        document.querySelector('.resume-box').style.gridRowStart = 4;
+        document.querySelector('.resume-box').style.gridRowEnd = 5;
+        document.querySelector('.contact-box').style.gridRowStart = 5;
+        document.querySelector('.contact-box').style.gridRowEnd = 6;
+    }
+}
+
+
 // Change right arrow to a down arrow on click and vice versa
 // Modifies behavior when clicking blog
 function blogClick(numOfPosts) {
@@ -70,12 +112,14 @@ function blogClick(numOfPosts) {
             rightArrow.style.display = 'none';
             downArrow.style.display = 'inline-block';
             posts.style.display = 'block';
-            changeContactRows('change', numOfPosts);
+            changeIconTextRows('change', numOfPosts);
+            setBlogPostsGrid('change', numOfPosts)
         } else {
             downArrow.style.display = 'none';
             rightArrow.style.display = 'inline-block';
             posts.style.display = 'none';
-            changeContactRows('default', numOfPosts);
+            changeIconTextRows('default', numOfPosts);
+            setBlogPostsGrid('default', numOfPosts);
         }
     })
 }
@@ -88,6 +132,7 @@ function initializeNavGrid(numOfPosts) {
     navBar.style.setProperty('grid-template-columns', `repeat(${totalMenuItems}, 1fr)`);
 }
 
+// Implements ability to resize sidepane
 function resizeSidepane() {
     $(function () {
         $(".sidepane").resizable({
@@ -100,7 +145,68 @@ function resizeSidepane() {
         $(".blog-posts").resizable({
             handles: "e",
             minWidth: 132,
-            
         })
     });
+}
+
+function initializeSidePane() {
+
+    let homeBox = document.createElement('div');
+    let blogBox = document.createElement('div');
+    let projectsBox = document.createElement('div');
+    let resumeBox = document.createElement('div');
+    let contactBox = document.createElement('div');
+
+
+
+    homeBox.setAttribute('class', 'home-box');
+    blogBox.setAttribute('class', 'blog-box');
+    projectsBox.setAttribute('class', 'projects-box');
+    resumeBox.setAttribute('class', 'resume-box');
+    contactBox.setAttribute('class', 'contact-box');
+
+    document.getElementById("sidepane-div").appendChild(homeBox);
+    document.getElementById("sidepane-div").appendChild(blogBox);
+    document.getElementById("sidepane-div").appendChild(projectsBox);
+    document.getElementById("sidepane-div").appendChild(resumeBox);
+    document.getElementById("sidepane-div").appendChild(contactBox);
+
+    homeBox = document.querySelector('.home-box');
+    homeBox.style.zIndex = 2;
+    homeBox.style.gridRowStart = 1;
+    homeBox.style.gridRowEnd = 2;
+
+    blogBox = document.querySelector('.blog-box');
+    blogBox.style.zIndex = 2;
+    blogBox.style.gridRowStart = 2;
+    blogBox.style.gridRowEnd = 3;
+
+    projectsBox = document.querySelector('.projects-box');
+    projectsBox.style.zIndex = 2;
+    projectsBox.style.gridRowStart = 3;
+    projectsBox.style.gridRowEnd = 4;
+
+    resumeBox = document.querySelector('.resume-box');
+    resumeBox.style.zIndex = 2;
+    resumeBox.style.gridRowStart = 4;
+    resumeBox.style.gridRowEnd = 5;
+
+    contactBox = document.querySelector('.contact-box');
+    contactBox.style.zIndex = 2;
+    contactBox.style.gridRowStart = 5;
+    contactBox.style.gridRowEnd = 6;
+}
+
+
+function addToNavBar() {
+
+}
+
+
+function isInNav() {
+
+}
+
+function removeFromNavBar() {
+
 }

@@ -203,38 +203,6 @@ code {
   background-color: #242424;
 }
 
-.nav {
-  visibility: show;
-
-  font: 100%/1.5 'Source Sans Regular', sans-serif;
-
-  background-color: #181818;
-  color: rgb(243, 243, 243);
-  width: 100%;
-
-  border-top-right-radius: 5px 5px;
-
-  display: grid;
-  grid-template-rows: 50px;
-  /* grid-template-columns: repeat(5, 1fr); */
-
-
-  /* do this but with numbers in javascript */
-  grid-template-areas: "home projects blog resume contact";
-  /* display: flex;
-  flex-shrink: 1;
-  flex-wrap: nowrap; */
-
-  /* overflow: auto;
-  overflow-y: hidden;
-  overflow-x: auto; */
-  -webkit-overflow-scrolling: touch;
-  align-content: space-evenly;
-  justify-content: space-evenly;
-
-  /* grid-gap: 10px; */
-}
-
 /* .nav::-webkit-scrollbar {
   height: 4px;
 }
@@ -310,33 +278,28 @@ code {
   color: #ccc;
 }
 
-.rectangle {
+.sidepane-row {
   grid-area: menu-items;
   /* height: 28px; */
   display: grid;
   grid-template-rows: 28px 28px repeat(auto-fill, 28px);
-  z-index: 1;
-
-  grid-template-areas:
-    "home-box"
-    "blog-box"
-    "contact-box";
+  grid-template-columns: 1fr;
 }
 
-.contact-box {
+/* .contact-box {
   grid-row-start: 5;
   grid-row-end: 6;
-}
+} */
 
-.home-box {
+/* .home-box { 
   grid-area: home-box;
-  /* background-color: rgba(255, 0, 0, 0.5); */
-}
+  background-color: rgba(255, 0, 0, 0.5);
+}*/
 
-.blog-box {
+/* .blog-box {
   grid-area: blog-box;
-  /* background-color: rgba(0, 247, 255, 0.5); */
-}
+  background-color: rgba(0, 247, 255, 0.5); 
+} */
 
 
 .blog-posts>p {
@@ -500,7 +463,7 @@ and add 4 + numOfP to the end
 
 
 .home-side>p {
-  font: 100%/2.25 'Source Sans Regular', sans-serif;
+  font: 100%/2.2 'Source Sans Regular', sans-serif;
   margin-bottom: 0;
 }
 
@@ -515,6 +478,38 @@ and add 4 + numOfP to the end
 .contact-side>p {
   font: 100%/1.5 'Source Sans Regular', sans-serif;
   margin-bottom: 0;
+}
+
+.nav {
+  visibility: show;
+
+  font: 100%/1.5 'Source Sans Regular', sans-serif;
+
+  background-color: #181818;
+  color: rgb(243, 243, 243);
+  width: 100%;
+
+  border-top-right-radius: 5px 5px;
+
+  display: grid;
+  grid-template-rows: 50px;
+  /* grid-template-columns: repeat(5, 1fr); */
+
+
+  /* do this but with numbers in javascript */
+  grid-template-areas: "home projects blog resume contact";
+  /* display: flex;
+  flex-shrink: 1;
+  flex-wrap: nowrap; */
+
+  /* overflow: auto;
+  overflow-y: hidden;
+  overflow-x: auto; */
+  -webkit-overflow-scrolling: touch;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+
+  /* grid-gap: 10px; */
 }
 
 .home {
