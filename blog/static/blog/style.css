@@ -366,6 +366,10 @@ code {
 
 }
 
+.blog-posts > span {
+  display: none;
+}
+
 .projects-side {
   grid-column-start: 2;
   grid-column-end: 3;
@@ -498,7 +502,7 @@ and add 4 + numOfP to the end
 
 
   /* do this but with numbers in javascript */
-  grid-template-areas: "home projects blog resume contact";
+  grid-template-areas: "home";
   /* display: flex;
   flex-shrink: 1;
   flex-wrap: nowrap; */
@@ -570,7 +574,10 @@ and add 4 + numOfP to the end
   -webkit-overflow-scrolling: touch;
 }
 
-
+.post-body {
+  display: none;
+  visibility: hidden;
+}
 
 .info>p {
   margin: 0;

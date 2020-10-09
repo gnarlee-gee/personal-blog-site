@@ -1,7 +1,8 @@
 // after page loads activate function
 window.onload = function () {
     const blogPosts = document.querySelector('.blog-posts');
-    const numOfPosts = blogPosts.children.length;
+    let numOfPosts = blogPosts.children.length;
+    numOfPosts /= 2;
     setIdBlogPosts(blogPosts, numOfPosts);
     initializeSidePane();
     blogClick(numOfPosts);
@@ -10,12 +11,18 @@ window.onload = function () {
     addToNavBar();
     isInNav();
     removeFromNavBar();
+
+
+    const blogBody = document.querySelector('#post-body-1');
+    console.log(blogBody)
+
 }
 
-// Sets ID for each post
-function setIdBlogPosts(blogPosts, numOfPosts){
-    for(let i = 0; i < numOfPosts; i++){
-        blogPosts.children[i].setAttribute('id', `post-${i+1}`);
+// Sets ID for each post and then post body
+function setIdBlogPosts(blogPosts, numOfPosts) {
+    for (let i = 0; i < numOfPosts; i++) {
+        blogPosts.children[i * 2].setAttribute('id', `post-${i+1}`);
+        blogPosts.children[(i * 2) + 1].setAttribute('id', `post-body-${i+1}`);
     }
 }
 
@@ -71,13 +78,15 @@ function setBlogPostsGrid(operation, numOfPosts) {
     let parent = document.querySelector('.blog-posts');
     let children = parent.children;
 
+    children = Math.floor(children.length / 2);
+
     if (operation == 'change') {
         let i = 0;
-        for (; i < children.length - 1; i++) {
+        for (; i < children; i++) {
             let postBox = document.createElement('div');
-            postBox.setAttribute('class', `post-box-${i}`);
+            postBox.setAttribute('class', `post-box-${i+1}`);
             document.getElementById("sidepane-div").appendChild(postBox);
-            postBox = document.querySelector(`.post-box-${i}`);
+            postBox = document.querySelector(`.post-box-${i+1}`);
             postBox.style.zIndex = 2;
             postBox.style.gridRowStart = i + 3;
             postBox.style.gridRowEnd = i + 4;
@@ -89,11 +98,10 @@ function setBlogPostsGrid(operation, numOfPosts) {
         document.querySelector('.contact-box').style.gridRowStart = i + 5;
         document.querySelector('.contact-box').style.gridRowEnd = i + 6;
     } else if (operation == 'default') {
-        for (let i = 0; i < children.length - 1; i++) {
-            let post = document.querySelector(`.post-box-${i}`);
+        for (let i = 0; i < children; i++) {
+            let post = document.querySelector(`.post-box-${i+1}`);
             post.remove();
         }
-        console.log(operation, 'in here')
         document.querySelector('.projects-box').style.gridRowStart = 3;
         document.querySelector('.projects-box').style.gridRowEnd = 4;
         document.querySelector('.resume-box').style.gridRowStart = 4;
@@ -207,6 +215,15 @@ function initializeSidePane() {
 
 
 function addToNavBar() {
+
+}
+
+function setNavClassStyle(navItem, className) {
+    navItem.style.display = 'flex';
+    navItem.style.alignItems = 'center';
+    navItem.style.justifyContent = 'center';
+    navItem.style.gridArea = className;
+    navItem.style.padding = "0 10px 0 10px";
 
 }
 
