@@ -7,14 +7,16 @@ window.onload = function () {
     initializeSidePane();
     blogClick(numOfPosts);
     initializeNavGrid(numOfPosts);
+    addSidepaneItemsListener();
     resizeSidepane();
     addToNavBar();
     isInNav();
     removeFromNavBar();
+    
 
 
-    const blogBody = document.querySelector('#post-body-1');
-    console.log(blogBody)
+    // const blogBody = document.querySelector('#post-body-1');
+    // console.log(blogBody)
 
 }
 
@@ -84,30 +86,31 @@ function setBlogPostsGrid(operation, numOfPosts) {
         let i = 0;
         for (; i < children; i++) {
             let postBox = document.createElement('div');
-            postBox.setAttribute('class', `post-box-${i+1}`);
+            postBox.setAttribute('id', `post-box-${i+1}`);
             document.getElementById("sidepane-div").appendChild(postBox);
-            postBox = document.querySelector(`.post-box-${i+1}`);
+            postBox = document.querySelector(`#post-box-${i+1}`);
+            // Send the id of these to put click event on
             postBox.style.zIndex = 2;
             postBox.style.gridRowStart = i + 3;
             postBox.style.gridRowEnd = i + 4;
         }
-        document.querySelector('.projects-box').style.gridRowStart = i + 3;
-        document.querySelector('.projects-box').style.gridRowEnd = i + 4;
-        document.querySelector('.resume-box').style.gridRowStart = i + 4;
-        document.querySelector('.resume-box').style.gridRowEnd = i + 5;
-        document.querySelector('.contact-box').style.gridRowStart = i + 5;
-        document.querySelector('.contact-box').style.gridRowEnd = i + 6;
+        document.querySelector('#projects-box').style.gridRowStart = i + 3;
+        document.querySelector('#projects-box').style.gridRowEnd = i + 4;
+        document.querySelector('#resume-box').style.gridRowStart = i + 4;
+        document.querySelector('#resume-box').style.gridRowEnd = i + 5;
+        document.querySelector('#contact-box').style.gridRowStart = i + 5;
+        document.querySelector('#contact-box').style.gridRowEnd = i + 6;
     } else if (operation == 'default') {
         for (let i = 0; i < children; i++) {
-            let post = document.querySelector(`.post-box-${i+1}`);
+            let post = document.querySelector(`#post-box-${i+1}`);
             post.remove();
         }
-        document.querySelector('.projects-box').style.gridRowStart = 3;
-        document.querySelector('.projects-box').style.gridRowEnd = 4;
-        document.querySelector('.resume-box').style.gridRowStart = 4;
-        document.querySelector('.resume-box').style.gridRowEnd = 5;
-        document.querySelector('.contact-box').style.gridRowStart = 5;
-        document.querySelector('.contact-box').style.gridRowEnd = 6;
+        document.querySelector('#projects-box').style.gridRowStart = 3;
+        document.querySelector('#projects-box').style.gridRowEnd = 4;
+        document.querySelector('#resume-box').style.gridRowStart = 4;
+        document.querySelector('#resume-box').style.gridRowEnd = 5;
+        document.querySelector('#contact-box').style.gridRowStart = 5;
+        document.querySelector('#contact-box').style.gridRowEnd = 6;
     }
 }
 
@@ -115,7 +118,7 @@ function setBlogPostsGrid(operation, numOfPosts) {
 // Change right arrow to a down arrow on click and vice versa
 // Modifies behavior when clicking blog
 function blogClick(numOfPosts) {
-    const blogBox = document.querySelector('.blog-box');
+    const blogBox = document.querySelector('#blog-box');
     const rightArrow = document.querySelector("#right-arrow");
     const downArrow = document.querySelector("#down-arrow");
     const posts = document.querySelector('.blog-posts')
@@ -130,6 +133,8 @@ function blogClick(numOfPosts) {
             posts.style.display = 'block';
             changeIconTextRows('change', numOfPosts);
             setBlogPostsGrid('change', numOfPosts)
+            // console.log(document.querySelector("#sidepane-div").children)
+
         } else {
             downArrow.style.display = 'none';
             rightArrow.style.display = 'inline-block';
@@ -174,12 +179,11 @@ function initializeSidePane() {
     let contactBox = document.createElement('div');
 
 
-
-    homeBox.setAttribute('class', 'home-box');
-    blogBox.setAttribute('class', 'blog-box');
-    projectsBox.setAttribute('class', 'projects-box');
-    resumeBox.setAttribute('class', 'resume-box');
-    contactBox.setAttribute('class', 'contact-box');
+    homeBox.setAttribute('id', 'home-box');
+    blogBox.setAttribute('id', 'blog-box');
+    projectsBox.setAttribute('id', 'projects-box');
+    resumeBox.setAttribute('id', 'resume-box');
+    contactBox.setAttribute('id', 'contact-box');
 
     document.getElementById("sidepane-div").appendChild(homeBox);
     document.getElementById("sidepane-div").appendChild(blogBox);
@@ -187,30 +191,44 @@ function initializeSidePane() {
     document.getElementById("sidepane-div").appendChild(resumeBox);
     document.getElementById("sidepane-div").appendChild(contactBox);
 
-    homeBox = document.querySelector('.home-box');
+
+    // console.log(document.querySelector("#sidepane-div").children)
+    homeBox = document.querySelector('#home-box');
     homeBox.style.zIndex = 2;
     homeBox.style.gridRowStart = 1;
     homeBox.style.gridRowEnd = 2;
 
-    blogBox = document.querySelector('.blog-box');
+    blogBox = document.querySelector('#blog-box');
     blogBox.style.zIndex = 2;
     blogBox.style.gridRowStart = 2;
     blogBox.style.gridRowEnd = 3;
 
-    projectsBox = document.querySelector('.projects-box');
+    projectsBox = document.querySelector('#projects-box');
     projectsBox.style.zIndex = 2;
     projectsBox.style.gridRowStart = 3;
     projectsBox.style.gridRowEnd = 4;
 
-    resumeBox = document.querySelector('.resume-box');
+    resumeBox = document.querySelector('#resume-box');
     resumeBox.style.zIndex = 2;
     resumeBox.style.gridRowStart = 4;
     resumeBox.style.gridRowEnd = 5;
 
-    contactBox = document.querySelector('.contact-box');
+    contactBox = document.querySelector('#contact-box');
     contactBox.style.zIndex = 2;
     contactBox.style.gridRowStart = 5;
     contactBox.style.gridRowEnd = 6;
+}
+
+
+function addSidepaneItemsListener() {
+    let sidepaneChildren = document.querySelector("#sidepane-div").children;
+    for(let i = 0; i < sidepaneChildren.length; i++){
+        let child = document.querySelector('#' + sidepaneChildren[i].id);
+        child.addEventListener('click', event => {
+            console.log(child);
+        })
+
+    }
 }
 
 
