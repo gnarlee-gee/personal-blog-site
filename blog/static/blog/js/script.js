@@ -9,10 +9,9 @@ window.onload = function () {
     initializeNavGrid(numOfPosts);
     addSidepaneItemsListener();
     resizeSidepane();
-    addToNavBar();
     isInNav();
     removeFromNavBar();
-    
+
 
 
     // const blogBody = document.querySelector('#post-body-1');
@@ -222,18 +221,34 @@ function initializeSidePane() {
 
 function addSidepaneItemsListener() {
     let sidepaneChildren = document.querySelector("#sidepane-div").children;
-    for(let i = 0; i < sidepaneChildren.length; i++){
+    for (let i = 0; i < sidepaneChildren.length; i++) {
         let child = document.querySelector('#' + sidepaneChildren[i].id);
         child.addEventListener('click', event => {
-            console.log(child);
+            // console.log(child);
+            addToNavBar(child);
         })
 
     }
 }
 
 
-function addToNavBar() {
+function addToNavBar(child) {
+    let navBar = document.querySelector('.nav');
+    let navStyle = getComputedStyle(navBar).gridTemplateAreas;
+    navStyle = navStyle.replace(/"/g, '')
+    const childIdNavName = child.id.split('-')
 
+    if (childIdNavName[0] != 'post') {
+        if (!navStyle.includes(childIdNavName[0])) {
+            navBar.style.gridTemplateAreas = `"${navStyle + ' ' + childIdNavName[0]}"`;
+            console.log('navStyle', getComputedStyle(navBar).gridTemplateAreas)
+        }
+    } else {
+        if (!navStyle.includes(childIdNavName.join('-'))) {
+            navBar.style.gridTemplateAreas = `"${navStyle + ' ' + childIdNavName.join('-')}"`
+            console.log('navStyle', getComputedStyle(navBar).gridTemplateAreas)
+        }
+    }
 }
 
 function setNavClassStyle(navItem, className) {
