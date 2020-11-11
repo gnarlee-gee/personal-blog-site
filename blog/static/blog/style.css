@@ -178,29 +178,22 @@ code {
   align-content: center;
   width: 100vw;
   height: 100vh;
-  background-color: #2D3645;
 }
 
 .page-container {
-  height: 65vh;
-  width: 57vw;
-
-  /* border: 30px solid #242424; */
-
-  -webkit-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
-  -moz-box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
-  box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.75);
+  height: 100vh;
+  width: 100vw;
 
   display: grid;
   /* grid is 6 x 3 (col x row) */
-  grid-template-columns: minmax(200px, auto) 1fr;
-  grid-template-rows: 40px 1fr 30px;
+  grid-template-columns: 225px 1fr;
+  grid-template-rows: 80px 1fr 30px;
   grid-template-areas:
-    "sidepane nav"
+    "sidepane info"
     "sidepane info"
     "footer footer";
 
-  background-color: #242424;
+  background-color: #181818;
 }
 
 /* .nav::-webkit-scrollbar {
@@ -224,11 +217,9 @@ code {
   grid-area: sidepane;
   background-color: #353535;
 
-  border-top-left-radius: 5px 5px;
-
   display: grid;
-  grid-template-rows: 40px 1fr;
-  grid-template-columns: 1fr;
+  grid-template-rows: 80px 1fr;
+  grid-template-columns: 225px;
 
   grid-template-areas:
     "menu-title"
@@ -240,8 +231,10 @@ code {
 
   /* when click blog add this, maybe do animations? */
   overflow: hidden;
-  min-width: 200px;
-  max-width: 400px;
+  min-width: 225px;
+  max-width: 500px;
+
+  justify-items: center;
 }
 
 /* .info {
@@ -253,10 +246,7 @@ code {
   min-width: 200px;
 } */
 
-.sidepane-icon {
-  /* margin-bottom: 5px; */
-  justify-self: center;
-}
+
 
 .menu-icons {
   grid-area: menu-icons;
@@ -268,10 +258,13 @@ code {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 40px;
-  width: 200px;
+  height: 80px;
+  /* width: 300px; */
+
+  /* padding-left: 38px; */
 
   font-weight: 700;
+  font-size: 150%;
   grid-area: menu-title;
   /* align-self: left;
   justify-self: left; */
@@ -282,59 +275,27 @@ code {
   grid-area: menu-items;
   /* height: 28px; */
   display: grid;
-  grid-template-rows: 28px 28px repeat(auto-fill, 28px);
-  grid-template-columns: 1fr;
+  grid-template-rows: 56px 56px repeat(100, 56px);
+  grid-template-columns: 145px;
+  /* padding-left: 38px; */
+  margin-top: 1em;
+  /* justify-items: center; */
 }
 
-/* .contact-box {
-  grid-row-start: 5;
-  grid-row-end: 6;
-} */
-
-/* .home-box { 
-  grid-area: home-box;
-  background-color: rgba(255, 0, 0, 0.5);
-}*/
-
-/* .blog-box {
-  grid-area: blog-box;
-  background-color: rgba(0, 247, 255, 0.5); 
-} */
-
-
-.blog-posts > p {
-  /* margin: 0; */
-  margin-top: 0;
-  margin-right: 10px;
-  margin-bottom: 0;
-  font: 100%/1.65 'Source Sans Regular', sans-serif;
+.material-icons.md-48 {
+  font-size: 48px;
+  color: #ccc;
+  margin-left: 10px;
+  margin-top: 3px;
 
 }
 
-.menu-items {
-  grid-area: menu-items;
-  color: white;
-
-  display: grid;
-  grid-template-rows: 28px repeat(auto-fill, 28px);
-  grid-template-columns: 58px 132px;
-  column-gap: 10px;
-}
-
-.html-icon-1 {
-  justify-self: right;
-  align-self: center;
 
 
-  grid-column-start: 1;
-  grid-column-end: 2;
-  grid-row-start: 1;
-  grid-row-end: 2;
-}
 
 .home-side {
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
 }
@@ -350,39 +311,46 @@ code {
 }
 
 .blog-side {
-  grid-column-start: 2;
-  grid-column-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 3;
 }
 
 .posts {
-  font: 100%/1.95 'Source Sans Regular', sans-serif;
-  color: white;
+  font: 175% 'Source Sans Bold', sans-serif;
+  display: inline-block;
+  align-items: center;
+  color: #A8D6DC;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  min-width: 132px;
+  min-width: 185px;
+}
+
+.posts > p {
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
 
 }
 
-.blog-posts > span {
+/* .blog-posts>p {
+  /* margin: 0; 
+  margin-top: 0;
+  margin-right: 10px;
+  margin-bottom: 0;
+  font: 100%/1.65 'Source Sans Regular', sans-serif;
+
+} */
+
+.blog-posts>span {
   display: none;
 }
 
 .projects-side {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  /*change these values*/
-  grid-row-end: 4;
-  /*change these values*/
-}
-
-.html-icon-2 {
-  justify-self: right;
-  align-self: center;
-
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
@@ -390,22 +358,9 @@ code {
   grid-row-end: 4;
   /*change these values*/
 }
+
 
 .resume-side {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 4;
-  /*change these values*/
-  grid-row-end: 5;
-  /*change these values*/
-}
-
-
-
-.html-icon-3 {
-  justify-self: right;
-  align-self: center;
-
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 4;
@@ -413,23 +368,15 @@ code {
   grid-row-end: 5;
   /*change these values*/
 }
+
 
 .contact-side {
-  grid-column-start: 2;
-  grid-column-end: 3;
-  grid-row-start: 5;
-  grid-row-end: 6;
-}
-
-.html-icon-4 {
-  justify-self: right;
-  align-self: center;
-
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 5;
   grid-row-end: 6;
 }
+
 
 /* TODO:
 on click we need to add however many p tags
@@ -467,25 +414,19 @@ and add 4 + numOfP to the end
 } */
 
 
-.home-side>p {
-  font: 100%/2.2 'Source Sans Regular', sans-serif;
-  margin-bottom: 0;
-}
-
-.blog-side>p {
-  font: 100%/1.9 'Source Sans Regular', sans-serif;
-  margin-bottom: 0;
-}
-
-.menu-items>p,
+.home-side>p,
+.blog-side>p,
 .projects-side>p,
 .resume-side>p,
-.contact-side>p {
-  font: 100%/1.5 'Source Sans Regular', sans-serif;
+.projects-side>p,
+.contact-side>p
+  {
+  font: 250% 'Source Sans Bold', sans-serif;
   margin-bottom: 0;
+  color: #ccc;
 }
 
-.nav {
+/* .nav {
   visibility: show;
 
   font: 100%/1.5 'Source Sans Regular', sans-serif;
@@ -501,7 +442,7 @@ and add 4 + numOfP to the end
   /* grid-template-columns: repeat(5, 1fr); */
 
 
-  /* do this but with numbers in javascript */
+  /* do this but with numbers in javascript 
   grid-template-areas: "home";
   /* display: flex;
   flex-shrink: 1;
@@ -509,13 +450,13 @@ and add 4 + numOfP to the end
 
   /* overflow: auto;
   overflow-y: hidden;
-  overflow-x: auto; */
+  overflow-x: auto; 
   -webkit-overflow-scrolling: touch;
   align-content: space-evenly;
   justify-content: space-evenly;
 
-  /* grid-gap: 10px; */
-}
+  /* grid-gap: 10px;
+} */
 
 .home {
   /* background-color: pink; */
@@ -580,7 +521,7 @@ and add 4 + numOfP to the end
 }
 
 .info>p {
-  margin: 0;
+  margin: 0 auto;
   max-width: 75ch;
 }
 
@@ -589,10 +530,6 @@ and add 4 + numOfP to the end
   background-color: #1A8BDC;
   color: white;
   padding: 0 30px 0 30px;
-
-  border-bottom-right-radius: 5px 5px;
-  border-bottom-left-radius: 5px 5px;
-
   display: flex;
   align-items: center;
 
@@ -619,15 +556,11 @@ and add 4 + numOfP to the end
     grid-template-columns: 1fr;
     grid-template-rows: 60px 1fr;
     grid-template-areas:
-      "nav"
+      "."
       "info";
   }
 
   /* TODO: Change font type to source code/sans */
-  .nav {
-    font: 100%/1.5 'Source Sans Regular', sans-serif;
-
-  }
 
   .home,
   .projects,

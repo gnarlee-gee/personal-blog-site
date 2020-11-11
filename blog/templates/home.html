@@ -22,101 +22,39 @@
 
         <div class="sidepane" style="z-index: 0;">
             <div class="menu-title">
-                charles-grealy
+                charles <br>
+                grealy
             </div>
 
             <!-- TODO: Make rows "dynamic" in size
             Like auto rows -> research -->
             <div class="sidepane-row" id="sidepane-div">
-                <!-- <div class="home-box">
-
-                </div> -->
-                <!-- <div class="blog-box">
-
-                </div> -->
-
-
-                <!-- <div class="sidepane-icon html-icon-2" style="height: 22px; display: block;"><i class="fab fa-html5 fa-lg"
-                    style="color:red; font-size: 22px; width: 21.33px"></i></div> -->
-                <!-- <div class="contact-box" style="display: block;">
-                <p>
-                    contact.html
-                </p>
-            </div> -->
-            </div>
-            <div class="menu-items">
-
-                <div class="sidepane-icon html-icon-1" style="width: 22px; height: 21px;"><img
-                        src="https://img.icons8.com/color/26/000000/html-5.png" /></div>
                 <div class="home-side">
                     <p>
-                        home.html
+                        home
                     </p>
                 </div>
-                <!-- <p>
-                    projects.html
-                </p> -->
 
                 <!-- drop down arrow below -->
-                <div class="sidepane-icon folder-icon-1" style="height: 22px;">
-                    <svg id="down-arrow" style="display: none; position: relative; left: 8; margin-bottom: 3px;"
-                        xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="22" viewBox="0 0 172 172"
-                        style=" fill:#000000;">
-                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                            style="mix-blend-mode: normal">
-                            <path d="M0,172v-172h172v172z" fill="none"></path>
-                            <g fill="#ecf0f1">
-                                <path
-                                    d="M86,100.84217l-32.75883,-32.75883l-10.75,10.75l43.50883,43.50883l43.50883,-43.50883l-10.75,-10.75z">
-                                </path>
-                            </g>
-                        </g>
-                    </svg>
-                    <svg id="right-arrow" style="margin-bottom: 3px; display: inline-block;"
-                        xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="24" height="22" viewBox="0 0 226 226"
-                        style=" fill:#000000;">
-                        <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                            stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0"
-                            font-family="none" font-weight="none" font-size="none" text-anchor="none"
-                            style="mix-blend-mode: normal">
-                            <path d="M0,226v-226h226v226z" fill="none"></path>
-                            <g fill="#ecf0f1">
-                                <path
-                                    d="M123.08525,113l-43.04358,-43.04358l14.125,-14.125l57.16858,57.16858l-57.16858,57.16858l-14.125,-14.125z">
-                                </path>
-                            </g>
-                        </g>
-                    </svg><img id="folder-closed" style="margin-bottom: 5px;"
-                        src="https://img.icons8.com/office/20/000000/folder-invoices.png" /></i>
-                    <img id="folder-open" style="margin-bottom: 5px; display: none;"
-                        src="https://img.icons8.com/office/20/000000/live-folder.png" />
-                </div>
+
                 <div class="blog-side">
-                    <p>
+
+                    <p style="float: left;">
+
                         blog
                         <!--<i class="fas fa-folder-open" style="color: rgb(255, 208, 0);"></i>-->
                     </p>
+                    <span class="material-icons md-48" id="down-arrow" style="display: inline-block;">
+                        expand_more
+                    </span>
+                    <span class="material-icons md-48" id="up-arrow" style="display: none;">
+                        expand_less
+                    </span>
                     <div class="blog-posts" style="display: none;">
                         {% for post in object_list %}
 
-                        <p class="posts" style="margin-left: -18px; vertical-align: middle;">
+                        <p class="posts" style="display:none;">
 
-                            <svg style="vertical-align: text-bottom;" mlns="http://www.w3.org/2000/svg" x="0px" y="0px"
-                                width="22" height="22" viewBox="0 0 172 172" style=" fill:#000000;">
-                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
-                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
-                                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
-                                    text-anchor="none" style="mix-blend-mode: normal">
-                                    <path d="M0,172v-172h172v172z" fill="none"></path>
-                                    <g fill="#ffffff">
-                                        <path
-                                            d="M45.01563,12.09375c-9.675,0 -17.46875,7.79375 -17.46875,17.46875v107.5c0,9.675 7.79375,17.46875 17.46875,17.46875h81.96875c9.675,0 17.46875,-7.79375 17.46875,-17.46875v-107.5c0,-9.675 -7.79375,-17.46875 -17.46875,-17.46875zM45.01563,20.15625h81.96875c5.24062,0 9.40625,4.16563 9.40625,9.40625v107.5c0,5.24062 -4.16563,9.40625 -9.40625,9.40625h-81.96875c-5.24063,0 -9.40625,-4.16563 -9.40625,-9.40625v-107.5c0,-5.24062 4.16562,-9.40625 9.40625,-9.40625zM45.01563,29.5625v20.15625h81.96875v-20.15625zM50.39063,68.53125c-2.28438,0 -4.03125,1.74688 -4.03125,4.03125c0,2.28437 1.74687,4.03125 4.03125,4.03125h68.53125c2.28437,0 4.03125,-1.74688 4.03125,-4.03125c0,-2.28437 -1.74688,-4.03125 -4.03125,-4.03125zM50.39063,88.6875c-2.28438,0 -4.03125,1.74688 -4.03125,4.03125c0,2.28437 1.74687,4.03125 4.03125,4.03125h68.53125c2.28437,0 4.03125,-1.74688 4.03125,-4.03125c0,-2.28437 -1.74688,-4.03125 -4.03125,-4.03125zM50.39063,108.84375c-2.28438,0 -4.03125,1.74688 -4.03125,4.03125c0,2.28437 1.74687,4.03125 4.03125,4.03125h35.60938c2.28437,0 4.03125,-1.74688 4.03125,-4.03125c0,-2.28437 -1.74688,-4.03125 -4.03125,-4.03125z">
-                                        </path>
-                                    </g>
-                                </g>
-                            </svg>
 
                             {{ post.title }}
                         </p>
@@ -126,25 +64,19 @@
                         {% endfor %}
                     </div>
                 </div>
-                <div class="sidepane-icon html-icon-2" style="width: 22px;"><img
-                        src="https://img.icons8.com/color/26/000000/html-5.png" /></div>
                 <div class="projects-side">
                     <p>
-                        projects.html
+                        projects
                     </p>
                 </div>
-                <div class="sidepane-icon html-icon-3" style="width: 22px;"><img
-                        src="https://img.icons8.com/color/26/000000/html-5.png" /></div>
                 <div class="resume-side">
                     <p>
-                        resume.html
+                        resume
                     </p>
                 </div>
-                <div class="sidepane-icon html-icon-4" style="width: 22px;"><img
-                        src="https://img.icons8.com/color/26/000000/html-5.png" /></div>
                 <div class="contact-side">
                     <p>
-                        contact.html
+                        contact
                     </p>
                 </div>
                 <!-- <div class="sidepane-icon html-icon-2" style="height: 22px;"><i class="fab fa-html5 fa-lg"
@@ -162,8 +94,12 @@
                     contact.html
                 </p> -->
             </div>
+            <div class="menu-items">
+
+
+            </div>
         </div>
-        <div class="nav">
+        <!-- <div class="nav">
             <div class="home">
                 <img style="padding-right: 5px;" src="https://img.icons8.com/color/22/000000/html-5.png" />
                 home.html
@@ -179,8 +115,8 @@
             </div>
             <div class="contact">
                 contact.html
-            </div> -->
-        </div>
+            </div> 
+        </div> -->
 
         <!-- TODO: Create grid with 2 cols -->
         <div id="info-box" class="info">
