@@ -2,84 +2,62 @@
 {% block content %}
 {% load markdown_deux_tags %}
 
-<!-- <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Source+Code+Pro:wght@500&display=swap" rel="stylesheet"> -->
-<style>
-
-
-
-
-
-
-
-</style>
-
-
 
 
 <div class="grid-container">
     <div class="page-container">
         <!-- draggable="true" -->
 
-        <div class="sidepane" style="z-index: 0;">
-            <div class="menu-title">
-                charles <br>
-                grealy
+        <!-- TODO: Make rows "dynamic" in size
+            Like auto rows -> research -->
+        <div class="sidepane" id="sidepane-div">
+            <div class="home-side">
+                <p>
+                    <a class="sidepane-links" href="{% url 'home' %}">
+                        home
+                    </a>
+                </p>
             </div>
 
-            <!-- TODO: Make rows "dynamic" in size
-            Like auto rows -> research -->
-            <div class="sidepane-row" id="sidepane-div">
-                <div class="home-side">
-                    <p>
-                        home
-                    </p>
-                </div>
+            <!-- drop down arrow below -->
+            {% block postlist %}
+            <div class="blog-side">
 
-                <!-- drop down arrow below -->
-
-                <div class="blog-side">
-
-                    <p style="float: left;">
-
+                <p style="float: left;">
                         blog
-                        <!--<i class="fas fa-folder-open" style="color: rgb(255, 208, 0);"></i>-->
-                    </p>
-                    <span class="material-icons md-48" id="down-arrow" style="display: inline-block;">
-                        expand_more
-                    </span>
-                    <span class="material-icons md-48" id="up-arrow" style="display: none;">
-                        expand_less
-                    </span>
-                    <div class="blog-posts" style="display: none;">
-                        {% for post in object_list %}
-
-                        <p class="posts" style="display:none;">
-
-
+                    <!--<i class="fas fa-folder-open" style="color: rgb(255, 208, 0);"></i>-->
+                </p>
+                
+                <div class="blog-posts" style="display: none;">
+                    {% for post in post_list %}
+                    <p class="posts" style="display:none;">
+                        <a href="{% url 'post-detail' post.pk %}">
                             {{ post.title }}
-                        </p>
-                        <span style="display: none;"> {{ post.body|markdown }}</span>
+                        </a>
+                    </p>
+                    <span style="display: none;"> {{ post.date }}</span>
 
-                        <!-- <p>{{ post.date|date:'F d, Y' }}</p> -->
-                        {% endfor %}
-                    </div>
+                    {% endfor %}
                 </div>
-                <div class="projects-side">
-                    <p>
-                        projects
-                    </p>
-                </div>
-                <div class="resume-side">
-                    <p>
-                        resume
-                    </p>
-                </div>
-                <div class="contact-side">
-                    <p>
-                        contact
-                    </p>
-                </div>
-                <!-- <div class="sidepane-icon html-icon-2" style="height: 22px;"><i class="fab fa-html5 fa-lg"
+               
+            </div>
+            {% endblock %}
+            <div class="projects-side">
+                <p>
+                    projects
+                </p>
+            </div>
+            <div class="resume-side">
+                <p>
+                    resume
+                </p>
+            </div>
+            <div class="contact-side">
+                <p>
+                    contact
+                </p>
+            </div>
+            <!-- <div class="sidepane-icon html-icon-2" style="height: 22px;"><i class="fab fa-html5 fa-lg"
                         style="color:red; font-size: 22px; width: 21.33px"></i></div>
                 <div class="contact-side">
                     <p>
@@ -87,18 +65,14 @@
                     </p>
                 </div> -->
 
-                <!-- <p>
+            <!-- <p>
                     resume.html
                 </p>
                 <p>
                     contact.html
                 </p> -->
-            </div>
-            <div class="menu-items">
-
-
-            </div>
         </div>
+
         <!-- <div class="nav">
             <div class="home">
                 <img style="padding-right: 5px;" src="https://img.icons8.com/color/22/000000/html-5.png" />
@@ -107,10 +81,10 @@
             <!-- <div class="projects">
                 projects.html
             </div> -->
-            <!-- <div class="blog">
+        <!-- <div class="blog">
                 <i style="color:red; padding-right: 10px;" class="fab fa-html5"></i>blog.html
             </div> -->
-            <!-- <div class="resume">
+        <!-- <div class="resume">
                 resume.html
             </div>
             <div class="contact">
@@ -121,6 +95,7 @@
         <!-- TODO: Create grid with 2 cols -->
         <div id="info-box" class="info">
             <p>
+                {% block posts %}
                 Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
                 blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
                 ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It
@@ -133,7 +108,7 @@
                 the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the
                 headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question
                 ran over her cheek, then </p>
-
+                {% endblock %}
         </div>
         <!-- <div class="mobile-wrapper">
             <div class="mobile-container">
@@ -168,12 +143,5 @@
     {{ post.body|markdown }}
     {% endfor %}
 </div>
-
-<script>
-    // $(document).ready(function(){
-
-    //     $('.sidepane').resizable();
-    // });
-</script>
 
 {% endblock %}

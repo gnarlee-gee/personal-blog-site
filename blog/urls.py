@@ -14,12 +14,14 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.urls import path
-# from blog import views # from . import views is the alternative -- this is more readable imo
-from .views import HomeView, PostDetailView # using class based views so we need to use class based URLs
+from blog import views # from . import views is the alternative -- this is more readable imo
+from .views import HomeView, PostDetailView#, BlogView # using class based views so we need to use class based URLs
 
 
 urlpatterns = [
     #path('', views.home, name='home'),
     path('', HomeView.as_view(), name='home'), # .as_view() because class based views
-    path('post/<int:pk>', PostDetailView.as_view(), name='post-detail') # pk is the primary key -> auto assigns to post in db
+    # path('blog', BlogView.as_view(), name='blog'),
+    path('post/<int:pk>', PostDetailView.as_view(), name='post-detail'), # pk is the primary key -> auto assigns to post in db
+    # path('post/<int:pk>', BlogView.as_view(), name='post-detail'),
 ]

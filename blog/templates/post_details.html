@@ -1,20 +1,43 @@
-{% extends 'base.html' %}
-{% block title %}
-    {{ post.title_tag }}
-{% endblock %}
+{% extends 'home.html' %}
+
 
 {% load markdown_deux_tags %}
 
-{% block content %}
+{% block postlist %}
+<div class="blog-side">
+
+    <p style="float: left;">
+            blog
+        <!--<i class="fas fa-folder-open" style="color: rgb(255, 208, 0);"></i>-->
+    </p>
+    
+    <div class="blog-posts" style="display: none;">
+        {% for posts in post_list %}
+        <p class="posts" style="display:none;">
+            <a href="{% url 'post-detail' posts.pk %}">
+                {{ posts.title }}
+            </a>
+        </p>
+        <span style="display: none;"> {{ posts.date }}</span>
+
+        {% endfor %}
+    </div>
+   
+</div>
+{% endblock %}
+
+{% block posts %}
+
+
 
 <h1>{{ post.title }}</h1>
 <!-- <small>By: {{post.author.first_name }}
     {{ post.author.last_name }}</small><br> -->
-    <hr>
-    <br>
-    {{ post.body|markdown }}
+<hr>
+<br>
+{{ post.body|markdown }}
 
-    <br><br><br>
-    <a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
+<br><br><br>
+<a href="{% url 'home' %}" class="btn btn-secondary">Back</a>
 
-    {% endblock %}
+{% endblock %}

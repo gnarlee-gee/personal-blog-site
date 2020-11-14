@@ -13,8 +13,13 @@ from .models import Post
 class HomeView(ListView):
     model = Post
     template_name = 'home.html'
-
+    context_object_name = 'post_list'
+    
 
 class PostDetailView(DetailView):
     model = Post
-    template_name = 'home.html'
+    template_name = 'post_details.html'
+    def get_context_data(self, *args, **kwargs):
+        context = super(PostDetailView, self).get_context_data(*args, **kwargs)
+        context['post_list'] = Post.objects.all()
+        return context

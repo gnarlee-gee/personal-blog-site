@@ -70,11 +70,17 @@ function setBlogPostsGrid(operation) {
         let i = 0;
         for (; i < children; i++) {
             let postBox = document.createElement('div');
+            let postUrl = posts[i].firstElementChild.outerHTML.match(/\<(.*?)\>/g)
             postBox.setAttribute('id', `post-box-${i+1}`);
             // postBox.setAttribute('class', 'posts')
             document.getElementById("sidepane-div").appendChild(postBox);
             postBox = document.querySelector(`#post-box-${i+1}`);
-            postBox.innerHTML = "<p>" + posts[i].innerHTML + "</p>"
+            // console.log(posts[i].firstElementChild.outerHTML.match(/\<(.*?)\>/g)[0])
+            postBox.innerHTML = postUrl[0] + posts[i].textContent.trim() + "</a>"
+            if (posts[i].textContent.trim().length >= 12) {
+                // console.log([i], 'yeh its long')
+            }
+
             postBox.setAttribute('class', 'posts')
             // Send the id of these to put click event on
             postBox.style.zIndex = 2;
@@ -106,29 +112,35 @@ function setBlogPostsGrid(operation) {
 // Modifies behavior when clicking blog
 function blogClick(numOfPosts) {
     const blogBox = document.querySelector('.blog-side');
-    const downArrow = document.querySelector("#down-arrow");
-    const upArrow = document.querySelector("#up-arrow");
-    const posts = document.querySelector('.blog-posts')
+    const sidePane = document.querySelector('.sidepane')
 
-    if (downArrow.style.display == 'inline-block') {
-        posts.style.display = 'none';
-    }
+    const posts = document.querySelector('.blog-posts');
+    let dropDown = true;
+
     blogBox.addEventListener('click', event => {
-        if (downArrow.style.display == 'inline-block') {
-            console.log('works')
-            downArrow.style.display = 'none';
-            upArrow.style.display = 'inline-block';
+        if (dropDown) {
+            // console.log('works')
+            // downArrow.style.display = 'none';
+            // upArrow.style.display = 'inline-block';
+            sidePane.className += ' posts-scroll-bar';
+            sidePane.style.gridTemplateColumns = '400px';
+            sidePane.style.zIndex = 123;
+            // sidePane.style.overflow = 'visible';
+            // sidePane.style.overflowX = 'hidden';
             posts.style.display = 'block';
             moveGridItems('change', numOfPosts);
             setBlogPostsGrid('change', numOfPosts)
+            dropDown = false;
             // console.log(document.querySelector("#sidepane-div").children)
 
         } else {
-            upArrow.style.display = 'none';
-            downArrow.style.display = 'inline-block';
+            // upArrow.style.display = 'none';
+            // downArrow.style.display = 'inline-block';
             posts.style.display = 'none';
+            sidePane.classList.remove('posts-scroll-bar');
             moveGridItems('default', numOfPosts);
             setBlogPostsGrid('default', numOfPosts);
+            dropDown = true;
         }
     })
 }
@@ -144,121 +156,147 @@ function blogClick(numOfPosts) {
 // Implements ability to resize sidepane
 function resizeSidepane() {
     $(function () {
-        $(".sidepane").resizable({
-            handles: "e",
-            minWidth: 225,
-            alsoResize: ".posts"
-        })
-    });
-    $(function () {
-        $(".posts").resizable({
-            handles: "e",
-            minWidth: 225,
-        })
-    });
-}
-
-// function initializeSidePane() {
-
-//     let homeBox = document.createElement('div');
-//     let blogBox = document.createElement('div');
-//     let projectsBox = document.createElement('div');
-//     let resumeBox = document.createElement('div');
-//     let contactBox = document.createElement('div');
-
-
-//     homeBox.setAttribute('id', 'home-box');
-//     blogBox.setAttribute('id', 'blog-box');
-//     projectsBox.setAttribute('id', 'projects-box');
-//     resumeBox.setAttribute('id', 'resume-box');
-//     contactBox.setAttribute('id', 'contact-box');
-
-//     document.getElementById("sidepane-div").appendChild(homeBox);
-//     document.getElementById("sidepane-div").appendChild(blogBox);
-//     document.getElementById("sidepane-div").appendChild(projectsBox);
-//     document.getElementById("sidepane-div").appendChild(resumeBox);
-//     document.getElementById("sidepane-div").appendChild(contactBox);
-
-
-//     // console.log(document.querySelector("#sidepane-div").children)
-//     homeBox = document.querySelector('#home-box');
-//     homeBox.style.zIndex = 2;
-//     homeBox.style.gridRowStart = 1;
-//     homeBox.style.gridRowEnd = 2;
-
-//     blogBox = document.querySelector('#blog-box');
-//     blogBox.style.zIndex = 2;
-//     blogBox.style.gridRowStart = 2;
-//     blogBox.style.gridRowEnd = 3;
-
-//     projectsBox = document.querySelector('#projects-box');
-//     projectsBox.style.zIndex = 2;
-//     projectsBox.style.gridRowStart = 3;
-//     projectsBox.style.gridRowEnd = 4;
-
-//     resumeBox = document.querySelector('#resume-box');
-//     resumeBox.style.zIndex = 2;
-//     resumeBox.style.gridRowStart = 4;
-//     resumeBox.style.gridRowEnd = 5;
-
-//     contactBox = document.querySelector('#contact-box');
-//     contactBox.style.zIndex = 2;
-//     contactBox.style.gridRowStart = 5;
-//     contactBox.style.gridRowEnd = 6;
-// }
+            var state = true;
+            $(".blog-side").on("click", function () {
+                if (state) {
+                    $(".sidepane").animate({
+                        width: "50vw",
+                        backgroundColor: "rgba(24, 24, 24, .8)",
+                    }, 500);
+                } else {
+                    $(".sidepane").animate({
+                        width: 225,
+                        backgroundColor: "#181818",
+                    }, 0);
+                }
+                state = !state;
+            });
+    })
+    }
+    // $(function () {
+    //     $(".sidepane").resizable({
+    //         handles: "e",
+    //         minWidth: 225,
+    //         maxWidth: 1000,
+    //         animate: true,
+    //         alsoResize: ".posts",
+    //         // animate: true,
+    //         // helper: "ui-resizable-helper",
+    //     })
+    // });
+    // $(function () {
+    //     $(".posts").resizable({
+    //         handles: "e",
+    //         minWidth: 225,
+    //         maxWidth: 1000,
+    //         animate: true,
+    //         // helper: "ui-resizable-helper",
+    //         // helper: "ui-resizable-helper",
+    //     })
+    // });
 
 
-// function addSidepaneItemsListener() {
-//     let sidepaneChildren = document.querySelector("#sidepane-div").children;
-//     console.log(sidepaneChildren[1])
-//     for (let i = 0; i < sidepaneChildren.length; i++) {
-//         // let child = document.querySelector('#' + sidepaneChildren[i].id);
-//         sidepaneChildren[i].addEventListener('click', event => {
-//             // console.log(child);
-//             addToNavBar(sidepaneChildren[i]);
-//         })
+    // function initializeSidePane() {
 
-//     }
-// }
+    //     let homeBox = document.createElement('div');
+    //     let blogBox = document.createElement('div');
+    //     let projectsBox = document.createElement('div');
+    //     let resumeBox = document.createElement('div');
+    //     let contactBox = document.createElement('div');
 
 
-// function addToNavBar(child) {
-//     let navBar = document.querySelector('.nav');
-//     let navStyle = getComputedStyle(navBar).gridTemplateAreas;
-//     navStyle = navStyle.replace(/"/g, '')
-//     const childIdNavName = child.id.split('-')
+    //     homeBox.setAttribute('id', 'home-box');
+    //     blogBox.setAttribute('id', 'blog-box');
+    //     projectsBox.setAttribute('id', 'projects-box');
+    //     resumeBox.setAttribute('id', 'resume-box');
+    //     contactBox.setAttribute('id', 'contact-box');
 
-//     if (childIdNavName[0] != 'post') {
-//         if (!navStyle.includes(childIdNavName[0])) {
-//             navBar.style.gridTemplateAreas = `"${navStyle + ' ' + childIdNavName[0]}"`;
-//             console.log('navStyle', getComputedStyle(navBar).gridTemplateAreas)
-//         }
-//     } else {
-//         if (!navStyle.includes(childIdNavName.join('-'))) {
-//             navBar.style.gridTemplateAreas = `"${navStyle + ' ' + childIdNavName.join('-')}"`
-//             console.log('navStyle', getComputedStyle(navBar).gridTemplateAreas)
-//         }
-//     }
-// }
-
-// function setNavClassStyle(navItem, className) {
-
-//     navItem.setAttribute('style', 
-//     `display: center;
-//     align-items: center;
-//     justify-content: center;
-//     grid-area: ${className};
-//     padding: 0 10px 0 10px;`);
-//     // navItem.style.display = 'flex';
-//     // navItem.style.alignItems = 'center';
-//     // navItem.style.justifyContent = 'center';
-//     // navItem.style.gridArea = className;
-//     // navItem.style.padding = "0 10px 0 10px";
-
-// }
+    //     document.getElementById("sidepane-div").appendChild(homeBox);
+    //     document.getElementById("sidepane-div").appendChild(blogBox);
+    //     document.getElementById("sidepane-div").appendChild(projectsBox);
+    //     document.getElementById("sidepane-div").appendChild(resumeBox);
+    //     document.getElementById("sidepane-div").appendChild(contactBox);
 
 
+    //     // console.log(document.querySelector("#sidepane-div").children)
+    //     homeBox = document.querySelector('#home-box');
+    //     homeBox.style.zIndex = 2;
+    //     homeBox.style.gridRowStart = 1;
+    //     homeBox.style.gridRowEnd = 2;
 
-// function removeFromNavBar() {
+    //     blogBox = document.querySelector('#blog-box');
+    //     blogBox.style.zIndex = 2;
+    //     blogBox.style.gridRowStart = 2;
+    //     blogBox.style.gridRowEnd = 3;
 
-// }
+    //     projectsBox = document.querySelector('#projects-box');
+    //     projectsBox.style.zIndex = 2;
+    //     projectsBox.style.gridRowStart = 3;
+    //     projectsBox.style.gridRowEnd = 4;
+
+    //     resumeBox = document.querySelector('#resume-box');
+    //     resumeBox.style.zIndex = 2;
+    //     resumeBox.style.gridRowStart = 4;
+    //     resumeBox.style.gridRowEnd = 5;
+
+    //     contactBox = document.querySelector('#contact-box');
+    //     contactBox.style.zIndex = 2;
+    //     contactBox.style.gridRowStart = 5;
+    //     contactBox.style.gridRowEnd = 6;
+    // }
+
+
+    // function addSidepaneItemsListener() {
+    //     let sidepaneChildren = document.querySelector("#sidepane-div").children;
+    //     console.log(sidepaneChildren[1])
+    //     for (let i = 0; i < sidepaneChildren.length; i++) {
+    //         // let child = document.querySelector('#' + sidepaneChildren[i].id);
+    //         sidepaneChildren[i].addEventListener('click', event => {
+    //             // console.log(child);
+    //             addToNavBar(sidepaneChildren[i]);
+    //         })
+
+    //     }
+    // }
+
+
+    // function addToNavBar(child) {
+    //     let navBar = document.querySelector('.nav');
+    //     let navStyle = getComputedStyle(navBar).gridTemplateAreas;
+    //     navStyle = navStyle.replace(/"/g, '')
+    //     const childIdNavName = child.id.split('-')
+
+    //     if (childIdNavName[0] != 'post') {
+    //         if (!navStyle.includes(childIdNavName[0])) {
+    //             navBar.style.gridTemplateAreas = `"${navStyle + ' ' + childIdNavName[0]}"`;
+    //             console.log('navStyle', getComputedStyle(navBar).gridTemplateAreas)
+    //         }
+    //     } else {
+    //         if (!navStyle.includes(childIdNavName.join('-'))) {
+    //             navBar.style.gridTemplateAreas = `"${navStyle + ' ' + childIdNavName.join('-')}"`
+    //             console.log('navStyle', getComputedStyle(navBar).gridTemplateAreas)
+    //         }
+    //     }
+    // }
+
+    // function setNavClassStyle(navItem, className) {
+
+    //     navItem.setAttribute('style', 
+    //     `display: center;
+    //     align-items: center;
+    //     justify-content: center;
+    //     grid-area: ${className};
+    //     padding: 0 10px 0 10px;`);
+    //     // navItem.style.display = 'flex';
+    //     // navItem.style.alignItems = 'center';
+    //     // navItem.style.justifyContent = 'center';
+    //     // navItem.style.gridArea = className;
+    //     // navItem.style.padding = "0 10px 0 10px";
+
+    // }
+
+
+
+    // function removeFromNavBar() {
+
+    // }
