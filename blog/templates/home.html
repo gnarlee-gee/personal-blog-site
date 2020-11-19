@@ -4,14 +4,18 @@
 
 
 
+
 <div class="grid-container">
+    
     <div class="page-container">
+
         <!-- draggable="true" -->
 
         <!-- TODO: Make rows "dynamic" in size
             Like auto rows -> research -->
         <div class="sidepane" id="sidepane-div">
-            <div class="home-side">
+
+            <div class="home-side menu-collapse">
                 <p>
                     <a class="sidepane-links" href="{% url 'home' %}">
                         home
@@ -24,10 +28,10 @@
             <div class="blog-side">
 
                 <p style="float: left;">
-                        blog
+                    blog
                     <!--<i class="fas fa-folder-open" style="color: rgb(255, 208, 0);"></i>-->
                 </p>
-                
+
                 <div class="blog-posts" style="display: none;">
                     {% for post in post_list %}
                     <p class="posts" style="display:none;">
@@ -39,7 +43,7 @@
 
                     {% endfor %}
                 </div>
-               
+
             </div>
             {% endblock %}
             <div class="projects-side">
@@ -47,16 +51,17 @@
                     projects
                 </p>
             </div>
-            <div class="resume-side">
+            <div class="resume-side menu-collapse">
                 <p>
                     resume
                 </p>
             </div>
-            <div class="contact-side">
+            <div class="contact-side menu-collapse">
                 <p>
                     contact
                 </p>
             </div>
+
             <!-- <div class="sidepane-icon html-icon-2" style="height: 22px;"><i class="fab fa-html5 fa-lg"
                         style="color:red; font-size: 22px; width: 21.33px"></i></div>
                 <div class="contact-side">
@@ -94,21 +99,19 @@
 
         <!-- TODO: Create grid with 2 cols -->
         <div id="info-box" class="info">
-            <p>
+            <div class="about-me">
+                <h1>This is the about-me section! </h1>
+            </div>
+            <div class="blog-section">
+                <h1>This is the blog section</h1>
                 {% block posts %}
-                Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the
-                blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language
-                ocean. A small river named Duden flows by their place and supplies it with the necessary regelialia. It
-                is a paradisematic country, in which roasted parts of sentences fly into your mouth. Even the
-                all-powerful Pointing has no control about the blind texts it is an almost unorthographic life One day
-                however a small line of blind text by the name of Lorem Ipsum decided to leave for the far World of
-                Grammar. The Big Oxmox advised her not to do so, because there were thousands of bad Commas, wild
-                Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She packed her seven
-                versalia, put her initial into the belt and made herself on the way. When she reached the first hills of
-                the Italic Mountains, she had a last view back on the skyline of her hometown Bookmarksgrove, the
-                headline of Alphabet Village and the subline of her own road, the Line Lane. Pityful a rethoric question
-                ran over her cheek, then </p>
                 {% endblock %}
+            </div>
+            <!-- <div class="footer">
+                <p>
+                    footer
+                </p>
+            </div> -->
         </div>
         <!-- <div class="mobile-wrapper">
             <div class="mobile-container">
@@ -129,19 +132,22 @@
                 </div>
             </div>
         </div> -->
-        <div class="footer">
+        <!-- <div class="footer">
             <p>
                 footer
             </p>
-        </div>
+        </div> -->
+    </div>
+    <div class="post-bg">
+
     </div>
 
 </div>
 
-<div class="hello" style="display: none;">
+<!-- <div class="hello" style="display: none;">
     {% for post in object_list %}
     {{ post.body|markdown }}
     {% endfor %}
-</div>
+</div> -->
 
 {% endblock %}
