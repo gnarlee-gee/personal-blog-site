@@ -3,7 +3,7 @@ window.onload = function () {
     const blogPosts = document.querySelector('.blog-posts');
     let numOfPosts = blogPosts.children.length;
     numOfPosts /= 2;
-    setIdBlogPosts(blogPosts);
+    // setIdBlogPosts(blogPosts);
     // initializeSidePane();
     blogClick(numOfPosts);
     // initializeNavGrid(numOfPosts);
@@ -13,19 +13,75 @@ window.onload = function () {
     // removeFromNavBar();
 
 
-
     // const blogBody = document.querySelector('#post-body-1');
     // console.log(blogBody)
 
+
 }
 
-// Sets ID for each post and then post body
-function setIdBlogPosts(blogPosts, numOfPosts) {
-    for (let i = 0; i < numOfPosts; i++) {
-        blogPosts.children[i * 2].setAttribute('id', `post-${i+1}`);
-        blogPosts.children[(i * 2) + 1].setAttribute('id', `post-body-${i+1}`);
+const homeMenuText = document.querySelector('#home-menu');
+const blogMenuText = document.querySelector("#blog-side-text");
+const projectsMenuText = document.querySelector("#projects-side-text");
+const resumeMenuText = document.querySelector("#resume-side-text");
+const contactMenuText = document.querySelector("#contact-side-text");
+
+
+// Intersection Observer API
+var observer = new IntersectionObserver(function (entries) {
+    // isIntersecting is true when element and viewport are overlapping
+    // isIntersecting is false when element and viewport don't overlap
+    // console.log(entries);
+    // console.log(entries[0]['target']);
+    //  console.log(entries[0]['target'].className)
+    if (entries[0].isIntersecting === true) {
+        switch (entries[0]['target'].className) {
+            case 'about-me':
+                homeMenuText.style.color = "#363636";
+                blogMenuText.style.color = "#ccc";
+                projectsMenuText.style.color = "#ccc";
+                resumeMenuText.style.color = "#ccc";
+                contactMenuText.style.color = "#ccc";
+                break;
+            case 'blog-section':
+                blogMenuText.style.color = "#363636";
+                homeMenuText.style.color = "#ccc";
+                projectsMenuText.style.color = "#ccc";
+                resumeMenuText.style.color = "#ccc";
+                contactMenuText.style.color = "#ccc";
+                break;
+            case 'projects-section':
+                projectsMenuText.style.color = "#363636";
+                resumeMenuText.style.color = "#ccc";
+                contactMenuText.style.color = "#ccc";
+                blogMenuText.style.color = "#ccc";
+                homeMenuText.style.color = "#ccc";
+                break;
+            case 'resume-section':
+                resumeMenuText.style.color = "#363636";
+                projectsMenuText.style.color = "#ccc";
+                contactMenuText.style.color = "#ccc";
+                blogMenuText.style.color = "#ccc";
+                homeMenuText.style.color = "#ccc";
+                break;
+            case 'contact-section':
+                contactMenuText.style.color = "#363636";
+                projectsMenuText.style.color = "#ccc";
+                resumeMenuText.style.color = "#ccc";
+                blogMenuText.style.color = "#ccc";
+                homeMenuText.style.color = "#ccc";
+                break;
+        }
+        // console.log('Element', entries[0]['target'].className, 'is showing');
     }
-}
+}, {
+    threshold: [.70]
+});
+
+observer.observe(document.querySelector(".about-me"));
+observer.observe(document.querySelector(".blog-section"));
+observer.observe(document.querySelector(".projects-section"));
+observer.observe(document.querySelector(".resume-section"));
+observer.observe(document.querySelector(".contact-section"));
 
 
 // Moves ".html" items and their icons down according to number of posts
@@ -78,7 +134,7 @@ function setBlogPostsGrid(operation) {
             postBox = document.querySelector(`#post-box-${i+1}`);
             // console.log(posts[i].firstElementChild.outerHTML.match(/\<(.*?)\>/g)[0])
             postBox.innerHTML = postUrl[0] + posts[i].textContent.trim() + "</a>"
-
+            if (i == 0) postBox.style.marginTop = '10px';
             postBox.setAttribute('class', 'posts')
             // Send the id of these to put click event on
             postBox.style.zIndex = 2;
@@ -104,13 +160,6 @@ function setBlogPostsGrid(operation) {
                 // Run the effect
                 $(post).hide(selectedEffect, options, 500);
             };
-
-            // Callback function to bring a hidden box back
-            function callback() {
-                setTimeout(function () {
-                    $(post).remove().hide().fadeIn();
-                }, 500);
-            };
             runEffect();
 
         }
@@ -134,62 +183,113 @@ function setBlogPostsGrid(operation) {
     }
 }
 
-let dropDown = false;
 // Change right arrow to a down arrow on click and vice versa
 // Modifies behavior when clicking blog
 function blogClick(numOfPosts) {
-    const blogBox = document.querySelector('.blog-side');
+    const blogText = document.querySelector('#blog-side-text');
     const blogDiv = document.querySelector('.blog-section');
     const sidePane = document.querySelector('.sidepane')
 
+    const blogMenu = document.querySelector('#blog-menu');
+    const blogClose = document.querySelector('#blog-close');
     const posts = document.querySelector('.blog-posts');
 
-    // blogBox.addEventListener('click', event => {
-    //     blogDiv.scrollIntoView({behavior: "smooth"});
-    // });
+    let homeMenuColor = '';
+    let blogMenuColor = '';
+    let projectMenuColor = '';
+    let resumeMenuColor = '';
+    console.log(resumeMenuColor)
+    let contactMenuColor = '';
 
-    blogBox.addEventListener('mouseenter', event => {
+    blogText.addEventListener('click', event => {
+        blogDiv.scrollIntoView({
+            behavior: "smooth"
+        });
+    });
+
+    blogMenu.addEventListener('click', event => {
+        homeMenuColor = document.querySelector('#home-menu').style.color;
+        blogMenuColor = document.querySelector('#blog-side-text').style.color;
+        projectMenuColor = document.querySelector('#projects-side-text').style.color;
+        resumeMenuColor = document.querySelector('#resume-side-text').style.color;
+        contactMenuColor = document.querySelector('#contact-side-text').style.color;
         // if (dropDown) {
         // console.log('works')
         // downArrow.style.display = 'none';
         // upArrow.style.display = 'inline-block';
+        function runEffect() {
+            // get effect type from
+            var selectedEffect = 'fade';
+
+            // Most effect types need no options passed by default
+            var options = {};
+            // Run the effect
+            $(blogMenu).hide(selectedEffect, options, 500);
+        };
+
+        function callback() {
+            setTimeout(function () {
+                $(blogClose).removeAttr("style").hide().fadeIn();
+            }, 500);
+        };
+        runEffect();
+        callback();
+        blogMenuText.style.color = "rgb(204, 204, 204)";
+        homeMenuText.style.color = "#181818";
+        projectsMenuText.style.color = "#181818";
+        resumeMenuText.style.color = "#181818";
+        contactMenuText.style.color = "#181818";
+        // blogMenu.style.display = 'none';
+        // blogClose.style.display = 'inline-block';
         sidePane.className += ' posts-scroll-bar';
         // sidePane.style.gridTemplateColumns = '400px';
         sidePane.style.zIndex = 123;
         // sidePane.style.overflow = 'visible';
         // sidePane.style.overflowX = 'hidden';
         posts.style.display = 'block';
+
         moveGridItems('change', numOfPosts);
         setBlogPostsGrid('change', numOfPosts)
-        dropDown = true;
         // console.log(document.querySelector("#sidepane-div").children)
         // } else {
-        //     // upArrow.style.display = 'none';
-        //     // downArrow.style.display = 'inline-block';
-        //     posts.style.display = 'none';
-
-        //     sidePane.className = 'sidepane';
-        //     // sidePane.style.gridTemplateColumns = '225px';
-        //     // sidePane.classList.remove('posts-scroll-bar');
-        //     setBlogPostsGrid('default', numOfPosts);
-        //     // moveGridItems('default', numOfPosts);
-        //     dropDown = true;
-        // }
-    })
-    document.querySelector('.projects-side').addEventListener('mouseenter', event => {
-        if (dropDown) {
-            // upArrow.style.display = 'none';
-            // downArrow.style.display = 'inline-block';
-            posts.style.display = 'none';
-
-            sidePane.className = 'sidepane';
-            // sidePane.style.gridTemplateColumns = '225px';
-            // sidePane.classList.remove('posts-scroll-bar');
-            setBlogPostsGrid('default', numOfPosts);
-            // moveGridItems('default', numOfPosts);
-            dropDown = false;
-        }
     });
+    blogClose.addEventListener('click', event => {
+        function runEffect() {
+            // get effect type from
+            var selectedEffect = 'fade';
+
+            // Most effect types need no options passed by default
+            var options = {};
+            // Run the effect
+            $(blogClose).hide(selectedEffect, options, 500);
+        };
+
+        function callback() {
+            setTimeout(function () {
+                $(blogMenu).removeAttr("style").hide().fadeIn();
+            }, 500);
+        };
+        runEffect();
+        callback();
+
+        homeMenuText.style.color = homeMenuColor;
+        blogMenuText.style.color = blogMenuColor;
+        projectsMenuText.style.color = projectMenuColor;
+        resumeMenuText.style.color = resumeMenuColor;
+        contactMenuText.style.color = contactMenuColor;
+
+        // upArrow.style.display = 'none';
+        // downArrow.style.display = 'inline-block';
+        posts.style.display = 'none';
+
+        sidePane.className = 'sidepane';
+        // sidePane.style.gridTemplateColumns = '225px';
+        // sidePane.classList.remove('posts-scroll-bar');
+        setBlogPostsGrid('default', numOfPosts);
+        // moveGridItems('default', numOfPosts);
+        dropDown = true;
+    });
+
 
 
     // adding same event to multiple items
@@ -209,7 +309,7 @@ function blogClick(numOfPosts) {
 // Implements ability to resize sidepane
 function resizeSidepane() {
     $(function () {
-        $(".blog-side").on("mouseenter", function () {
+        $("#blog-menu").on("click", function () {
             $(".post-bg").animate({
                 width: "100vw",
             }, 500);
@@ -217,7 +317,7 @@ function resizeSidepane() {
                 width: "47vw",
             }, 500);
         });
-        $(".projects-side").on("mouseenter", function () {
+        $("#blog-close").on("click", function () {
             if (dropDown) {
                 $(".sidepane").animate({
                     width: 225,

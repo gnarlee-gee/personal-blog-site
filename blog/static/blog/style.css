@@ -4,8 +4,10 @@
   font-style: normal;
   font-weight: 700;
   src: local(''),
-       url('fonts/dosis/dosis-v18-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-       url('fonts/dosis/dosis-v18-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+    url('fonts/dosis/dosis-v18-latin-700.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('fonts/dosis/dosis-v18-latin-700.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 
@@ -202,7 +204,7 @@ code {
 
   display: grid;
   /* grid is 6 x 3 (col x row) */
-  grid-template-columns: 225px 1fr;
+  grid-template-columns: 132px 4fr;
   grid-template-rows: 1fr;
   grid-template-areas:
     "sidepane info";
@@ -269,8 +271,8 @@ h1 {
   /* height: 28px; */
   display: grid;
   grid-template-rows: repeat(auto-fill, minmax(auto, auto));
-  grid-template-columns: 225px;
-  /* align-self: center; */
+  grid-template-columns: 132px;
+  align-self: center;
   /* margin-top: 25vh; */
   overflow: scroll;
   /* overflow-y: visible; */
@@ -285,6 +287,7 @@ h1 {
   scrollbar-width: none;
   /* Firefox */
   position: -webkit-fixed;
+  position: fixed;
   /* Safari */
   /* margin: auto; */
   /* margin-top: 33vh; */
@@ -388,11 +391,12 @@ h1 {
 } */
 
 .material-icons.md-48 {
-  font-size: 48px;
+  font-size: 32px;
   color: #ccc;
+  /* margin: 0 auto; */
+  margin-top: 12.5px;
   margin-left: 10px;
-  margin-top: 3px;
-
+  /* height: 30px; */
 }
 
 .home-side {
@@ -422,6 +426,10 @@ h1 {
 
 .blog-posts>span {
   display: none;
+}
+
+.posts:first-child {
+  margin-top: 55px;
 }
 
 .projects-side {
@@ -466,13 +474,17 @@ So we should add 3 + numOfP to the start
 and add 4 + numOfP to the end
 */
 
+.active {
+  color: #363636;
+}
 
 
 
 
 
-
-
+.blog-side>p {
+  cursor: pointer;
+}
 
 .home-side>p,
 .blog-side>p,
@@ -587,7 +599,11 @@ and add 4 + numOfP to the end
 
 }
 
-.about-me {
+.about-me,
+.blog-section,
+.projects-section,
+.resume-section,
+.contact-section {
   height: 100vh;
   display: -webkit-box;
   display: -moz-box;
@@ -601,29 +617,16 @@ and add 4 + numOfP to the end
 
 }
 
-.about-me>p {
+.about-me>p,
+.blog-section>p,
+.projects-section>p,
+.resume-section>p,
+.contact-section>p {
   margin: 0 auto;
   max-width: 75ch;
 }
 
-.blog-section {
-  height: 100vh;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100vh;
 
-}
-
-.blog-section>p {
-  margin: 0 auto;
-  max-width: 75ch;
-}
 
 
 .post-body {
