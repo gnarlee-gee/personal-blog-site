@@ -216,7 +216,12 @@ code {
 }
 
 h1 {
+  font: 250% 'Dosis', sans-serif;
   margin: 0;
+}
+
+h1 + p {
+  font: 150%/1.5 'Source Sans Regular', sans-serif; 
 }
 
 /* .nav::-webkit-scrollbar {
@@ -355,14 +360,16 @@ h1 {
 
 .posts>a {
   display: inline-block;
+  max-width:47vw;
+  max-height:100vh;
   text-decoration: none;
-  color: #181818;
+  color: #e63946;
   background-color: #ccc;
   margin: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: 47vw;
+  /* max-width: 47vw; */
   /* overflow: hidden;
   text-overflow: ellipsis;
   min-width: 0; */
@@ -390,14 +397,43 @@ h1 {
   min-width: 200px;
 } */
 
-.material-icons.md-48 {
-  font-size: 32px;
+.material-icons.md-42 {
+  font-size: 42px;
   color: #ccc;
+  /* color: #e63946; */
   /* margin: 0 auto; */
-  margin-top: 12.5px;
-  margin-left: 10px;
+  position: relative;
+  top: 20%;
+  /* margin-top: 12.5px; */
+  margin-left: 5px;
   /* height: 30px; */
+  cursor: pointer;
 }
+
+#blog-menu:hover {
+  transition: color 0.5s ease;
+  color: #e63946 !important; 
+}
+
+#blog-close {
+  color: #e63946;
+}
+
+/* #home-menu:hover,
+#blog-side-text:hover,
+#projects-side-text:hover,
+#resume-side-text:hover,
+#contact-side-text:hover {
+  transition: color 0.5s ease;
+  color: rgb(129, 129, 129) !important;
+} */
+
+
+.menu-hover:hover{
+  transition: color 0.5s ease;
+  color: rgb(129, 129, 129) !important;
+}
+
 
 .home-side {
   grid-column-start: 1;
@@ -474,15 +510,11 @@ So we should add 3 + numOfP to the start
 and add 4 + numOfP to the end
 */
 
-.active {
-  color: #363636;
-}
 
-
-
-
-
-.blog-side>p {
+.blog-side>p,
+.projects-side>p,
+.resume-side>p,
+.contact-side>p {
   cursor: pointer;
 }
 
@@ -592,7 +624,7 @@ and add 4 + numOfP to the end
 .info {
   grid-area: info;
   /* background-color: #181818; */
-  color: #A8D6DC;
+  color: #e63946;
   margin: .65em 2em 0 2em;
   /* padding-right: 2em; */
   height: 100vh;

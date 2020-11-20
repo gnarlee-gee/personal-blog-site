@@ -21,6 +21,7 @@ window.onload = function () {
 
 const homeMenuText = document.querySelector('#home-menu');
 const blogMenuText = document.querySelector("#blog-side-text");
+const blogMenuBurger = document.querySelector("#blog-menu");
 const projectsMenuText = document.querySelector("#projects-side-text");
 const resumeMenuText = document.querySelector("#resume-side-text");
 const contactMenuText = document.querySelector("#contact-side-text");
@@ -33,17 +34,26 @@ var observer = new IntersectionObserver(function (entries) {
     // console.log(entries);
     // console.log(entries[0]['target']);
     //  console.log(entries[0]['target'].className)
+    [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText, contactMenuText].forEach((item) => {
+        if (entries[0]['intersectionRatio'] > 0.60) {
+            item.classList.add("menu-hover");
+        }
+    })
     if (entries[0].isIntersecting === true) {
         switch (entries[0]['target'].className) {
             case 'about-me':
                 homeMenuText.style.color = "#363636";
+                homeMenuText.classList.remove("menu-hover");
                 blogMenuText.style.color = "#ccc";
+                blogMenuBurger.style.color = "#ccc";
                 projectsMenuText.style.color = "#ccc";
                 resumeMenuText.style.color = "#ccc";
                 contactMenuText.style.color = "#ccc";
                 break;
             case 'blog-section':
                 blogMenuText.style.color = "#363636";
+                blogMenuText.classList.remove("menu-hover");
+                blogMenuBurger.style.color = "#e63946"
                 homeMenuText.style.color = "#ccc";
                 projectsMenuText.style.color = "#ccc";
                 resumeMenuText.style.color = "#ccc";
@@ -51,30 +61,37 @@ var observer = new IntersectionObserver(function (entries) {
                 break;
             case 'projects-section':
                 projectsMenuText.style.color = "#363636";
+                projectsMenuText.classList.remove("menu-hover");
                 resumeMenuText.style.color = "#ccc";
                 contactMenuText.style.color = "#ccc";
                 blogMenuText.style.color = "#ccc";
+                blogMenuBurger.style.color = "#ccc";
                 homeMenuText.style.color = "#ccc";
                 break;
             case 'resume-section':
                 resumeMenuText.style.color = "#363636";
+                resumeMenuText.classList.remove("menu-hover");
                 projectsMenuText.style.color = "#ccc";
                 contactMenuText.style.color = "#ccc";
                 blogMenuText.style.color = "#ccc";
+                blogMenuBurger.style.color = "#ccc";
                 homeMenuText.style.color = "#ccc";
                 break;
             case 'contact-section':
                 contactMenuText.style.color = "#363636";
+                contactMenuText.classList.remove("menu-hover");
                 projectsMenuText.style.color = "#ccc";
                 resumeMenuText.style.color = "#ccc";
                 blogMenuText.style.color = "#ccc";
+                blogMenuBurger.style.color = "#ccc";
                 homeMenuText.style.color = "#ccc";
                 break;
         }
         // console.log('Element', entries[0]['target'].className, 'is showing');
     }
+
 }, {
-    threshold: [.70]
+    threshold: [.60]
 });
 
 observer.observe(document.querySelector(".about-me"));
@@ -82,7 +99,6 @@ observer.observe(document.querySelector(".blog-section"));
 observer.observe(document.querySelector(".projects-section"));
 observer.observe(document.querySelector(".resume-section"));
 observer.observe(document.querySelector(".contact-section"));
-
 
 // Moves ".html" items and their icons down according to number of posts
 // when the drop down folder is clicked
@@ -196,9 +212,10 @@ function blogClick(numOfPosts) {
 
     let homeMenuColor = '';
     let blogMenuColor = '';
+    // let blogMenuBurgerColor = '';
     let projectMenuColor = '';
     let resumeMenuColor = '';
-    console.log(resumeMenuColor)
+    // console.log(resumeMenuColor)
     let contactMenuColor = '';
 
     blogText.addEventListener('click', event => {
@@ -209,6 +226,7 @@ function blogClick(numOfPosts) {
 
     blogMenu.addEventListener('click', event => {
         homeMenuColor = document.querySelector('#home-menu').style.color;
+        // blogMenuBurgerColor = document.querySelector('#blog-menu').style.color;
         blogMenuColor = document.querySelector('#blog-side-text').style.color;
         projectMenuColor = document.querySelector('#projects-side-text').style.color;
         resumeMenuColor = document.querySelector('#resume-side-text').style.color;
@@ -232,9 +250,10 @@ function blogClick(numOfPosts) {
                 $(blogClose).removeAttr("style").hide().fadeIn();
             }, 500);
         };
-        runEffect();
         callback();
+        runEffect();
         blogMenuText.style.color = "rgb(204, 204, 204)";
+        // blogMenuBurger.style.color = "rgb(204, 204, 204)";
         homeMenuText.style.color = "#181818";
         projectsMenuText.style.color = "#181818";
         resumeMenuText.style.color = "#181818";
@@ -288,6 +307,13 @@ function blogClick(numOfPosts) {
         setBlogPostsGrid('default', numOfPosts);
         // moveGridItems('default', numOfPosts);
         dropDown = true;
+        setTimeout(function () {
+            if (blogMenuText.style.color != 'rgb(204, 204, 204)') {
+                blogMenuBurger.setAttribute('style', 'color: #e63946');
+            }
+        }, 500);
+
+
     });
 
 

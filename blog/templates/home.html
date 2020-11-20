@@ -25,18 +25,21 @@
 
             <!-- drop down arrow below -->
             {% block postlist %}
-            <div class="blog-side">
+            <div class="blog-side ">
 
                 <p style="float: left;" id="blog-side-text">
                     blog
 
                 </p>
-                <span class="material-icons md-48" id="blog-menu">
+                <i class="material-icons material-icons-round md-42" id="blog-menu">expand_more</i>
+                <!-- <span class="material-icons-round md-48" id="blog-menu">
                     menu
-                </span>
-                <span class="material-icons md-48" id="blog-close" style="display: none;">
+                </span> -->
+                <i class="material-icons material-icons-round md-42" id="blog-close" style="display: none;">expand_less</i>
+
+                <!-- <span class="material-icons md-48" id="blog-close" style="display: none;">
                     close
-                </span>
+                </span> -->
 
                 <div class="blog-posts" style="display: none;">
                     {% for post in post_list %}
@@ -107,6 +110,7 @@
         <div id="info-box" class="info">
             <div class="about-me">
                 <h1>This is the about-me section! </h1>
+                <p>I like programming</p>
             </div>
             <div class="blog-section">
                 <h1>This is the blog section</h1>
