@@ -2,19 +2,9 @@
 {% block content %}
 {% load markdown_deux_tags %}
 
-
-
-
 <div class="grid-container">
-
     <div class="page-container">
-
-        <!-- draggable="true" -->
-
-        <!-- TODO: Make rows "dynamic" in size
-            Like auto rows -> research -->
         <div class="sidepane" id="sidepane-div">
-
             <div class="home-side menu-collapse">
                 <p>
                     <a class="sidepane-links" id="home-menu" href="{% url 'home' %}">
@@ -22,24 +12,13 @@
                     </a>
                 </p>
             </div>
-
-            <!-- drop down arrow below -->
             {% block postlist %}
             <div class="blog-side ">
-
                 <p style="float: left;" id="blog-side-text">
                     blog
-
                 </p>
                 <i class="material-icons material-icons-round md-42" id="blog-menu">expand_more</i>
-                <!-- <span class="material-icons-round md-48" id="blog-menu">
-                    menu
-                </span> -->
                 <i class="material-icons material-icons-round md-42" id="blog-close" style="display: none;">expand_less</i>
-
-                <!-- <span class="material-icons md-48" id="blog-close" style="display: none;">
-                    close
-                </span> -->
 
                 <div class="blog-posts" style="display: none;">
                     {% for post in post_list %}
@@ -49,124 +28,58 @@
                         </a>
                     </p>
                     <span style="display: none;"> {{ post.date }}</span>
-
                     {% endfor %}
                 </div>
-
             </div>
             {% endblock %}
+
             <div class="projects-side">
                 <p id="projects-side-text">
                     projects
                 </p>
             </div>
+
             <div class="resume-side menu-collapse">
                 <p id="resume-side-text">
                     resume
                 </p>
             </div>
+
             <div class="contact-side menu-collapse">
                 <p id="contact-side-text">
                     contact
                 </p>
             </div>
-
-            <!-- <div class="sidepane-icon html-icon-2" style="height: 22px;"><i class="fab fa-html5 fa-lg"
-                        style="color:red; font-size: 22px; width: 21.33px"></i></div>
-                <div class="contact-side">
-                    <p>
-                        contact.html
-                    </p>
-                </div> -->
-
-            <!-- <p>
-                    resume.html
-                </p>
-                <p>
-                    contact.html
-                </p> -->
         </div>
 
-        <!-- <div class="nav">
-            <div class="home">
-                <img style="padding-right: 5px;" src="https://img.icons8.com/color/22/000000/html-5.png" />
-                home.html
-            </div>
-            <!-- <div class="projects">
-                projects.html
-            </div> -->
-        <!-- <div class="blog">
-                <i style="color:red; padding-right: 10px;" class="fab fa-html5"></i>blog.html
-            </div> -->
-        <!-- <div class="resume">
-                resume.html
-            </div>
-            <div class="contact">
-                contact.html
-            </div> 
-        </div> -->
-
-        <!-- TODO: Create grid with 2 cols -->
         <div id="info-box" class="info">
             <div class="about-me">
                 <h1>This is the about-me section! </h1>
                 <p>I like programming</p>
             </div>
+
             <div class="blog-section">
                 <h1>This is the blog section</h1>
                 {% block posts %}
                 {% endblock %}
             </div>
+
             <div class="projects-section">
                 <h1>This is the projects section! </h1>
             </div>
+
             <div class="resume-section">
                 <h1>This is the resume section! </h1>
             </div>
+
             <div class="contact-section">
                 <h1>This is the contact section! </h1>
             </div>
-            <!-- <div class="footer">
-                <p>
-                    footer
-                </p>
-            </div> -->
         </div>
-        <!-- <div class="mobile-wrapper">
-            <div class="mobile-container">
-                <div class="nav-content">
-                    <a id="home-link" href="#">charles-grealy</a>
-                    <nav id="nav-bar">
-                        
-                        <input type="checkbox" autocomplete='off' id="hamburger">
-                        <label id='check-label' for="hamburger"></label>
-                        <ul class="nav-links">
-                            <li><a class="menu-links" href="#">home.html</a></li>
-                            <li><a class="menu-links" href="#">projects.html</a></li>
-                            <li><a class="menu-links" href="#">blog.html</a></li>
-                            <li><a class="menu-links" href="#">resume.html</a></li>
-                            <li><a class="menu-links" href="#">contact.html</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-        </div> -->
-        <!-- <div class="footer">
-            <p>
-                footer
-            </p>
-        </div> -->
     </div>
+
     <div class="post-bg">
-
     </div>
-
 </div>
-
-<!-- <div class="hello" style="display: none;">
-    {% for post in object_list %}
-    {{ post.body|markdown }}
-    {% endfor %}
-</div> -->
 
 {% endblock %}

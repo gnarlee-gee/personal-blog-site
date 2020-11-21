@@ -3,20 +3,8 @@ window.onload = function () {
     const blogPosts = document.querySelector('.blog-posts');
     let numOfPosts = blogPosts.children.length;
     numOfPosts /= 2;
-    // setIdBlogPosts(blogPosts);
-    // initializeSidePane();
     blogClick(numOfPosts);
-    // initializeNavGrid(numOfPosts);
-    // addSidepaneItemsListener();
     resizeSidepane();
-    // isInNav();
-    // removeFromNavBar();
-
-
-    // const blogBody = document.querySelector('#post-body-1');
-    // console.log(blogBody)
-
-
 }
 
 const homeMenuText = document.querySelector('#home-menu');
@@ -26,14 +14,10 @@ const projectsMenuText = document.querySelector("#projects-side-text");
 const resumeMenuText = document.querySelector("#resume-side-text");
 const contactMenuText = document.querySelector("#contact-side-text");
 
-
 // Intersection Observer API
 var observer = new IntersectionObserver(function (entries) {
     // isIntersecting is true when element and viewport are overlapping
     // isIntersecting is false when element and viewport don't overlap
-    // console.log(entries);
-    // console.log(entries[0]['target']);
-    //  console.log(entries[0]['target'].className)
     [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText, contactMenuText].forEach((item) => {
         if (entries[0]['intersectionRatio'] > 0.60) {
             item.classList.add("menu-hover");
@@ -87,9 +71,7 @@ var observer = new IntersectionObserver(function (entries) {
                 homeMenuText.style.color = "#ccc";
                 break;
         }
-        // console.log('Element', entries[0]['target'].className, 'is showing');
     }
-
 }, {
     threshold: [.60]
 });
@@ -115,6 +97,9 @@ function moveGridItems(operation, numOfPosts) {
     const contact = document.querySelector('.contact-side');
 
     if (operation == 'change') {
+        projects.style.visibility = 'hidden';
+        resume.style.visibility = 'hidden';
+        contact.style.visibility = 'hidden';
         projects.style.gridRowStart = projectsRowStartNum;
         projects.style.gridRowEnd = projectsRowEndNum;
         resume.style.gridRowStart = resumeRowStartNum;
@@ -122,14 +107,6 @@ function moveGridItems(operation, numOfPosts) {
         contact.style.gridRowStart = contactRowStartNum;
         contact.style.gridRowEnd = contactRowEndNum;
     }
-    // } else {
-    //     projects.style.gridRowStart = 3;
-    //     projects.style.gridRowEnd = 4;
-    //     resume.style.gridRowStart = 4;
-    //     resume.style.gridRowEnd = 5;
-    //     contact.style.gridRowStart = 5;
-    //     contact.style.gridRowEnd = 6;
-    // }
 }
 
 // Adds and removes grid items on click
@@ -143,26 +120,15 @@ function setBlogPostsGrid(operation) {
         let i = 0;
         for (; i < children; i++) {
             let postBox = document.createElement('div');
+            // Matches url for each post (/post/5)
             let postUrl = posts[i].firstElementChild.outerHTML.match(/\<(.*?)\>/g)
             postBox.setAttribute('id', `post-box-${i+1}`);
-            // postBox.setAttribute('class', 'posts')
             document.getElementById("sidepane-div").appendChild(postBox);
             postBox = document.querySelector(`#post-box-${i+1}`);
-            // console.log(posts[i].firstElementChild.outerHTML.match(/\<(.*?)\>/g)[0])
             postBox.innerHTML = postUrl[0] + posts[i].textContent.trim() + "</a>"
             if (i == 0) postBox.style.marginTop = '10px';
             postBox.setAttribute('class', 'posts')
-            // Send the id of these to put click event on
-            postBox.style.zIndex = 2;
-            postBox.style.gridRowStart = i + 3;
-            postBox.style.gridRowEnd = i + 4;
         }
-        document.querySelector('.projects-side').style.gridRowStart = i + 3;
-        document.querySelector('.projects-side').style.gridRowEnd = i + 4;
-        document.querySelector('.resume-side').style.gridRowStart = i + 4;
-        document.querySelector('.resume-side').style.gridRowEnd = i + 5;
-        document.querySelector('.contact-side').style.gridRowStart = i + 5;
-        document.querySelector('.contact-side').style.gridRowEnd = i + 6;
     } else if (operation == 'default') {
         for (let i = 0; i < children; i++) {
             let post = document.querySelector(`#post-box-${i+1}`);
@@ -170,32 +136,18 @@ function setBlogPostsGrid(operation) {
             function runEffect() {
                 // get effect type from
                 var selectedEffect = 'fade';
-
-                // Most effect types need no options passed by default
-                var options = {};
                 // Run the effect
-                $(post).hide(selectedEffect, options, 500);
+                $(post).hide(selectedEffect, 500);
             };
             runEffect();
-
         }
 
-
-
-        function doNext() {
-            document.querySelector('.projects-side').style.gridRowStart = 3;
-            document.querySelector('.projects-side').style.gridRowEnd = 4;
-            document.querySelector('.resume-side').style.gridRowStart = 4;
-            document.querySelector('.resume-side').style.gridRowEnd = 5;
-            document.querySelector('.contact-side').style.gridRowStart = 5;
-            document.querySelector('.contact-side').style.gridRowEnd = 6;
+        setTimeout(function () {
             for (let i = 0; i < children; i++) {
                 let post = document.querySelector(`#post-box-${i+1}`);
                 post.remove();
             }
-        }
-
-        setTimeout(doNext, 500);
+        }, 500);
     }
 }
 
@@ -210,39 +162,23 @@ function blogClick(numOfPosts) {
     const blogClose = document.querySelector('#blog-close');
     const posts = document.querySelector('.blog-posts');
 
-    let homeMenuColor = '';
     let blogMenuColor = '';
-    // let blogMenuBurgerColor = '';
-    let projectMenuColor = '';
-    let resumeMenuColor = '';
-    // console.log(resumeMenuColor)
-    let contactMenuColor = '';
 
-    blogText.addEventListener('click', event => {
+    blogText.addEventListener('click', () => {
         blogDiv.scrollIntoView({
             behavior: "smooth"
         });
     });
 
-    blogMenu.addEventListener('click', event => {
-        homeMenuColor = document.querySelector('#home-menu').style.color;
-        // blogMenuBurgerColor = document.querySelector('#blog-menu').style.color;
-        blogMenuColor = document.querySelector('#blog-side-text').style.color;
-        projectMenuColor = document.querySelector('#projects-side-text').style.color;
-        resumeMenuColor = document.querySelector('#resume-side-text').style.color;
-        contactMenuColor = document.querySelector('#contact-side-text').style.color;
-        // if (dropDown) {
-        // console.log('works')
-        // downArrow.style.display = 'none';
-        // upArrow.style.display = 'inline-block';
+    blogMenu.addEventListener('click', () => {
+        blogMenuColor = blogText.style.color;
+
         function runEffect() {
             // get effect type from
             var selectedEffect = 'fade';
 
-            // Most effect types need no options passed by default
-            var options = {};
             // Run the effect
-            $(blogMenu).hide(selectedEffect, options, 500);
+            $(blogMenu).hide(selectedEffect, 500);
         };
 
         function callback() {
@@ -252,85 +188,63 @@ function blogClick(numOfPosts) {
         };
         callback();
         runEffect();
+
+        document.querySelector("#blog-side-text").classList.remove("menu-hover");
+        document.querySelector('#home-menu').style.visibility = 'hidden';
+        document.querySelector('#projects-side-text').style.visibility = 'hidden';
+        document.querySelector('#resume-side-text').style.visibility = 'hidden';
+        document.querySelector('#contact-side-text').style.visibility = 'hidden';
+        
         blogMenuText.style.color = "rgb(204, 204, 204)";
-        // blogMenuBurger.style.color = "rgb(204, 204, 204)";
-        homeMenuText.style.color = "#181818";
-        projectsMenuText.style.color = "#181818";
-        resumeMenuText.style.color = "#181818";
-        contactMenuText.style.color = "#181818";
-        // blogMenu.style.display = 'none';
-        // blogClose.style.display = 'inline-block';
+
         sidePane.className += ' posts-scroll-bar';
-        // sidePane.style.gridTemplateColumns = '400px';
-        sidePane.style.zIndex = 123;
-        // sidePane.style.overflow = 'visible';
-        // sidePane.style.overflowX = 'hidden';
+        sidePane.style.zIndex = 2;
+
         posts.style.display = 'block';
 
         moveGridItems('change', numOfPosts);
         setBlogPostsGrid('change', numOfPosts)
-        // console.log(document.querySelector("#sidepane-div").children)
-        // } else {
     });
-    blogClose.addEventListener('click', event => {
+    blogClose.addEventListener('click', () => {
         function runEffect() {
             // get effect type from
             var selectedEffect = 'fade';
 
-            // Most effect types need no options passed by default
-            var options = {};
             // Run the effect
-            $(blogClose).hide(selectedEffect, options, 500);
+            $(blogClose).hide(selectedEffect, 500);
         };
 
         function callback() {
             setTimeout(function () {
                 $(blogMenu).removeAttr("style").hide().fadeIn();
+                document.querySelector('#home-menu').style.visibility = 'visible';
+                document.querySelector('#projects-side-text').style.visibility = 'visible';
+                document.querySelector('#resume-side-text').style.visibility = 'visible';
+                document.querySelector('#contact-side-text').style.visibility = 'visible';
+                blogMenuText.style.color = blogMenuColor;
             }, 500);
         };
         runEffect();
         callback();
 
-        homeMenuText.style.color = homeMenuColor;
-        blogMenuText.style.color = blogMenuColor;
-        projectsMenuText.style.color = projectMenuColor;
-        resumeMenuText.style.color = resumeMenuColor;
-        contactMenuText.style.color = contactMenuColor;
-
-        // upArrow.style.display = 'none';
-        // downArrow.style.display = 'inline-block';
         posts.style.display = 'none';
 
         sidePane.className = 'sidepane';
-        // sidePane.style.gridTemplateColumns = '225px';
-        // sidePane.classList.remove('posts-scroll-bar');
+
         setBlogPostsGrid('default', numOfPosts);
-        // moveGridItems('default', numOfPosts);
+        moveGridItems('default', numOfPosts);
+        //Used in the resizeSidepane function
         dropDown = true;
+
         setTimeout(function () {
             if (blogMenuText.style.color != 'rgb(204, 204, 204)') {
                 blogMenuBurger.setAttribute('style', 'color: #e63946');
+            } else {
+                document.querySelector("#blog-side-text").classList.add("menu-hover");
             }
         }, 500);
-
-
     });
-
-
-
-    // adding same event to multiple items
-    // https://flaviocopes.com/how-to-add-event-listener-multiple-elements-javascript/
-
-
 }
-
-// Set # of grid items based on number of posts + 4 static items (home, projects, etc...)
-// function initializeNavGrid(numOfPosts) {
-//     let navBar = document.querySelector('.nav');
-//     const totalMenuItems = (numOfPosts + 4).toString();
-
-//     navBar.style.setProperty('grid-template-columns', `repeat(${totalMenuItems}, 1fr)`);
-// }
 
 // Implements ability to resize sidepane
 function resizeSidepane() {
@@ -356,130 +270,3 @@ function resizeSidepane() {
 
     });
 }
-// $(function () {
-//     $(".sidepane").resizable({
-//         handles: "e",
-//         minWidth: 225,
-//         maxWidth: 1000,
-//         animate: true,
-//         alsoResize: ".posts",
-//         // animate: true,
-//         // helper: "ui-resizable-helper",
-//     })
-// });
-// $(function () {
-//     $(".posts").resizable({
-//         handles: "e",
-//         minWidth: 225,
-//         maxWidth: 1000,
-//         animate: true,
-//         // helper: "ui-resizable-helper",
-//         // helper: "ui-resizable-helper",
-//     })
-// });
-
-
-// function initializeSidePane() {
-
-//     let homeBox = document.createElement('div');
-//     let blogBox = document.createElement('div');
-//     let projectsBox = document.createElement('div');
-//     let resumeBox = document.createElement('div');
-//     let contactBox = document.createElement('div');
-
-
-//     homeBox.setAttribute('id', 'home-box');
-//     blogBox.setAttribute('id', 'blog-box');
-//     projectsBox.setAttribute('id', 'projects-box');
-//     resumeBox.setAttribute('id', 'resume-box');
-//     contactBox.setAttribute('id', 'contact-box');
-
-//     document.getElementById("sidepane-div").appendChild(homeBox);
-//     document.getElementById("sidepane-div").appendChild(blogBox);
-//     document.getElementById("sidepane-div").appendChild(projectsBox);
-//     document.getElementById("sidepane-div").appendChild(resumeBox);
-//     document.getElementById("sidepane-div").appendChild(contactBox);
-
-
-//     // console.log(document.querySelector("#sidepane-div").children)
-//     homeBox = document.querySelector('#home-box');
-//     homeBox.style.zIndex = 2;
-//     homeBox.style.gridRowStart = 1;
-//     homeBox.style.gridRowEnd = 2;
-
-//     blogBox = document.querySelector('#blog-box');
-//     blogBox.style.zIndex = 2;
-//     blogBox.style.gridRowStart = 2;
-//     blogBox.style.gridRowEnd = 3;
-
-//     projectsBox = document.querySelector('#projects-box');
-//     projectsBox.style.zIndex = 2;
-//     projectsBox.style.gridRowStart = 3;
-//     projectsBox.style.gridRowEnd = 4;
-
-//     resumeBox = document.querySelector('#resume-box');
-//     resumeBox.style.zIndex = 2;
-//     resumeBox.style.gridRowStart = 4;
-//     resumeBox.style.gridRowEnd = 5;
-
-//     contactBox = document.querySelector('#contact-box');
-//     contactBox.style.zIndex = 2;
-//     contactBox.style.gridRowStart = 5;
-//     contactBox.style.gridRowEnd = 6;
-// }
-
-
-// function addSidepaneItemsListener() {
-//     let sidepaneChildren = document.querySelector("#sidepane-div").children;
-//     console.log(sidepaneChildren[1])
-//     for (let i = 0; i < sidepaneChildren.length; i++) {
-//         // let child = document.querySelector('#' + sidepaneChildren[i].id);
-//         sidepaneChildren[i].addEventListener('click', event => {
-//             // console.log(child);
-//             addToNavBar(sidepaneChildren[i]);
-//         })
-
-//     }
-// }
-
-
-// function addToNavBar(child) {
-//     let navBar = document.querySelector('.nav');
-//     let navStyle = getComputedStyle(navBar).gridTemplateAreas;
-//     navStyle = navStyle.replace(/"/g, '')
-//     const childIdNavName = child.id.split('-')
-
-//     if (childIdNavName[0] != 'post') {
-//         if (!navStyle.includes(childIdNavName[0])) {
-//             navBar.style.gridTemplateAreas = `"${navStyle + ' ' + childIdNavName[0]}"`;
-//             console.log('navStyle', getComputedStyle(navBar).gridTemplateAreas)
-//         }
-//     } else {
-//         if (!navStyle.includes(childIdNavName.join('-'))) {
-//             navBar.style.gridTemplateAreas = `"${navStyle + ' ' + childIdNavName.join('-')}"`
-//             console.log('navStyle', getComputedStyle(navBar).gridTemplateAreas)
-//         }
-//     }
-// }
-
-// function setNavClassStyle(navItem, className) {
-
-//     navItem.setAttribute('style', 
-//     `display: center;
-//     align-items: center;
-//     justify-content: center;
-//     grid-area: ${className};
-//     padding: 0 10px 0 10px;`);
-//     // navItem.style.display = 'flex';
-//     // navItem.style.alignItems = 'center';
-//     // navItem.style.justifyContent = 'center';
-//     // navItem.style.gridArea = className;
-//     // navItem.style.padding = "0 10px 0 10px";
-
-// }
-
-
-
-// function removeFromNavBar() {
-
-// }

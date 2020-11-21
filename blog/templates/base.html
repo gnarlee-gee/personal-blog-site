@@ -3,16 +3,20 @@
 <html lang="en">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- icons -->
+    <link
+        href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp"
+        rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
     <link rel="stylesheet" href="{% static 'blog/style.css' %}">
-    <!-- icons -->
     <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
-    <script>history.scrollRestoration = "manual"</script>
+    <script>
+        history.scrollRestoration = "manual"
+    </script>
 
     <title>
         {% block title %}
@@ -22,25 +26,10 @@
 </head>
 
 <body>
-
-    <!-- <nav class="navbar navbar-expand-lg">
-        <div class="container navbar-container">
-            <a class="navbar-brand navbar-inner hover-text" href="{% url 'home' %}">Charles Grealy</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon colored-text"></span>
-            </button>
-        </div>
-    </nav> -->
-
-    <!-- <br> -->
-    <!-- <div class="container main-container"> -->
     <!-- Everything above block will be on EVERY page that uses extends -->
-    <!-- <div class="main-container"> -->
     {% block content %}
 
     {% endblock %}
-    <!-- </div> -->
     <!-- Likewise, everything below endblock will be on every page -->
     <!-- </div> -->
 

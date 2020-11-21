@@ -10,8 +10,6 @@
   /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-
-
 /* source-sans-pro-regular - latin */
 @font-face {
   font-family: 'Source Sans Regular';
@@ -172,11 +170,6 @@ body {
   background: #ee4444;
 }
 
-/* This works on post_details.html for the markdown */
-/* p {
-    color: blue;
-} */
-
 pre,
 code {
   display: inline;
@@ -186,33 +179,24 @@ code {
   background-color: #363636;
 }
 
-
 .grid-container {
   display: grid;
   justify-content: center;
   align-content: center;
   width: 100vw;
   height: 100vh;
-  /* overflow: scroll; */
   overflow-x: hidden;
-
 }
 
 .page-container {
-  /* height: 100vh; */
   width: 50vw;
 
   display: grid;
-  /* grid is 6 x 3 (col x row) */
   grid-template-columns: 132px 4fr;
   grid-template-rows: 1fr;
   grid-template-areas:
     "sidepane info";
-
   align-items: flex-start;
-  /* overflow: scroll; */
-  /* overflow: hidden; */
-  /* background-color: #181818; */
 }
 
 h1 {
@@ -224,79 +208,22 @@ h1 + p {
   font: 150%/1.5 'Source Sans Regular', sans-serif; 
 }
 
-/* .nav::-webkit-scrollbar {
-  height: 4px;
-}
-
-.nav::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-.nav::-webkit-scrollbar-thumb:horizontal {
-  background-color: red;
-  border-radius: 10px;
-}
-
-.nav:hover {
-  overflow-x: scroll;
-} */
-
-/* .sidepane {
-  grid-area: sidepane;
-  background-color: #353535;
-
-  display: grid;
-  grid-template-rows: 80px 1fr;
-  grid-template-columns: 225px;
-
-  grid-template-areas:
-    "menu-title"
-    "menu-items";
-
-  overflow: none;
-  -webkit-overflow-scrolling: touch;
-
-
-  /* when click blog add this, maybe do animations? 
-  overflow: hidden;
-  /* min-width: 225px; 
-  max-width: 1000px;
-
-  justify-items: center;
-
-  /* white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 385px; 
-} */
-
 .sidepane {
-  /* padding-top: 25vh; */
   grid-area: sidepane;
-  /* height: 28px; */
   display: grid;
   grid-template-rows: repeat(auto-fill, minmax(auto, auto));
   grid-template-columns: 132px;
   align-self: center;
-  /* margin-top: 25vh; */
   overflow: scroll;
-  /* overflow-y: visible; */
   overflow-x: scroll;
   white-space: nowrap;
   text-overflow: ellipsis;
-  /* min-width: 0; */
-  /* max-width: 100vw; */
-  /* background-color: #181818; */
   -ms-overflow-style: none;
   /* Internet Explorer 10+ */
   scrollbar-width: none;
   /* Firefox */
   position: -webkit-fixed;
   position: fixed;
-  /* Safari */
-  /* margin: auto; */
-  /* margin-top: 33vh; */
-
 }
 
 .sidepane::-webkit-scrollbar {
@@ -310,103 +237,43 @@ h1 + p {
 }
 
 .posts-scroll-bar {
-  /* overflow: hidden; */
   overflow-y: scroll;
   overflow-x: hidden;
 }
 
-
-
-/* .posts-scroll-bar::-webkit-scrollbar-track,
-.sidepane::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(204, 204, 204, 0.1); 
-  border-radius: 10px;
-}
-
-.posts-scroll-bar::-webkit-scrollbar-thumb,
-.sidepane::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgb(168, 214, 220); 
-}
-
-.posts-scroll-bar::-webkit-scrollbar,
-.sidepane::-webkit-scrollbar {
-  width: 4px;
-} */
-
-/* .sidepane::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(132, 255, 249, 0.3); 
-  border-radius: 10px;
-}
-
-.sidepane::-webkit-scrollbar-thumb {
-  border-radius: 10px;
-  -webkit-box-shadow: inset 0 0 6px rgba(132, 255, 249, 0.3); 
-}
-
-.sidepane::-webkit-scrollbar {
-  width: 4px;
-} */
-
 .post-bg {
   position: absolute;
   height: 100vh;
-  background-color: rgba(24, 24, 24, .8)
+  background-color: rgba(24, 24, 24, .97)
 }
 
 .posts {
-  max-width: 49vw;
+  width: 300px;
 }
 
 .posts>a {
-  display: inline-block;
-  max-width:47vw;
-  max-height:100vh;
+  display: block;
+  width: 47vw;
   text-decoration: none;
-  color: #e63946;
-  background-color: #ccc;
+  color: #f1faee;
   margin: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  /* max-width: 47vw; */
-  /* overflow: hidden;
-  text-overflow: ellipsis;
-  min-width: 0; */
-  font: 125%/1 'Source Sans Semibold', sans-serif;
+  font: 150%/1.5 'Source Sans Semibold', sans-serif;
 }
 
 .posts>a:hover {
-  transition: background-color 0.5s ease;
-  background-color: white;
+  transition: color 0.5s ease;
+  color: #a8dadc;
 }
-
-/* .posts {
-  font: 250% 'Source Sans Bold', sans-serif;
-  display: inline-block;
-  align-items: center;
-  color: #A8D6DC;
-} */
-
-/* .info {
-  z-index: 200;
-} */
-
-/* [draggable=true] {
-  cursor: move;
-  min-width: 200px;
-} */
 
 .material-icons.md-42 {
   font-size: 42px;
   color: #ccc;
-  /* color: #e63946; */
-  /* margin: 0 auto; */
   position: relative;
   top: 20%;
-  /* margin-top: 12.5px; */
   margin-left: 5px;
-  /* height: 30px; */
   cursor: pointer;
 }
 
@@ -418,16 +285,6 @@ h1 + p {
 #blog-close {
   color: #e63946;
 }
-
-/* #home-menu:hover,
-#blog-side-text:hover,
-#projects-side-text:hover,
-#resume-side-text:hover,
-#contact-side-text:hover {
-  transition: color 0.5s ease;
-  color: rgb(129, 129, 129) !important;
-} */
-
 
 .menu-hover:hover{
   transition: color 0.5s ease;
@@ -449,17 +306,6 @@ h1 + p {
   grid-row-end: 3;
 }
 
-
-
-/* .blog-posts>p {
-  /* margin: 0; 
-  margin-top: 0;
-  margin-right: 10px;
-  margin-bottom: 0;
-  font: 100%/1.65 'Source Sans Regular', sans-serif;
-
-} */
-
 .blog-posts>span {
   display: none;
 }
@@ -472,9 +318,7 @@ h1 + p {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
-  /*change these values*/
   grid-row-end: 4;
-  /*change these values*/
 }
 
 
@@ -482,9 +326,7 @@ h1 + p {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 4;
-  /*change these values*/
   grid-row-end: 5;
-  /*change these values*/
 }
 
 
@@ -494,22 +336,6 @@ h1 + p {
   grid-row-start: 5;
   grid-row-end: 6;
 }
-
-
-/* TODO:
-on click we need to add however many p tags
-to the start and end of both html-icon-2 
-and contact 
-our function in script.js gives us how many we
-need to add
-now we just need the on click function to modify
-the grid values
-
-They should start at 3 and end at 4
-So we should add 3 + numOfP to the start
-and add 4 + numOfP to the end
-*/
-
 
 .blog-side>p,
 .projects-side>p,
@@ -526,12 +352,6 @@ and add 4 + numOfP to the end
   margin: 0;
 }
 
-/* .home-side > p {
-  font: 100%/2.1 'Source Sans Regular', sans-serif;
-  margin-bottom: 0;
-} */
-
-
 .home-side>p,
 .blog-side>p,
 .projects-side>p,
@@ -543,41 +363,7 @@ and add 4 + numOfP to the end
   color: #ccc;
 }
 
-/* .nav {
-  visibility: show;
-
-  font: 100%/1.5 'Source Sans Regular', sans-serif;
-
-  background-color: #181818;
-  color: rgb(243, 243, 243);
-  width: 100%;
-
-  border-top-right-radius: 5px 5px;
-
-  display: grid;
-  grid-template-rows: 50px;
-  /* grid-template-columns: repeat(5, 1fr); */
-
-
-/* do this but with numbers in javascript 
-  grid-template-areas: "home";
-  /* display: flex;
-  flex-shrink: 1;
-  flex-wrap: nowrap; */
-
-/* overflow: auto;
-  overflow-y: hidden;
-  overflow-x: auto; 
-  -webkit-overflow-scrolling: touch;
-  align-content: space-evenly;
-  justify-content: space-evenly;
-
-  /* grid-gap: 10px;
-} */
-
 .home {
-  /* background-color: pink; */
-  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -586,8 +372,6 @@ and add 4 + numOfP to the end
 }
 
 .projects {
-  /* background-color: pink; */
-  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -595,8 +379,6 @@ and add 4 + numOfP to the end
 }
 
 .blog {
-  /* background-color: pink; */
-  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -604,8 +386,6 @@ and add 4 + numOfP to the end
 }
 
 .resume {
-  /* background-color: pink; */
-  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -613,8 +393,6 @@ and add 4 + numOfP to the end
 }
 
 .contact {
-  /* background-color: pink; */
-  /* padding: 10px; */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -623,10 +401,8 @@ and add 4 + numOfP to the end
 
 .info {
   grid-area: info;
-  /* background-color: #181818; */
   color: #e63946;
   margin: .65em 2em 0 2em;
-  /* padding-right: 2em; */
   height: 100vh;
 
 }
@@ -665,31 +441,6 @@ and add 4 + numOfP to the end
   display: none;
   visibility: hidden;
 }
-
-
-/* .footer {
-  /* grid-area: footer;
-  background-color: #1A8BDC;
-  color: white;
-  padding: 0 30px 0 2em;
-  height: 100vh;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 100px;
-} */
-
-/* .footer>p {
-  margin: 0;
-} */
-
-
-
 
 @media all and (max-width: 44em) {
   .grid-container {
@@ -739,9 +490,4 @@ and add 4 + numOfP to the end
     background-color: coral;
     border-radius: 10px;
   }
-
-
-  /* .footer {
-    display: none;
-  } */
 }
