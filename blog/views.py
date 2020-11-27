@@ -14,10 +14,14 @@ class HomeView(ListView):
     model = Post
     template_name = 'home.html'
     context_object_name = 'post_list'
+    slug = 'slug'
+    # date = 'date|date:"Y"'
+
     
 
 class PostDetailView(DetailView):
     model = Post
+    slug = 'slug'
     template_name = 'post_details.html'
     def get_context_data(self, *args, **kwargs):
         context = super(PostDetailView, self).get_context_data(*args, **kwargs)

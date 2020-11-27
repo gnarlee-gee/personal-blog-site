@@ -1,4 +1,6 @@
 {% extends 'base.html' %}
+{% load static %}
+
 {% block content %}
 {% load markdown_deux_tags %}
 
@@ -7,23 +9,20 @@
         <div class="sidepane" id="sidepane-div">
             <div class="home-side menu-collapse">
                 <p>
-                    <a class="sidepane-links" id="home-menu" href="{% url 'home' %}">
-                        home
-                    </a>
+                    <a class="sidepane-links" id="home-menu" href="{% url 'home' %}">home</a>
                 </p>
             </div>
             {% block postlist %}
             <div class="blog-side ">
-                <p style="float: left;" id="blog-side-text">
-                    blog
-                </p>
-                <i class="material-icons material-icons-round md-42" id="blog-menu">expand_more</i>
-                <i class="material-icons material-icons-round md-42" id="blog-close" style="display: none;">expand_less</i>
+                <p style="float: left;" id="blog-side-text">blog</p>
+                <i class="material-icons material-icons-round md-38" id="blog-menu">expand_more</i>
+                <i class="material-icons material-icons-round md-38" id="blog-close"
+                    style="display: none;">expand_less</i>
 
                 <div class="blog-posts" style="display: none;">
                     {% for post in post_list %}
                     <p class="posts" style="display:none;">
-                        <a href="{% url 'post-detail' post.pk %}">
+                        <a href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
                             {{ post.title }}
                         </a>
                     </p>
@@ -53,15 +52,51 @@
         </div>
 
         <div id="info-box" class="info">
+            {% block posts %}
             <div class="about-me">
-                <h1>This is the about-me section! </h1>
-                <p>I like programming</p>
+                <h1>Welcome to the world of <br> Charles Grealy! </h1>
+                <p>I graduated from the University of Houston in May 2020 with a Bachelors
+                    of Science in mathematics. My career plan going into college was to become a programmer.
+                </p>
+                <p>
+                    In order to achieve programming experience, I set out to minor in computer science.
+                    The first class I took was an introductory course that introduced us to Python. Mastered Python and
+                    C++
+                    in the computer science classes. Practiced and preached the fundamentals such as object oriented
+                    programming and data structures. Wow, does programming
+                    inject serotonin in my viens!
+                </p>
+                <p>
+                    I'm now applying to various programming positions in hopes of gaining employment. Once
+                    I lock down a job, I will pursue a Masters and a PhD in computer science.
+                </p>
+                <p>
+                    FAQ: Why didn't you just major in computer science? I chose mathematics over computer science as
+                    math
+                    was my strongest subject throughout primary school and
+                    the focus on logic would strengthen my programming abilities. I have absolutely no regrets,
+                    rather, I have new interests and motivations.
+                </p>
             </div>
 
             <div class="blog-section">
-                <h1>This is the blog section</h1>
-                {% block posts %}
-                {% endblock %}
+
+                <h2>Blog Entries</h1>
+                <ul>
+                    {% for post in post_list %}
+                    <li style="list-style-type: circle;">
+                        <p class="post-descriptions">
+                            <span> {{ post.date|date:"M d, Y" }} - </span>
+
+                            <a class="links" href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
+                                {{ post.title }}
+                            </a>
+                        </p>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+
             </div>
 
             <div class="projects-section">
@@ -75,6 +110,7 @@
             <div class="contact-section">
                 <h1>This is the contact section! </h1>
             </div>
+            {% endblock %}
         </div>
     </div>
 
@@ -82,4 +118,8 @@
     </div>
 </div>
 
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'blog/js/home_script.js' %}"></script>
 {% endblock %}

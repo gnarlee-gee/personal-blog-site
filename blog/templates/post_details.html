@@ -1,41 +1,45 @@
 {% extends 'home.html' %}
-
+{% load static %}
 
 {% load markdown_deux_tags %}
 
 {% block postlist %}
-<div class="blog-side">
-
-    <p style="float: left;">
-            blog
-        <!--<i class="fas fa-folder-open" style="color: rgb(255, 208, 0);"></i>-->
+<div class="blog-side ">
+    <p style="float: left;" id="blog-side-text">
+        blog
     </p>
-    
+    <i class="material-icons material-icons-round md-38" id="blog-menu">expand_more</i>
+    <i class="material-icons material-icons-round md-38" id="blog-close" style="display: none;">expand_less</i>
+
     <div class="blog-posts" style="display: none;">
-        {% for posts in post_list %}
+        {% for post in post_list %}
         <p class="posts" style="display:none;">
-            <a href="{% url 'post-detail' posts.pk %}">
-                {{ posts.title }}
+            <a href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
+                {{ post.title }}
             </a>
         </p>
-        <span style="display: none;"> {{ posts.date }}</span>
-
+        <span style="display: none;"> {{ post.date }}</span>
         {% endfor %}
     </div>
-   
 </div>
 {% endblock %}
 
 {% block posts %}
+<div class="blog-entries">
+
+    <h1>{{ post.title }}</h1>
+
+    {{ post.body|markdown }}
+
+</div>
 
 
 
-<h1>{{ post.title }}</h1>
-<!-- <small>By: {{post.author.first_name }}
-    {{ post.author.last_name }}</small><br> -->
-<hr>
-<br>
-{{ post.body|markdown }}
 
 
+{% endblock %}
+
+{% block js %}
+<script src="{% static 'blog/js/blog_details.js' %}"></script>
+<script> console.log('yes we are in blog')</script>
 {% endblock %}

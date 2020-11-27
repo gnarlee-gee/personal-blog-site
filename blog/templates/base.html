@@ -33,9 +33,12 @@
     <!-- Likewise, everything below endblock will be on every page -->
     <!-- </div> -->
 
-    <!-- Optional JavaScript -->
-    <script src="{% static 'blog/js/script.js' %}"></script>
+
 
 </body>
+    <!-- Optional JavaScript -->
+    {% block js %}
+    <script src="{% static 'blog/js/home_script.js' %}"></script>
+    {% endblock %}
 
 </html>

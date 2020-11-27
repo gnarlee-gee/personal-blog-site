@@ -26,49 +26,49 @@ var observer = new IntersectionObserver(function (entries) {
     if (entries[0].isIntersecting === true) {
         switch (entries[0]['target'].className) {
             case 'about-me':
-                homeMenuText.style.color = "#363636";
+                homeMenuText.style.color = "#252526";
                 homeMenuText.classList.remove("menu-hover");
-                blogMenuText.style.color = "#ccc";
-                blogMenuBurger.style.color = "#ccc";
-                projectsMenuText.style.color = "#ccc";
-                resumeMenuText.style.color = "#ccc";
-                contactMenuText.style.color = "#ccc";
+                blogMenuText.style.color = "#BACBD9";
+                blogMenuBurger.style.color = "#BACBD9";
+                projectsMenuText.style.color = "#BACBD9";
+                resumeMenuText.style.color = "#BACBD9";
+                contactMenuText.style.color = "#BACBD9";
                 break;
             case 'blog-section':
-                blogMenuText.style.color = "#363636";
+                blogMenuText.style.color = "#252526";
                 blogMenuText.classList.remove("menu-hover");
                 blogMenuBurger.style.color = "#e63946"
-                homeMenuText.style.color = "#ccc";
-                projectsMenuText.style.color = "#ccc";
-                resumeMenuText.style.color = "#ccc";
-                contactMenuText.style.color = "#ccc";
+                homeMenuText.style.color = "#BACBD9";
+                projectsMenuText.style.color = "#BACBD9";
+                resumeMenuText.style.color = "#BACBD9";
+                contactMenuText.style.color = "#BACBD9";
                 break;
             case 'projects-section':
-                projectsMenuText.style.color = "#363636";
+                projectsMenuText.style.color = "#252526";
                 projectsMenuText.classList.remove("menu-hover");
-                resumeMenuText.style.color = "#ccc";
-                contactMenuText.style.color = "#ccc";
-                blogMenuText.style.color = "#ccc";
-                blogMenuBurger.style.color = "#ccc";
-                homeMenuText.style.color = "#ccc";
+                resumeMenuText.style.color = "#BACBD9";
+                contactMenuText.style.color = "#BACBD9";
+                blogMenuText.style.color = "#BACBD9";
+                blogMenuBurger.style.color = "#BACBD9";
+                homeMenuText.style.color = "#BACBD9";
                 break;
             case 'resume-section':
-                resumeMenuText.style.color = "#363636";
+                resumeMenuText.style.color = "#252526";
                 resumeMenuText.classList.remove("menu-hover");
-                projectsMenuText.style.color = "#ccc";
-                contactMenuText.style.color = "#ccc";
-                blogMenuText.style.color = "#ccc";
-                blogMenuBurger.style.color = "#ccc";
-                homeMenuText.style.color = "#ccc";
+                projectsMenuText.style.color = "#BACBD9";
+                contactMenuText.style.color = "#BACBD9";
+                blogMenuText.style.color = "#BACBD9";
+                blogMenuBurger.style.color = "#BACBD9";
+                homeMenuText.style.color = "#BACBD9";
                 break;
             case 'contact-section':
-                contactMenuText.style.color = "#363636";
+                contactMenuText.style.color = "#252526";
                 contactMenuText.classList.remove("menu-hover");
-                projectsMenuText.style.color = "#ccc";
-                resumeMenuText.style.color = "#ccc";
-                blogMenuText.style.color = "#ccc";
-                blogMenuBurger.style.color = "#ccc";
-                homeMenuText.style.color = "#ccc";
+                projectsMenuText.style.color = "#BACBD9";
+                resumeMenuText.style.color = "#BACBD9";
+                blogMenuText.style.color = "#BACBD9";
+                blogMenuBurger.style.color = "#BACBD9";
+                homeMenuText.style.color = "#D5E5F2";
                 break;
         }
     }
