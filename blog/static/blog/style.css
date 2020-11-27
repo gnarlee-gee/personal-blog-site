@@ -1,15 +1,42 @@
-/* dosis-700 - latin */
+/* open-sans-regular - latin */
 @font-face {
-  font-family: 'Dosis';
+  font-family: 'Open Sans';
   font-style: normal;
-  font-weight: 700;
+  font-weight: 400;
   src: local(''),
-    url('fonts/dosis/dosis-v18-latin-700.woff2') format('woff2'),
-    /* Chrome 26+, Opera 23+, Firefox 39+ */
-    url('fonts/dosis/dosis-v18-latin-700.woff') format('woff');
-  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+       url('fonts/opensans/open-sans-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/opensans/open-sans-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+/* open-sans-italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+       url('fonts/opensans/open-sans-v18-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/opensans/open-sans-v18-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* open-sans-600 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url('fonts/opensans/open-sans-v18-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/opensans/open-sans-v18-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* open-sans-600italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local(''),
+       url('fonts/opensans/open-sans-v18-latin-600italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/opensans/open-sans-v18-latin-600italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 /* open-sans-700 - latin */
 @font-face {
@@ -19,6 +46,16 @@
   src: local(''),
        url('fonts/opensans/open-sans-v18-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
        url('fonts/opensans/open-sans-v18-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* open-sans-700italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local(''),
+       url('fonts/opensans/open-sans-v18-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/opensans/open-sans-v18-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 /* open-sans-800 - latin */
@@ -31,6 +68,77 @@
        url('fonts/opensans/open-sans-v18-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
+/* open-sans-800italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 800;
+  src: local(''),
+       url('fonts/opensans/open-sans-v18-latin-800italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/opensans/open-sans-v18-latin-800italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-500 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+       url('fonts/robotoslab/roboto-slab-v12-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/robotoslab/roboto-slab-v12-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-regular - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('fonts/robotoslab/roboto-slab-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/robotoslab/roboto-slab-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-600 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+       url('fonts/robotoslab/roboto-slab-v12-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/robotoslab/roboto-slab-v12-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-700 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+       url('fonts/robotoslab/roboto-slab-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/robotoslab/roboto-slab-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-800 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 800;
+  src: local(''),
+       url('fonts/robotoslab/roboto-slab-v12-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/robotoslab/roboto-slab-v12-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-900 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+       url('fonts/robotoslab/roboto-slab-v12-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
+       url('fonts/robotoslab/roboto-slab-v12-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+
 
 * {
   -webkit-box-sizing: border-box;
@@ -41,7 +149,8 @@
 body {
   background-color: #f6f6f6;
   margin: 0 auto;
-  font: 17px/1.4 'Georgia', serif;
+  font: 17px/1.4 'Open Sans', sans-serif;
+  font-weight: 400;
   text-align: left;
   color: #181818;
 }
@@ -82,14 +191,14 @@ code {
 }
 
 h1 {
-  font: 240% 'Georgia', serif;
-  font-weight: normal;
+  font: 240% 'Roboto Slab', serif;
+  font-weight: 500;
   margin-bottom: 10px;
 }
 
 h2 {
-  font: 170% 'Georgia', serif;
-  font-weight: normal;
+  font: 170% 'Roboto Slab', serif;
+  font-weight: 500;
   margin: 0;
 }
 
@@ -99,7 +208,7 @@ h2 {
 }
 
 .post-descriptions {
-  font-family: 'Georgia', serif; 
+  font-family: 'Source Sans', sans-serif; 
   margin: 0;
   margin-top: 4px;
 }
@@ -170,7 +279,7 @@ h2 {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font: 150%/1.5 'Georgia', serif;
+  font: 150%/1.5 'Source Sans', sans-serif;
 }
 
 .posts>a:hover {
@@ -268,7 +377,7 @@ h2 {
 .resume-side>p,
 .projects-side>p,
 .contact-side>p {
-  font: 200% 'Open Sans', sans-serif;
+  font: 200% 'Roboto Slab', sans-serif;
   font-weight: 700;
   margin-bottom: 0;
   color: #BACBD9;
