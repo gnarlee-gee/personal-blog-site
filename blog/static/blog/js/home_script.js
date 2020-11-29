@@ -1,10 +1,11 @@
 // after page loads activate function
 window.onload = function () {
+    const sidepaneWidth = document.querySelector(".sidepane").clientWidth;
     const blogPosts = document.querySelector('.blog-posts');
     let numOfPosts = blogPosts.children.length;
     numOfPosts /= 2;
     blogClick(numOfPosts);
-    resizeSidepane();
+    resizeSidepane(sidepaneWidth);
 }
 
 const homeMenuText = document.querySelector('#home-menu');
@@ -13,6 +14,7 @@ const blogMenuBurger = document.querySelector("#blog-menu");
 const projectsMenuText = document.querySelector("#projects-side-text");
 const resumeMenuText = document.querySelector("#resume-side-text");
 const contactMenuText = document.querySelector("#contact-side-text");
+
 
 // Intersection Observer API
 var observer = new IntersectionObserver(function (entries) {
@@ -145,7 +147,9 @@ function setBlogPostsGrid(operation) {
         setTimeout(function () {
             for (let i = 0; i < children; i++) {
                 let post = document.querySelector(`#post-box-${i+1}`);
-                post.remove();
+                if (post != null) {
+                    post.remove();
+                }
             }
         }, 500);
     }
@@ -196,7 +200,7 @@ function blogClick(numOfPosts) {
         document.querySelector('#resume-side-text').style.visibility = 'hidden';
         document.querySelector('#contact-side-text').style.visibility = 'hidden';
 
-        blogMenuText.style.color = "rgb(204, 204, 204)";
+        blogMenuText.style.color = "#BACBD9";
 
         sidePane.className += ' posts-scroll-bar';
         sidePane.style.zIndex = 2;
@@ -218,7 +222,7 @@ function blogClick(numOfPosts) {
 
             function callback() {
                 setTimeout(function () {
-                    $(blogMenu).removeAttr("style").hide().fadeIn();
+                    //$(blogMenu).removeAttr("style").hide().fadeIn();
                     document.querySelector('#home-menu').style.visibility = 'visible';
                     document.querySelector('#projects-side-text').style.visibility = 'visible';
                     document.querySelector('#resume-side-text').style.visibility = 'visible';
@@ -239,7 +243,7 @@ function blogClick(numOfPosts) {
             dropDown = true;
 
             setTimeout(function () {
-                if (blogMenuText.style.color != 'rgb(204, 204, 204)') {
+                if (blogMenuText.style.color != "#BACBD9" && blogMenuBurger.style.color != "#e63946") {
                     blogMenuBurger.setAttribute('style', 'color: #e63946');
                 } else {
                     document.querySelector("#blog-side-text").classList.add("menu-hover");
@@ -250,7 +254,7 @@ function blogClick(numOfPosts) {
 }
 
 // Implements ability to resize sidepane
-function resizeSidepane() {
+function resizeSidepane(sidepaneWidth) {
     $(function () {
         $("#blog-menu").on("click", function () {
             $(".post-bg").animate({
@@ -263,7 +267,7 @@ function resizeSidepane() {
         $("#blog-close, #blog-side-text").on("click", function () {
             if (dropDown) {
                 $(".sidepane").animate({
-                    width: 225,
+                    width: sidepaneWidth,
                 }, 500);
                 $(".post-bg").animate({
                     width: 0,
