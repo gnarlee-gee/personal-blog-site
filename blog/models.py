@@ -9,13 +9,13 @@ import datetime
 
 # Create your models here.
 class Post(models.Model):
-    title = models.CharField(max_length=255)
+    title = models.CharField(max_length=255, null=True)
     
     # on_delete will delete all posts by admin IF we delete that admin
     body = models.TextField(null=True)
     
-    date = models.DateField(auto_now_add=False)
-    slug = models.SlugField(default='',editable=False, unique=True)
+    date = models.DateField(auto_now_add=False, null=True)
+    slug = models.SlugField(default='', editable=False, unique=True)
     
     class Meta:
         ordering = ['-pk']
