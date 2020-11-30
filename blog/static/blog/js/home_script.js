@@ -1,88 +1,133 @@
 // after page loads activate function
 window.onload = function () {
-    const sidepaneWidth = document.querySelector(".sidepane").clientWidth;
     const blogPosts = document.querySelector('.blog-posts');
     let numOfPosts = blogPosts.children.length;
     numOfPosts /= 2;
     blogClick(numOfPosts);
-    resizeSidepane(sidepaneWidth);
+    resizeSidepane();
+    scrollTo();
+    connect();
 }
 
 const homeMenuText = document.querySelector('#home-menu');
+const homeSection = document.querySelector(".about-me");
+
 const blogMenuText = document.querySelector("#blog-side-text");
+const blogSection = document.querySelector(".blog-section");
 const blogMenuBurger = document.querySelector("#blog-menu");
+
 const projectsMenuText = document.querySelector("#projects-side-text");
+const projectSection = document.querySelector(".projects-section");
+
 const resumeMenuText = document.querySelector("#resume-side-text");
+const resumeSection = document.querySelector(".resume-section");
+
 const contactMenuText = document.querySelector("#contact-side-text");
+const contactSection = document.querySelector(".contact-section");
+
+const menuText = [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText, contactMenuText];
+const menuSection = [homeSection, blogSection, projectSection, resumeSection, contactSection];
+
+
+
+function changeMenuItemColor(menuItem) {
+    switch (menuItem) {
+        case 'about-me':
+            homeMenuText.style.color = "#252526";
+            homeMenuText.classList.remove("menu-hover");
+            blogMenuText.style.color = "#BACBD9";
+            blogMenuBurger.style.color = "#BACBD9";
+            projectsMenuText.style.color = "#BACBD9";
+            resumeMenuText.style.color = "#BACBD9";
+            contactMenuText.style.color = "#BACBD9";
+            break;
+        case 'blog-section':
+            blogMenuText.style.color = "#252526";
+            blogMenuText.classList.remove("menu-hover");
+            blogMenuBurger.style.color = "#e63946"
+            homeMenuText.style.color = "#BACBD9";
+            projectsMenuText.style.color = "#BACBD9";
+            resumeMenuText.style.color = "#BACBD9";
+            contactMenuText.style.color = "#BACBD9";
+            break;
+        case 'projects-section':
+            projectsMenuText.style.color = "#252526";
+            projectsMenuText.classList.remove("menu-hover");
+            resumeMenuText.style.color = "#BACBD9";
+            contactMenuText.style.color = "#BACBD9";
+            blogMenuText.style.color = "#BACBD9";
+            blogMenuBurger.style.color = "#BACBD9";
+            homeMenuText.style.color = "#BACBD9";
+            break;
+        case 'resume-section':
+            resumeMenuText.style.color = "#252526";
+            resumeMenuText.classList.remove("menu-hover");
+            projectsMenuText.style.color = "#BACBD9";
+            contactMenuText.style.color = "#BACBD9";
+            blogMenuText.style.color = "#BACBD9";
+            blogMenuBurger.style.color = "#BACBD9";
+            homeMenuText.style.color = "#BACBD9";
+            break;
+        case 'contact-section':
+            contactMenuText.style.color = "#252526";
+            contactMenuText.classList.remove("menu-hover");
+            projectsMenuText.style.color = "#BACBD9";
+            resumeMenuText.style.color = "#BACBD9";
+            blogMenuText.style.color = "#BACBD9";
+            blogMenuBurger.style.color = "#BACBD9";
+            homeMenuText.style.color = "#BACBD9";
+            break;
+    }
+}
 
 
 // Intersection Observer API
 var observer = new IntersectionObserver(function (entries) {
     // isIntersecting is true when element and viewport are overlapping
-    // isIntersecting is false when element and viewport don't overlap
+    // isIntersecting is false when element and viewport don't overlapc
     [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText, contactMenuText].forEach((item) => {
         if (entries[0]['intersectionRatio'] > 0.60) {
             item.classList.add("menu-hover");
         }
     })
     if (entries[0].isIntersecting === true) {
-        switch (entries[0]['target'].className) {
-            case 'about-me':
-                homeMenuText.style.color = "#252526";
-                homeMenuText.classList.remove("menu-hover");
-                blogMenuText.style.color = "#BACBD9";
-                blogMenuBurger.style.color = "#BACBD9";
-                projectsMenuText.style.color = "#BACBD9";
-                resumeMenuText.style.color = "#BACBD9";
-                contactMenuText.style.color = "#BACBD9";
-                break;
-            case 'blog-section':
-                blogMenuText.style.color = "#252526";
-                blogMenuText.classList.remove("menu-hover");
-                blogMenuBurger.style.color = "#e63946"
-                homeMenuText.style.color = "#BACBD9";
-                projectsMenuText.style.color = "#BACBD9";
-                resumeMenuText.style.color = "#BACBD9";
-                contactMenuText.style.color = "#BACBD9";
-                break;
-            case 'projects-section':
-                projectsMenuText.style.color = "#252526";
-                projectsMenuText.classList.remove("menu-hover");
-                resumeMenuText.style.color = "#BACBD9";
-                contactMenuText.style.color = "#BACBD9";
-                blogMenuText.style.color = "#BACBD9";
-                blogMenuBurger.style.color = "#BACBD9";
-                homeMenuText.style.color = "#BACBD9";
-                break;
-            case 'resume-section':
-                resumeMenuText.style.color = "#252526";
-                resumeMenuText.classList.remove("menu-hover");
-                projectsMenuText.style.color = "#BACBD9";
-                contactMenuText.style.color = "#BACBD9";
-                blogMenuText.style.color = "#BACBD9";
-                blogMenuBurger.style.color = "#BACBD9";
-                homeMenuText.style.color = "#BACBD9";
-                break;
-            case 'contact-section':
-                contactMenuText.style.color = "#252526";
-                contactMenuText.classList.remove("menu-hover");
-                projectsMenuText.style.color = "#BACBD9";
-                resumeMenuText.style.color = "#BACBD9";
-                blogMenuText.style.color = "#BACBD9";
-                blogMenuBurger.style.color = "#BACBD9";
-                homeMenuText.style.color = "#D5E5F2";
-                break;
-        }
+        changeMenuItemColor(entries[0]['target'].className)
     }
 }, {
     threshold: [.60]
 });
 
-observer.observe(document.querySelector(".about-me"));
-observer.observe(document.querySelector(".blog-section"));
-observer.observe(document.querySelector(".projects-section"));
-observer.observe(document.querySelector(".resume-section"));
-observer.observe(document.querySelector(".contact-section"));
+function connect() {
+    menuSection.forEach((item) => {
+        observer.observe(item);
+    })
+}
+
+
+function scrollTo() {
+
+    menuText.forEach((item, index) => {
+        item.addEventListener('click', () => {
+            menuSection.forEach((item) => {
+                observer.unobserve(item);
+            })
+
+            menuSection[index].scrollIntoView({
+                behavior: "smooth"
+            })
+            menuText.forEach((item) => {
+                item.classList.add("menu-hover");
+            })
+            changeMenuItemColor(menuSection[index].className)
+            setTimeout(function () {
+                connect();
+            }, 150)
+        });
+    })
+}
+
+
+
 
 // Moves ".html" items and their icons down according to number of posts
 // when the drop down folder is clicked
@@ -159,7 +204,6 @@ function setBlogPostsGrid(operation) {
 // Modifies behavior when clicking blog
 function blogClick(numOfPosts) {
     const blogText = document.querySelector('#blog-side-text');
-    const blogDiv = document.querySelector('.blog-section');
     const sidePane = document.querySelector('.sidepane')
 
     const blogMenu = document.querySelector('#blog-menu');
@@ -169,11 +213,7 @@ function blogClick(numOfPosts) {
 
     let blogMenuColor = '';
 
-    blogText.addEventListener('click', () => {
-        blogDiv.scrollIntoView({
-            behavior: "smooth"
-        });
-    });
+
 
     blogMenu.addEventListener('click', () => {
         blogMenuColor = blogText.style.color;
@@ -243,7 +283,8 @@ function blogClick(numOfPosts) {
             dropDown = true;
 
             setTimeout(function () {
-                if (blogMenuText.style.color != "#BACBD9" && blogMenuBurger.style.color != "#e63946") {
+                if (blogMenuText.style.color != "rgb(186, 203, 217)" && blogMenuBurger.style.color != "#e63946") {
+                    blogMenuText.style.color = '#252526';
                     blogMenuBurger.setAttribute('style', 'color: #e63946');
                 } else {
                     document.querySelector("#blog-side-text").classList.add("menu-hover");
@@ -254,7 +295,7 @@ function blogClick(numOfPosts) {
 }
 
 // Implements ability to resize sidepane
-function resizeSidepane(sidepaneWidth) {
+function resizeSidepane() {
     $(function () {
         $("#blog-menu").on("click", function () {
             $(".post-bg").animate({
@@ -267,7 +308,7 @@ function resizeSidepane(sidepaneWidth) {
         $("#blog-close, #blog-side-text").on("click", function () {
             if (dropDown) {
                 $(".sidepane").animate({
-                    width: sidepaneWidth,
+                    width: 130,
                 }, 500);
                 $(".post-bg").animate({
                     width: 0,
