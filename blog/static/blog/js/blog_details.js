@@ -130,7 +130,7 @@ function blogClick(numOfPosts) {
     let blogMenuColor = '';
 
     blogMenu.addEventListener('click', () => {
-        if (dropDown) {
+        if (!dropDown) {
 
             blogMenuColor = blogText.style.color;
 
@@ -165,6 +165,7 @@ function blogClick(numOfPosts) {
 
             moveGridItems('change', numOfPosts);
             setBlogPostsGrid('change', numOfPosts)
+            
         }
     });
 
@@ -295,6 +296,7 @@ function resizeSidepane() {
                 $(".post-bg").animate({
                     width: 0,
                 }, 500);
+                dropDown = false;
             }
         });
 

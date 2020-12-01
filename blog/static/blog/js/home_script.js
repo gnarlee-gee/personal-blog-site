@@ -1,4 +1,5 @@
 // after page loads activate function
+
 window.onload = function () {
     const blogPosts = document.querySelector('.blog-posts');
     let numOfPosts = blogPosts.children.length;
@@ -7,6 +8,7 @@ window.onload = function () {
     resizeSidepane();
     scrollTo();
     connect();
+
 }
 
 const homeMenuText = document.querySelector('#home-menu');
@@ -30,6 +32,8 @@ const menuSection = [homeSection, blogSection, projectSection, resumeSection, co
 
 
 
+
+
 function changeMenuItemColor(menuItem) {
     switch (menuItem) {
         case 'about-me':
@@ -44,7 +48,9 @@ function changeMenuItemColor(menuItem) {
         case 'blog-section':
             blogMenuText.style.color = "#252526";
             blogMenuText.classList.remove("menu-hover");
-            blogMenuBurger.style.color = "#e63946"
+            setTimeout(function () {
+                blogMenuBurger.style.color = "#e63946"
+            }, 500)
             homeMenuText.style.color = "#BACBD9";
             projectsMenuText.style.color = "#BACBD9";
             resumeMenuText.style.color = "#BACBD9";
@@ -121,7 +127,7 @@ function scrollTo() {
             changeMenuItemColor(menuSection[index].className)
             setTimeout(function () {
                 connect();
-            }, 150)
+            }, 250)
         });
     })
 }
@@ -262,12 +268,13 @@ function blogClick(numOfPosts) {
 
             function callback() {
                 setTimeout(function () {
-                    //$(blogMenu).removeAttr("style").hide().fadeIn();
+                    $(blogMenu).removeAttr("style").hide().fadeIn();
                     document.querySelector('#home-menu').style.visibility = 'visible';
                     document.querySelector('#projects-side-text').style.visibility = 'visible';
                     document.querySelector('#resume-side-text').style.visibility = 'visible';
                     document.querySelector('#contact-side-text').style.visibility = 'visible';
                     blogMenuText.style.color = blogMenuColor;
+                    blogMenu.style.visibility = 'visible'
                 }, 500);
             };
             runEffect();
@@ -284,7 +291,7 @@ function blogClick(numOfPosts) {
 
             setTimeout(function () {
                 if (blogMenuText.style.color != "rgb(186, 203, 217)" && blogMenuBurger.style.color != "#e63946") {
-                    blogMenuText.style.color = '#252526';
+                    // blogMenuText.style.color = 'v';
                     blogMenuBurger.setAttribute('style', 'color: #e63946');
                 } else {
                     document.querySelector("#blog-side-text").classList.add("menu-hover");
