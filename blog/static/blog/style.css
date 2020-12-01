@@ -160,10 +160,6 @@ body {
   background: #ee4444;
 }
 
-.postbg-active {
-  
-}
-
 pre,
 code {
   display: inline;
@@ -180,6 +176,8 @@ code {
   width: 100vw;
   height: 100vh;
   overflow-x: hidden;
+  overflow: hidden;
+
 }
 
 .page-container {
@@ -246,7 +244,9 @@ h2 {
   scrollbar-width: none;
   /* Firefox */
   position: -webkit-fixed;
-  position: fixed;
+  position: sticky;
+  top: 0;
+
 }
 
 .sidepane::-webkit-scrollbar {
@@ -428,7 +428,15 @@ h2 {
   color: #594D42;
   margin: .65em 2em 0 2em;
   height: 100vh;
-  
+  overflow: hidden;
+  overflow-y: auto;
+  scrollbar-width: none; 
+}
+
+/* For chrome */
+::-webkit-scrollbar {
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
 .about-me,

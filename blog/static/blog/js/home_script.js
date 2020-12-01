@@ -8,7 +8,6 @@ window.onload = function () {
     resizeSidepane();
     scrollTo();
     connect();
-
 }
 
 const homeMenuText = document.querySelector('#home-menu');
@@ -50,7 +49,7 @@ function changeMenuItemColor(menuItem) {
             blogMenuText.classList.remove("menu-hover");
             setTimeout(function () {
                 blogMenuBurger.style.color = "#e63946"
-            }, 500)
+            }, 0)
             homeMenuText.style.color = "#BACBD9";
             projectsMenuText.style.color = "#BACBD9";
             resumeMenuText.style.color = "#BACBD9";
@@ -127,7 +126,7 @@ function scrollTo() {
             changeMenuItemColor(menuSection[index].className)
             setTimeout(function () {
                 connect();
-            }, 250)
+            }, 500)
         });
     })
 }
@@ -256,7 +255,7 @@ function blogClick(numOfPosts) {
         moveGridItems('change', numOfPosts);
         setBlogPostsGrid('change', numOfPosts)
     });
-    [blogClose, blogCloseTxt].forEach((item) => {
+    [blogClose].forEach((item) => {
         item.addEventListener('click', () => {
             function runEffect() {
                 // get effect type from
