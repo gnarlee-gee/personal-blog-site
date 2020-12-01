@@ -22,6 +22,7 @@ urlpatterns = [
     #path('', views.home, name='home'),
     path('', HomeView.as_view(), name='home'), # .as_view() because class based views
     # path('blog', BlogView.as_view(), name='blog'),
+    
     path('blog/<int:year>/<str:month>/<int:day>/<slug:slug>', PostDetailView.as_view(), name='post-detail'), # pk is the primary key -> auto assigns to post in db
     # path('post/<int:pk>', BlogView.as_view(), name='post-detail'),
 ]

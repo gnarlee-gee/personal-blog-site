@@ -3,10 +3,17 @@
 
 {% load markdown_deux_tags %}
 
+
+{% block menuitems %}
+<div class="home-side menu-collapse">
+    <p>
+        <a class="sidepane-links" id="home-menu" href="{% url 'home' %}">back</a>
+    </p>
+</div>
 {% block postlist %}
 <div class="blog-side ">
-    <p style="float: left;" id="blog-side-text">
-        blog
+    <p style="float: left;" id="blog-side-text" class="postbg-active">
+        posts
     </p>
     <i class="material-icons material-icons-round md-38" id="blog-menu">expand_more</i>
     <i class="material-icons material-icons-round md-38" id="blog-close" style="display: none;">expand_less</i>
@@ -23,7 +30,25 @@
     </div>
 </div>
 {% endblock %}
+<!-- <div class="projects-side">
+    <p id="projects-side-text">
+        projects
+    </p>
+</div>
 
+<div class="resume-side menu-collapse">
+    <p id="resume-side-text">
+        resume
+    </p>
+</div>
+
+<div class="contact-side menu-collapse">
+    <p id="contact-side-text">
+        contact
+    </p>
+</div> -->
+</div>
+{% endblock %}
 {% block posts %}
 <div class="blog-entries">
 
@@ -36,10 +61,8 @@
 
 
 
-
 {% endblock %}
 
 {% block js %}
 <script src="{% static 'blog/js/blog_details.js' %}"></script>
-<script> console.log('yes we are in blog')</script>
 {% endblock %}

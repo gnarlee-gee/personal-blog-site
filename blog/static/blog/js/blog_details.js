@@ -6,30 +6,31 @@ window.onload = function () {
     blogClick(numOfPosts);
     resizeSidepane();
     addHoverClass();
-
-
 }
+
+
 
 const homeMenuText = document.querySelector('#home-menu');
 const blogMenuText = document.querySelector("#blog-side-text");
 const blogMenuBurger = document.querySelector("#blog-menu");
-const projectsMenuText = document.querySelector("#projects-side-text");
-const resumeMenuText = document.querySelector("#resume-side-text");
-const contactMenuText = document.querySelector("#contact-side-text");
+// const projectsMenuText = document.querySelector("#projects-side-text");
+// const resumeMenuText = document.querySelector("#resume-side-text");
+// const contactMenuText = document.querySelector("#contact-side-text");
 
-function addHoverClass(){
+
+function addHoverClass() {
 
 
     blogMenuText.style.color = "#252526";
     blogMenuBurger.style.color = "#e63946"
     homeMenuText.style.color = "#BACBD9";
     homeMenuText.classList.add("menu-hover");
-    projectsMenuText.style.color = "#BACBD9";
-    projectsMenuText.classList.add("menu-hover");
-    resumeMenuText.style.color = "#BACBD9";
-    resumeMenuText.classList.add("menu-hover");
-    contactMenuText.style.color = "#BACBD9";
-    contactMenuText.classList.add("menu-hover");
+    // projectsMenuText.style.color = "#BACBD9";
+    // projectsMenuText.classList.add("menu-hover");
+    // resumeMenuText.style.color = "#BACBD9";
+    // resumeMenuText.classList.add("menu-hover");
+    // contactMenuText.style.color = "#BACBD9";
+    // contactMenuText.classList.add("menu-hover");
 
 }
 
@@ -37,28 +38,28 @@ function addHoverClass(){
 
 // Moves ".html" items and their icons down according to number of posts
 // when the drop down folder is clicked
-function moveGridItems(operation, numOfPosts) {
-    let projectsRowStartNum = (numOfPosts + 3).toString();
-    let projectsRowEndNum = projectsRowStartNum.toString(projectsRowStartNum++);
-    let resumeRowStartNum = (numOfPosts + 4).toString();
-    let resumeRowEndNum = resumeRowStartNum.toString(resumeRowStartNum++);
-    let contactRowStartNum = (numOfPosts + 5).toString();
-    let contactRowEndNum = contactRowStartNum.toString(contactRowStartNum++);
+function moveGridItems(operation) {
+    // let projectsRowStartNum = (numOfPosts + 3).toString();
+    // let projectsRowEndNum = projectsRowStartNum.toString(projectsRowStartNum++);
+    // let resumeRowStartNum = (numOfPosts + 4).toString();
+    // let resumeRowEndNum = resumeRowStartNum.toString(resumeRowStartNum++);
+    // let contactRowStartNum = (numOfPosts + 5).toString();
+    // let contactRowEndNum = contactRowStartNum.toString(contactRowStartNum++);
 
-    const projects = document.querySelector('.projects-side');
-    const resume = document.querySelector('.resume-side');
-    const contact = document.querySelector('.contact-side');
+    // const projects = document.querySelector('.projects-side');
+    // const resume = document.querySelector('.resume-side');
+    // const contact = document.querySelector('.contact-side');
 
     if (operation == 'change') {
-        projects.style.visibility = 'hidden';
-        resume.style.visibility = 'hidden';
-        contact.style.visibility = 'hidden';
-        projects.style.gridRowStart = projectsRowStartNum;
-        projects.style.gridRowEnd = projectsRowEndNum;
-        resume.style.gridRowStart = resumeRowStartNum;
-        resume.style.gridRowEnd = resumeRowEndNum;
-        contact.style.gridRowStart = contactRowStartNum;
-        contact.style.gridRowEnd = contactRowEndNum;
+        // projects.style.visibility = 'hidden';
+        // resume.style.visibility = 'hidden';
+        // contact.style.visibility = 'hidden';
+        // projects.style.gridRowStart = projectsRowStartNum;
+        // projects.style.gridRowEnd = projectsRowEndNum;
+        // resume.style.gridRowStart = resumeRowStartNum;
+        // resume.style.gridRowEnd = resumeRowEndNum;
+        // contact.style.gridRowStart = contactRowStartNum;
+        // contact.style.gridRowEnd = contactRowEndNum;
     }
 }
 
@@ -98,11 +99,23 @@ function setBlogPostsGrid(operation) {
         setTimeout(function () {
             for (let i = 0; i < children; i++) {
                 let post = document.querySelector(`#post-box-${i+1}`);
-                post.remove();
+                if (post != null) {
+                    post.remove();
+                }
             }
         }, 500);
     }
 }
+
+let dropDown = false;
+
+
+function evntListnrHlpr(blogMenu, blogText, ddown) {
+
+}
+
+
+
 
 // Change right arrow to a down arrow on click and vice versa
 // Modifies behavior when clicking blog
@@ -112,101 +125,169 @@ function blogClick(numOfPosts) {
 
     const blogMenu = document.querySelector('#blog-menu');
     const blogClose = document.querySelector('#blog-close');
-    const blogCloseTxt = document.querySelector('#blog-side-text');
     const posts = document.querySelector('.blog-posts');
 
     let blogMenuColor = '';
 
     blogMenu.addEventListener('click', () => {
-        blogMenuColor = blogText.style.color;
+        if (dropDown) {
 
-        function runEffect() {
-            // get effect type from
-            var selectedEffect = 'fade';
+            blogMenuColor = blogText.style.color;
 
-            // Run the effect
-            $(blogMenu).hide(selectedEffect, 500);
-        };
-
-        function callback() {
-            setTimeout(function () {
-                $(blogClose, blogCloseTxt).removeAttr("style").hide().fadeIn();
-            }, 500);
-        };
-        callback();
-        runEffect();
-
-        document.querySelector("#blog-side-text").classList.remove("menu-hover");
-        document.querySelector('#home-menu').style.visibility = 'hidden';
-        document.querySelector('#projects-side-text').style.visibility = 'hidden';
-        document.querySelector('#resume-side-text').style.visibility = 'hidden';
-        document.querySelector('#contact-side-text').style.visibility = 'hidden';
-
-        blogMenuText.style.color = "rgb(204, 204, 204)";
-
-        sidePane.className += ' posts-scroll-bar';
-        sidePane.style.zIndex = 2;
-
-        posts.style.display = 'block';
-
-        moveGridItems('change', numOfPosts);
-        setBlogPostsGrid('change', numOfPosts)
-    });
-    [blogClose, blogCloseTxt].forEach((item) => {
-        item.addEventListener('click', () => {
             function runEffect() {
                 // get effect type from
                 var selectedEffect = 'fade';
 
                 // Run the effect
-                $(blogClose, blogCloseTxt).hide(selectedEffect, 500);
+                $(blogMenu).hide(selectedEffect, 500);
             };
 
             function callback() {
                 setTimeout(function () {
-                    $(blogMenu).removeAttr("style").hide().fadeIn();
-                    document.querySelector('#home-menu').style.visibility = 'visible';
-                    document.querySelector('#projects-side-text').style.visibility = 'visible';
-                    document.querySelector('#resume-side-text').style.visibility = 'visible';
-                    document.querySelector('#contact-side-text').style.visibility = 'visible';
-                    blogMenuText.style.color = blogMenuColor;
+                    $(blogClose, blogText).removeAttr("style").hide().fadeIn();
                 }, 500);
             };
-            runEffect();
             callback();
+            runEffect();
 
-            posts.style.display = 'none';
+            blogText.classList.remove("menu-hover");
+            document.querySelector('#home-menu').style.visibility = 'hidden';
+            // document.querySelector('#projects-side-text').style.visibility = 'hidden';
+            // document.querySelector('#resume-side-text').style.visibility = 'hidden';
+            // document.querySelector('#contact-side-text').style.visibility = 'hidden';
 
-            sidePane.className = 'sidepane';
+            blogMenuText.style.color = "#BACBD9";
 
-            setBlogPostsGrid('default', numOfPosts);
-            moveGridItems('default', numOfPosts);
-            //Used in the resizeSidepane function
-            dropDown = true;
+            sidePane.className += ' posts-scroll-bar';
+            sidePane.style.zIndex = 2;
 
-            setTimeout(function () {
-                if (blogMenuText.style.color != 'rgb(204, 204, 204)') {
-                    blogMenuBurger.setAttribute('style', 'color: #e63946');
-                } else {
-                    document.querySelector("#blog-side-text").classList.add("menu-hover");
-                }
-            }, 500);
+            posts.style.display = 'block';
+
+            moveGridItems('change', numOfPosts);
+            setBlogPostsGrid('change', numOfPosts)
+        }
+    });
+
+
+    blogText.addEventListener('click', () => {
+        if (!dropDown) {
+            blogMenuColor = blogText.style.color;
+
+            function runEffect() {
+                // get effect type from
+                var selectedEffect = 'fade';
+
+                // Run the effect
+                $(blogMenu).hide(selectedEffect, 500);
+            };
+
+            function callback() {
+                setTimeout(function () {
+                    if (!dropDown) {
+                        document.querySelector('#blog-close').style.visibility = 'hidden';
+                    } else {
+                        $(blogClose, blogText).removeAttr("style").hide().fadeIn();
+                    }
+                }, 500);
+            };
+            callback();
+            runEffect();
+
+            blogText.classList.remove("menu-hover");
+            // blogText.className = 'postbg-active';
+            document.querySelector('#home-menu').style.visibility = 'hidden';
+            // document.querySelector('#projects-side-text').style.visibility = 'hidden';
+            // document.querySelector('#resume-side-text').style.visibility = 'hidden';
+            // document.querySelector('#contact-side-text').style.visibility = 'hidden';
+
+            blogMenuText.style.color = "#BACBD9";
+
+            sidePane.className += ' posts-scroll-bar';
+            sidePane.style.zIndex = 2;
+
+            posts.style.display = 'block';
+
+
+            moveGridItems('change', numOfPosts);
+            setBlogPostsGrid('change', numOfPosts)
+        }
+    });
+
+
+
+
+
+
+
+    [blogClose, blogText].forEach((item) => {
+        item.addEventListener('click', () => {
+            if (dropDown) {
+                function runEffect() {
+                    // get effect type from
+                    var selectedEffect = 'fade';
+
+                    // Run the effect
+                    $(blogClose).hide(selectedEffect, 500);
+                };
+
+                function callback() {
+                    setTimeout(function () {
+                        $(blogMenu).removeAttr("style").hide().fadeIn();
+                        document.querySelector('#home-menu').style.visibility = 'visible';
+                        // document.querySelector('#projects-side-text').style.visibility = 'visible';
+                        // document.querySelector('#resume-side-text').style.visibility = 'visible';
+                        // document.querySelector('#contact-side-text').style.visibility = 'visible';
+                        blogMenuText.style.color = blogMenuColor;
+                    }, 500);
+                };
+                runEffect();
+                callback();
+
+                posts.style.display = 'none';
+
+                sidePane.className = 'sidepane';
+
+                setBlogPostsGrid('default', numOfPosts);
+                moveGridItems('default', numOfPosts);
+                //Used in the resizeSidepane function
+                dropDown = true;
+                setTimeout(function () {
+                    if (blogMenuText.style.color != 'rgb(186, 203, 217)' && blogMenuBurger.style.color != "#e63946") {
+                        blogMenuBurger.setAttribute('style', 'color: #e63946');
+                    } else {
+                        // blogText.classList.add("menu-hover");
+                        blogText.style.color = "#252526"
+                    }
+                }, 500);
+            }
         });
+
     })
 }
 
 // Implements ability to resize sidepane
 function resizeSidepane() {
     $(function () {
-        $("#blog-menu").on("click", function () {
-            $(".post-bg").animate({
-                width: "100vw",
-            }, 500);
-            $(".sidepane").animate({
-                width: "47vw",
-            }, 500);
+        $("#blog-menu, #blog-side-text").on("click", function () {
+            if (!dropDown) {
+                $(".post-bg").animate({
+                    width: "100vw",
+                }, 500);
+                $(".sidepane").animate({
+                    width: "47vw",
+                }, 500);
+                dropDown = true;
+            } else {
+                $(".sidepane").animate({
+                    width: 225,
+                }, 500);
+                $(".post-bg").animate({
+                    width: 0,
+                }, 500);
+                dropDown = false;
+            }
         });
-        $("#blog-close, #blog-side-text").on("click", function () {
+        $("#blog-close").on("click", function () {
             if (dropDown) {
                 $(".sidepane").animate({
                     width: 225,

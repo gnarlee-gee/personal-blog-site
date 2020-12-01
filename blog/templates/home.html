@@ -7,6 +7,7 @@
 <div class="grid-container">
     <div class="page-container">
         <div class="sidepane" id="sidepane-div">
+            {% block menuitems %}
             <div class="home-side menu-collapse">
                 <p>
                     <a class="sidepane-links" id="home-menu" href="{% url 'home' %}">home</a>
@@ -14,7 +15,7 @@
             </div>
             {% block postlist %}
             <div class="blog-side ">
-                <p style="float: left;" id="blog-side-text">blog</p>
+                <p style="float: left;" id="blog-side-text"> blog</p>
                 <i class="material-icons material-icons-round md-38" id="blog-menu">expand_more</i>
                 <i class="material-icons material-icons-round md-38" id="blog-close"
                     style="display: none;">expand_less</i>
@@ -50,10 +51,11 @@
                 </p>
             </div>
         </div>
+        {% endblock %}
 
         <div id="info-box" class="info">
             {% block posts %}
-            <div class="about-me">
+            <div class="about-me" id="home">
                 <h1>Welcome to the world of <br> Charles Grealy! </h1>
                 <p>I graduated from the University of Houston in May 2020 with a Bachelors
                     of Science in mathematics. My career plan going into college was to become a programmer.
@@ -78,7 +80,7 @@
                 </p>
             </div>
 
-            <div class="blog-section">
+            <div class="blog-section" id="blog">
 
                 <h2>Blog Entries</h1>
                 <ul>
@@ -98,15 +100,15 @@
 
             </div>
 
-            <div class="projects-section">
+            <div class="projects-section" id="projects">
                 <h1>This is the projects section! </h1>
             </div>
 
-            <div class="resume-section">
+            <div class="resume-section" id="resume">
                 <h1>This is the resume section! </h1>
             </div>
 
-            <div class="contact-section">
+            <div class="contact-section" id="contact">
                 <h1>This is the contact section! </h1>
             </div>
             {% endblock %}

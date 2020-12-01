@@ -160,6 +160,10 @@ body {
   background: #ee4444;
 }
 
+.postbg-active {
+  
+}
+
 pre,
 code {
   display: inline;
