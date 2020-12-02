@@ -6,11 +6,12 @@ window.onload = function () {
     numOfPosts /= 2;
     blogClick(numOfPosts);
     resizeSidepane();
-    scrollTo();
     connect();
+    scrollTo();
+
 }
 
-const homeMenuText = document.querySelector('#home-menu');
+const homeMenuText = document.querySelector('#home-side-text');
 const homeSection = document.querySelector(".about-me");
 
 const blogMenuText = document.querySelector("#blog-side-text");
@@ -112,13 +113,12 @@ function connect() {
 function scrollTo() {
 
     menuText.forEach((item, index) => {
-        item.addEventListener('click', () => {
+        item.addEventListener('click', event => {
             menuSection.forEach((item) => {
                 observer.unobserve(item);
             })
-
             menuSection[index].scrollIntoView({
-                behavior: "smooth"
+                behavior: 'smooth',// block: 'end', inline: 'end' 
             })
             menuText.forEach((item) => {
                 item.classList.add("menu-hover");
@@ -205,6 +205,8 @@ function setBlogPostsGrid(operation) {
     }
 }
 
+let dropDown;
+
 // Change right arrow to a down arrow on click and vice versa
 // Modifies behavior when clicking blog
 function blogClick(numOfPosts) {
@@ -240,7 +242,7 @@ function blogClick(numOfPosts) {
         runEffect();
 
         document.querySelector("#blog-side-text").classList.remove("menu-hover");
-        document.querySelector('#home-menu').style.visibility = 'hidden';
+        document.querySelector('#home-side-text').style.visibility = 'hidden';
         document.querySelector('#projects-side-text').style.visibility = 'hidden';
         document.querySelector('#resume-side-text').style.visibility = 'hidden';
         document.querySelector('#contact-side-text').style.visibility = 'hidden';
@@ -268,7 +270,7 @@ function blogClick(numOfPosts) {
             function callback() {
                 setTimeout(function () {
                     $(blogMenu).removeAttr("style").hide().fadeIn();
-                    document.querySelector('#home-menu').style.visibility = 'visible';
+                    document.querySelector('#home-side-text').style.visibility = 'visible';
                     document.querySelector('#projects-side-text').style.visibility = 'visible';
                     document.querySelector('#resume-side-text').style.visibility = 'visible';
                     document.querySelector('#contact-side-text').style.visibility = 'visible';
@@ -314,7 +316,7 @@ function resizeSidepane() {
         $("#blog-close, #blog-side-text").on("click", function () {
             if (dropDown) {
                 $(".sidepane").animate({
-                    width: 130,
+                    width: 140,
                 }, 500);
                 $(".post-bg").animate({
                     width: 0,
