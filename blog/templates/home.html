@@ -23,7 +23,8 @@
                 <div class="blog-posts" style="display: none;">
                     {% for post in post_list %}
                     <p class="posts" style="display:none;">
-                        <a href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
+                        <a
+                            href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
                             {{ post.title }}
                         </a>
                     </p>
@@ -46,9 +47,21 @@
             </div>
 
             <div class="contact-side menu-collapse">
-                <p id="contact-side-text" style="color: #BACBD9;">
-                    contact
-                </p>
+                <a style="text-decoration: none;" href="https://github.com/gnarlee-gee" target="#">
+                    <div class="contact-links">
+                        <i class="fab fa-github-square"></i>
+                    </div>
+                </a>
+                <a style="text-decoration: none;" href="https://www.linkedin.com/in/charlesgrealy/" target="#">
+                    <div class="contact-links" style="margin-left: 7px;">
+                        <i class="fab fa-linkedin"></i>
+                    </div>
+                </a>
+                <a style="text-decoration: none;" href="mailto:charlesgrealy@gmail.com">
+                    <div class="contact-links" style="margin-left: 7px;"><i
+                                class="fas fa-envelope-square"></i>
+                    </div>
+                </a>
             </div>
         </div>
         {% endblock %}
@@ -83,19 +96,20 @@
             <div class="blog-section" id="blog">
 
                 <h2>Blog Entries</h1>
-                <ul>
-                    {% for post in post_list %}
-                    <li style="list-style-type: circle;">
-                        <p class="post-descriptions">
-                            <span> {{ post.date|date:"M d, Y" }} - </span>
+                    <ul>
+                        {% for post in post_list %}
+                        <li style="list-style-type: circle;">
+                            <p class="post-descriptions">
+                                <span> {{ post.date|date:"M d, Y" }} - </span>
 
-                            <a class="links" href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
-                                {{ post.title }}
-                            </a>
-                        </p>
-                    </li>
-                    {% endfor %}
-                </ul>
+                                <a class="links"
+                                    href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
+                                    {{ post.title }}
+                                </a>
+                            </p>
+                        </li>
+                        {% endfor %}
+                    </ul>
 
 
             </div>
@@ -106,10 +120,6 @@
 
             <div class="resume-section" id="resume">
                 <h1>This is the resume section! </h1>
-            </div>
-
-            <div class="contact-section" id="contact">
-                <h1>This is the contact section! </h1>
             </div>
             {% endblock %}
         </div>

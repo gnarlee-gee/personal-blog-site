@@ -144,7 +144,6 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  scrollbar-width: none;
 
 }
 
@@ -154,8 +153,10 @@ body {
   font: 17px/1.4 'Open Sans', sans-serif;
   font-weight: 400;
   text-align: left;
-  /* color: #BACBD9; */
   
+}
+html {
+  scroll-behavior: smooth;
 }
 
 ::selection {
@@ -176,23 +177,21 @@ code {
   display: grid;
   justify-content: center;
   align-content: center;
-  width: 97vw;
+  width: 100vw;
   height: 97vh;
-  /* overflow-x: auto;
-  overflow-y: hidden; */
   scrollbar-width: none;
+  
 }
 
 .page-container {
-  /* width: 100vw; */
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 140px 50px 718px;
-  /* column-gap: 2em; */
+  grid-template-columns: 140px 2em minmax(200px, 730px);
   grid-template-rows: 1fr;
   grid-template-areas:
     "sidepane . info";
-
+  margin-left: 70px;
+  margin-right: 70px;
 }
 
 h1 {
@@ -238,19 +237,11 @@ h2 {
   grid-template-rows: auto;
   grid-template-columns: 1fr;
   align-self: center;
-  overflow: scroll;
-  overflow-x: scroll;
+  overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  -ms-overflow-style: none;
-  /* Internet Explorer 10+ */
   scrollbar-width: none;
-  /* Firefox */
-  position: -webkit-sticky;
   position: sticky;
-  top: 0; 
-  left:0;
-
 }
 
 .sidepane::-webkit-scrollbar {
@@ -364,11 +355,29 @@ h2 {
   grid-row-end: 6;
 }
 
+.contact-side-text {
+  margin: 0;
+
+}
+
+.contact-links {
+  display: inline;
+
+  color: #226473;
+  text-decoration: none;
+  font-size: 26px;
+
+}
+
+.contact-links:hover {
+  transition: color 0.5s ease;
+  color: #252526;
+}
+
 #home-side-text,
 .blog-side>p,
 .projects-side>p,
-.resume-side>p,
-.contact-side>p {
+.resume-side>p {
   cursor: pointer;
 }
 
@@ -376,20 +385,11 @@ h2 {
 .blog-side>p,
 .projects-side>p,
 .resume-side>p,
-.contact-side>p {
+.projects-side>p{
   margin: 0;
-}
-
-.home-side>p,
-.blog-side>p,
-.projects-side>p,
-.resume-side>p,
-.projects-side>p,
-.contact-side>p {
   font: 200% 'Roboto Slab', sans-serif;
   font-weight: 700;
   margin-bottom: 0;
-  /* color: #BACBD9; */
 }
 
 .home {
@@ -431,13 +431,11 @@ h2 {
 .info {
   grid-area: info;
   color: #594D42;
-  margin: .65em 2em 0 2em;
+  margin-top: .65em;
   height: 100vh;
-  overflow: scroll;
   overflow-y: auto;
   overflow-x: auto;
   scrollbar-width: none; 
-  max-width: 75vw;
 }
 
 /* For chrome */
@@ -457,10 +455,8 @@ h2 {
   display: -ms-flexbox;
   display: -webkit-flex;
   display: flex;
-  /* align-items: center; */
   justify-content: center;
   flex-direction: column;
-  margin-left: 2em;
 
 }
 
@@ -472,12 +468,10 @@ h2 {
 
 .about-me>p,
 .projects-section>p,
-.resume-section>p,
-.contact-section>p {
+.resume-section>p {
   margin-top: 17px;
   margin-bottom: 17px;
-  max-width: 75ch;
-  font-size: 17px;
+  font-size: 20px;
   line-height: 1.4em;
 }
 

@@ -19,8 +19,6 @@ const blogMenuBurger = document.querySelector("#blog-menu");
 
 
 function addHoverClass() {
-
-
     blogMenuText.style.color = "#252526";
     blogMenuBurger.style.color = "#e63946"
     homeMenuText.style.color = "#BACBD9";
@@ -108,14 +106,6 @@ function setBlogPostsGrid(operation) {
 }
 
 let dropDown = false;
-
-
-function evntListnrHlpr(blogMenu, blogText, ddown) {
-
-}
-
-
-
 
 // Change right arrow to a down arrow on click and vice versa
 // Modifies behavior when clicking blog
