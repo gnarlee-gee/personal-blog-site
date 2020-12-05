@@ -1,6 +1,8 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% block css %}
+<link rel="stylesheet" href="{% static 'blog/css/home_style.css' %}">
+{% endblock %}
 {% block content %}
 {% load markdown_deux_tags %}
 

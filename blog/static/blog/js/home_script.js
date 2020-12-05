@@ -78,7 +78,7 @@ var observer = new IntersectionObserver(function (entries) {
     [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText].forEach((item) => {
         if (entries[0]['intersectionRatio'] > 0.60) {
             item.classList.add("menu-hover");
-        } 
+        }
     })
     if (entries[0].isIntersecting === true) {
         changeMenuItemColor(entries[0]['target'].className)
@@ -93,25 +93,51 @@ function connect() {
     })
 }
 
+function addScrollToEvent() {
+    menuSection.forEach((item) => {
+        observer.unobserve(item);
+    })
+
+    blogSection.scrollIntoView({
+        behavior: 'smooth', // block: 'end', inline: 'end' 
+    })
+    menuText.forEach((item) => {
+        item.classList.add("menu-hover");
+    })
+    changeMenuItemColor(blogSection.className);
+
+    setTimeout(function () {
+        connect();
+    }, 500)
+}
+
+
 
 function scrollTo() {
 
     menuText.forEach((item, index) => {
-        item.addEventListener('click', () => {
-            menuSection.forEach((item) => {
-                observer.unobserve(item);
-            })
-            menuSection[index].scrollIntoView({
-                behavior: 'smooth',// block: 'end', inline: 'end' 
-            })
-            menuText.forEach((item) => {
-                item.classList.add("menu-hover");
-            })
-            changeMenuItemColor(menuSection[index].className)
-            setTimeout(function () {
-                connect();
-            }, 500)
-        });
+        if (item != blogMenuText) {
+            item.addEventListener('click', () => {
+                menuSection.forEach((item) => {
+                    observer.unobserve(item);
+                })
+
+                menuSection[index].scrollIntoView({
+                    behavior: 'smooth', // block: 'end', inline: 'end' 
+                })
+                menuText.forEach((item) => {
+                    item.classList.add("menu-hover");
+                })
+                changeMenuItemColor(menuSection[index].className)
+                setTimeout(function () {
+                    connect();
+                }, 500)
+            });
+        } else {
+            console.log(item)
+
+            item.addEventListener('click', addScrollToEvent);
+        }
     })
 }
 
@@ -209,6 +235,7 @@ function blogClick(numOfPosts) {
     blogMenu.addEventListener('click', () => {
         blogMenuColor = blogText.style.color;
 
+
         function runEffect() {
             // get effect type from
             var selectedEffect = 'fade';
@@ -241,49 +268,51 @@ function blogClick(numOfPosts) {
         moveGridItems('change', numOfPosts);
         setBlogPostsGrid('change', numOfPosts)
     });
-    [blogClose].forEach((item) => {
-        item.addEventListener('click', () => {
-            function runEffect() {
-                // get effect type from
-                var selectedEffect = 'fade';
 
-                // Run the effect
-                $(blogClose, blogCloseTxt).hide(selectedEffect, 500);
-            };
+    blogClose.addEventListener('click', () => {
+        blogMenuText.addEventListener('click', addScrollToEvent);
 
-            function callback() {
-                setTimeout(function () {
-                    $(blogMenu).removeAttr("style").hide().fadeIn();
-                    document.querySelector('#home-side-text').style.visibility = 'visible';
-                    document.querySelector('#projects-side-text').style.visibility = 'visible';
-                    document.querySelector('#resume-side-text').style.visibility = 'visible';
-                    document.querySelector('.contact-side').style.visibility = 'visible';
-                    blogMenuText.style.color = blogMenuColor;
-                    blogMenu.style.visibility = 'visible'
-                }, 500);
-            };
-            runEffect();
-            callback();
+        function runEffect() {
+            // get effect type from
+            var selectedEffect = 'fade';
 
-            posts.style.display = 'none';
+            // Run the effect
+            $(blogClose, blogCloseTxt).hide(selectedEffect, 500);
+        };
 
-            sidePane.className = 'sidepane';
-
-            setBlogPostsGrid('default', numOfPosts);
-            moveGridItems('default', numOfPosts);
-            //Used in the resizeSidepane function
-            dropDown = true;
-
+        function callback() {
             setTimeout(function () {
-                if (blogMenuText.style.color != "rgb(186, 203, 217)" && blogMenuBurger.style.color != "#e63946") {
-                    // blogMenuText.style.color = 'v';
-                    blogMenuBurger.setAttribute('style', 'color: #e63946');
-                } else {
-                    document.querySelector("#blog-side-text").classList.add("menu-hover");
-                }
+                $(blogMenu).removeAttr("style").hide().fadeIn();
+                document.querySelector('#home-side-text').style.visibility = 'visible';
+                document.querySelector('#projects-side-text').style.visibility = 'visible';
+                document.querySelector('#resume-side-text').style.visibility = 'visible';
+                document.querySelector('.contact-side').style.visibility = 'visible';
+                blogMenuText.style.color = blogMenuColor;
+                blogMenu.style.visibility = 'visible'
             }, 500);
-        });
-    })
+        };
+        runEffect();
+        callback();
+
+        posts.style.display = 'none';
+
+        sidePane.className = 'sidepane';
+
+        setBlogPostsGrid('default', numOfPosts);
+        moveGridItems('default', numOfPosts);
+        //Used in the resizeSidepane function
+        dropDown = true;
+        // blogText.addEventListener('click', scrollMenu());
+
+        setTimeout(function () {
+            if (blogMenuText.style.color != "rgb(186, 203, 217)" && blogMenuBurger.style.color != "#e63946") {
+                // blogMenuText.style.color = 'v';
+                blogMenuBurger.setAttribute('style', 'color: #e63946');
+            } else {
+                document.querySelector("#blog-side-text").classList.add("menu-hover");
+            }
+        }, 500);
+    });
 }
 
 // Implements ability to resize sidepane
@@ -296,16 +325,22 @@ function resizeSidepane() {
             $(".sidepane").animate({
                 width: "47vw",
             }, 500);
+            document.querySelector("#blog-side-text").removeEventListener('click', addScrollToEvent);
         });
-        $("#blog-close, #blog-side-text").on("click", function () {
+        $("#blog-close").on("click", function () {
             if (dropDown) {
+                document.querySelector("#blog-side-text").addEventListener('click', addScrollToEvent);
+
                 $(".sidepane").animate({
                     width: 140,
                 }, 500);
                 $(".post-bg").animate({
                     width: 0,
                 }, 500);
+                // blogMenuText.addEventListener('click', scrollMenu());
+
             }
+
         });
 
     });

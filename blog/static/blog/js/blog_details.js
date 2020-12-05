@@ -18,7 +18,7 @@ const blogMenuBurger = document.querySelector("#blog-menu");
 // const contactMenuText = document.querySelector("#contact-side-text");
 
 
-function addHoverClass() {m, 
+function addHoverClass() {
     blogMenuText.style.color = "#252526";
     blogMenuBurger.style.color = "#e63946"
     homeMenuText.style.color = "#BACBD9";

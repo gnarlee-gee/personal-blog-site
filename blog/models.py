@@ -16,6 +16,7 @@ class Post(models.Model):
     
     date = models.DateField(auto_now_add=False, null=True)
     slug = models.SlugField(default='', editable=False, unique=True)
+    slug_title = models.CharField(max_length=50, null=True, blank=True)
     
     class Meta:
         ordering = ['-pk']
@@ -27,6 +28,8 @@ class Post(models.Model):
         return self.title
 
     def save(self, *args, **kwargs):
-        value = self.title
+        value = self.slug_title
+        if value == None:
+            value = self.title
         self.slug = slugify(value, allow_unicode=True)
         super().save(*args, **kwargs)
