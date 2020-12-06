@@ -144,8 +144,6 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-    overflow: hidden;
-
   }
   
   body {
@@ -341,4 +339,20 @@
     flex-direction: column;
     min-height: 97vh;
   }
+
+  .blog-entries > p > a {
+    color: #226473;
+    text-decoration: none;
+    border-bottom: 1px dotted #226473;
+  }
+
+  .blog-entries > p > a:visited {
+    color: #226473;
+  }
   
+  .blog-entries > p > a:hover {
+    transition: color 1s ease;
+    transition: border-bottom 0.5s ease;
+    color: #733B36;
+    border-bottom: 1px solid #733B36;
+  }
