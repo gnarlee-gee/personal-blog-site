@@ -144,19 +144,24 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  overflow: hidden;
 
 }
 
 body {
   background-color: #f6f6f6;
   margin: 0 auto;
-  font: 17px/1.4 'Open Sans', sans-serif;
+  font: 20px/1.4 'Open Sans', sans-serif;
   font-weight: 400;
   text-align: left;
   
 }
 html {
   scroll-behavior: smooth;
+}
+
+p {
+  margin: 0;
 }
 
 ::selection {
@@ -177,14 +182,10 @@ code {
   display: grid;
   justify-content: center;
   align-content: center;
-  width: 100vw;
-  height: 97vh;
-  scrollbar-width: none;
   
 }
 
 .page-container {
-  margin: 0 auto;
   display: grid;
   grid-template-columns: 140px 2em minmax(200px, 730px);
   grid-template-rows: 1fr;
@@ -198,6 +199,7 @@ h1 {
   font: 240% 'Roboto Slab', serif;
   font-weight: 500;
   margin-bottom: 10px;
+  margin-top: 0;
 }
 
 h2 {
@@ -387,7 +389,7 @@ h2 {
 .resume-side>p,
 .projects-side>p{
   margin: 0;
-  font: 200% 'Roboto Slab', sans-serif;
+  font: 34px 'Roboto Slab', sans-serif;
   font-weight: 700;
   margin-bottom: 0;
 }
@@ -482,11 +484,13 @@ h2 {
 .info {
   grid-area: info;
   color: #594D42;
-  margin-top: .65em;
   height: 100vh;
   overflow-y: auto;
   overflow-x: auto;
   scrollbar-width: none; 
+
+  /* padding-top: 30px; */
+
 }
 
 /* For chrome */
@@ -495,20 +499,31 @@ h2 {
   background: transparent;  /* Optional: just make scrollbar invisible */
 }
 
-.about-me,
-.blog-section,
-.projects-section,
-.resume-section,
-.contact-section {
-  min-height: 100vh;
-  display: -webkit-box;
-  display: -moz-box;
-  display: -ms-flexbox;
-  display: -webkit-flex;
+.about-me {
   display: flex;
   justify-content: center;
   flex-direction: column;
+  min-height: 100vh;
 
+}
+
+.blog-section,
+.projects-section
+ {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  min-height: 50vh;
+  padding-top: 30px;
+
+}
+
+.resume-section {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  min-height: 100vh;
+  padding-top: 30px;
 }
 
 .blog-entries {
@@ -521,7 +536,7 @@ h2 {
 .projects-section>p,
 .resume-section>p {
   margin-top: 17px;
-  margin-bottom: 17px;
+  margin-bottom: 0;
   font-size: 20px;
   line-height: 1.4em;
 }

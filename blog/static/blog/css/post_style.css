@@ -144,13 +144,14 @@
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
-  
+    overflow: hidden;
+
   }
   
   body {
     background-color: #f6f6f6;
     margin: 0 auto;
-    font: 17px/1.4 'Open Sans', sans-serif;
+    font: 20px/1.4 'Open Sans', sans-serif;
     font-weight: 400;
     text-align: left;
     
@@ -177,14 +178,10 @@
     display: grid;
     justify-content: center;
     align-content: center;
-    width: 100vw;
-    height: 97vh;
-    scrollbar-width: none;
     
   }
   
   .page-container {
-    margin: 0 auto;
     display: grid;
     grid-template-columns: 140px 2em minmax(200px, 730px);
     grid-template-rows: 1fr;
@@ -198,7 +195,7 @@
     font: 240% 'Roboto Slab', serif;
     font-weight: 500;
     margin-bottom: 10px;
-    color: red;
+    margin-top: 0;
   }
   
   h2 {
@@ -246,8 +243,8 @@
   }
   
   .posts>a {
-    display: block;
-    width: 47vw;
+    display: inline-block;
+    max-width: 47vw;
     text-decoration: none;
     color: #f1faee;
     margin: 0;
@@ -315,7 +312,7 @@
   .home-side>p,
   .blog-side>p {
     margin: 0;
-    font: 200% 'Roboto Slab', sans-serif;
+    font: 34px 'Roboto Slab', sans-serif;
     font-weight: 700;
     margin-bottom: 0;
   }
@@ -325,11 +322,12 @@
   .info {
     grid-area: info;
     color: #594D42;
-    margin-top: .65em;
     height: 100vh;
     overflow-y: auto;
     overflow-x: auto;
     scrollbar-width: none; 
+    padding-top: 30px;
+
   }
   
   /* For chrome */
@@ -338,7 +336,9 @@
     background: transparent;  /* Optional: just make scrollbar invisible */
   }
   .blog-entries {
-    min-height: 100vh;
-    margin: 2em 2em 0 2em;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 97vh;
   }
   
