@@ -21,13 +21,13 @@
     <i class="material-icons material-icons-round md-38" id="blog-close" style="display: none;">expand_less</i>
 
     <div class="blog-posts" style="display: none;">
-        {% for post in post_list %}
+        {% for posts in post_list %}
         <p class="posts" style="display:none;">
-            <a href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
-                {{ post.title }}
+            <a href="{% url 'post-detail' posts.date|date:"Y" posts.date|date:"M"|lower posts.date|date:"d" posts.slug %}">
+                {{ posts.title }}
             </a>
         </p>
-        <span style="display: none;"> {{ post.date }}</span>
+        <span style="display: none;"> {{ posts.date }}</span>
         {% endfor %}
     </div>
 </div>
@@ -54,7 +54,7 @@
 {% block posts %}
 <div class="blog-entries">
 
-    <h1>{{ post.title }}</h1>
+    <h1 id="current-post">{{ post.title }}</h1>
 
     {{ post.body|markdown }}
 

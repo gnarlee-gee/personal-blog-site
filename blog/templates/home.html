@@ -10,17 +10,18 @@
     <div class="page-container">
         <div class="sidepane" id="sidepane-div">
             {% block menuitems %}
-            <div class="home-side menu-collapse">
+            <div class="home-side">
                 <p id="home-side-text">
                     home
                 </p>
             </div>
             {% block postlist %}
             <div class="blog-side ">
-                <p style="float: left; color: #BACBD9;" id="blog-side-text"> blog</p>
-                <i class="material-icons material-icons-round md-38" id="blog-menu">expand_more</i>
+                
+                <!-- <i class="material-icons material-icons-round md-38" id="blog-menu">expand_more</i>
                 <i class="material-icons material-icons-round md-38" id="blog-close"
-                    style="display: none;">expand_less</i>
+                    style="display: none;">expand_less</i> -->
+                    <p style="float: right; color: #BACBD9;" id="blog-side-text"> blog</p>
 
                 <div class="blog-posts" style="display: none;">
                     {% for post in post_list %}
@@ -42,13 +43,13 @@
                 </p>
             </div>
 
-            <div class="resume-side menu-collapse">
+            <div class="resume-side">
                 <p id="resume-side-text" style="color: #BACBD9;">
                     resume
                 </p>
             </div>
 
-            <div class="contact-side menu-collapse">
+            <div class="contact-side">
                 <a style="text-decoration: none;" href="https://github.com/gnarlee-gee" target="#">
                     <div class="contact-links">
                         <i class="fab fa-github-square"></i>

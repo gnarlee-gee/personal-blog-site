@@ -245,6 +245,10 @@ h2 {
   position: sticky;
 }
 
+.sidepane > div > p {
+  text-align: right;
+}
+
 .sidepane::-webkit-scrollbar {
   display: none;
   /* Safari and Chrome */
@@ -292,8 +296,10 @@ h2 {
   color: #BACBD9;
   position: relative;
   top: 7px;
-  margin-left: 5px;
+  /* margin-left: 5px; */
   cursor: pointer;
+  float: right;
+  margin-left:auto; right:0;
 }
 
 #blog-menu:hover {
@@ -354,6 +360,7 @@ h2 {
   grid-column-end: 2;
   grid-row-start: 5;
   grid-row-end: 6;
+  text-align: right;
 }
 
 .contact-side-text {

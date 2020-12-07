@@ -3,9 +3,9 @@ window.onload = function () {
     const blogPosts = document.querySelector('.blog-posts');
     let numOfPosts = blogPosts.children.length;
     numOfPosts /= 2;
+    addCurrentPostColor();
     blogClick(numOfPosts);
     resizeSidepane();
-    addHoverClass();
 }
 
 
@@ -16,6 +16,8 @@ const blogMenuBurger = document.querySelector("#blog-menu");
 // const projectsMenuText = document.querySelector("#projects-side-text");
 // const resumeMenuText = document.querySelector("#resume-side-text");
 // const contactMenuText = document.querySelector("#contact-side-text");
+
+
 
 
 function addHoverClass() {
@@ -64,6 +66,7 @@ function moveGridItems(operation) {
 // Adds and removes grid items on click
 function setBlogPostsGrid(operation) {
     let parent = document.querySelector('.blog-posts');
+    const post_title = document.querySelector('#current-post').textContent;
     let children = parent.children;
     let posts = document.querySelectorAll('.posts')
     children = Math.floor(children.length / 2);
@@ -78,8 +81,12 @@ function setBlogPostsGrid(operation) {
             document.getElementById("sidepane-div").appendChild(postBox);
             postBox = document.querySelector(`#post-box-${i+1}`);
             postBox.innerHTML = postUrl[0] + posts[i].textContent.trim() + "</a>"
+            
             if (i == 0) postBox.style.marginTop = '10px';
             postBox.setAttribute('class', 'posts')
+            if (post_title == posts[i].textContent.trim()){
+                postBox.classList.add('current-post')
+            }
         }
     } else if (operation == 'default') {
         for (let i = 0; i < children; i++) {

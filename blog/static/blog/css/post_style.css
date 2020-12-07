@@ -1,358 +1,401 @@
 /* open-sans-regular - latin */
 @font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 400;
-    src: local(''),
-         url('../fonts/opensans/open-sans-v18-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/opensans/open-sans-v18-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* open-sans-italic - latin */
-  @font-face {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: 400;
-    src: local(''),
-         url('../fonts/opensans/open-sans-v18-latin-italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/opensans/open-sans-v18-latin-italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* open-sans-600 - latin */
-  @font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 600;
-    src: local(''),
-         url('../fonts/opensans/open-sans-v18-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/opensans/open-sans-v18-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* open-sans-600italic - latin */
-  @font-face {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: 600;
-    src: local(''),
-         url('../fonts/opensans/open-sans-v18-latin-600italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/opensans/open-sans-v18-latin-600italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* open-sans-700 - latin */
-  @font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 700;
-    src: local(''),
-         url('../fonts/opensans/open-sans-v18-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/opensans/open-sans-v18-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* open-sans-700italic - latin */
-  @font-face {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: 700;
-    src: local(''),
-         url('../fonts/opensans/open-sans-v18-latin-700italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/opensans/open-sans-v18-latin-700italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* open-sans-800 - latin */
-  @font-face {
-    font-family: 'Open Sans';
-    font-style: normal;
-    font-weight: 800;
-    src: local(''),
-         url('../fonts/opensans/open-sans-v18-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/opensans/open-sans-v18-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* open-sans-800italic - latin */
-  @font-face {
-    font-family: 'Open Sans';
-    font-style: italic;
-    font-weight: 800;
-    src: local(''),
-         url('../fonts/opensans/open-sans-v18-latin-800italic.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/opensans/open-sans-v18-latin-800italic.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* roboto-slab-500 - latin */
-  @font-face {
-    font-family: 'Roboto Slab';
-    font-style: normal;
-    font-weight: 500;
-    src: local(''),
-         url('../fonts/robotoslab/roboto-slab-v12-latin-500.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/robotoslab/roboto-slab-v12-latin-500.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* roboto-slab-regular - latin */
-  @font-face {
-    font-family: 'Roboto Slab';
-    font-style: normal;
-    font-weight: 400;
-    src: local(''),
-         url('../fonts/robotoslab/roboto-slab-v12-latin-regular.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/robotoslab/roboto-slab-v12-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* roboto-slab-600 - latin */
-  @font-face {
-    font-family: 'Roboto Slab';
-    font-style: normal;
-    font-weight: 600;
-    src: local(''),
-         url('../fonts/robotoslab/roboto-slab-v12-latin-600.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/robotoslab/roboto-slab-v12-latin-600.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* roboto-slab-700 - latin */
-  @font-face {
-    font-family: 'Roboto Slab';
-    font-style: normal;
-    font-weight: 700;
-    src: local(''),
-         url('../fonts/robotoslab/roboto-slab-v12-latin-700.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/robotoslab/roboto-slab-v12-latin-700.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* roboto-slab-800 - latin */
-  @font-face {
-    font-family: 'Roboto Slab';
-    font-style: normal;
-    font-weight: 800;
-    src: local(''),
-         url('../fonts/robotoslab/roboto-slab-v12-latin-800.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/robotoslab/roboto-slab-v12-latin-800.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  /* roboto-slab-900 - latin */
-  @font-face {
-    font-family: 'Roboto Slab';
-    font-style: normal;
-    font-weight: 900;
-    src: local(''),
-         url('../fonts/robotoslab/roboto-slab-v12-latin-900.woff2') format('woff2'), /* Chrome 26+, Opera 23+, Firefox 39+ */
-         url('../fonts/robotoslab/roboto-slab-v12-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
-  }
-  
-  
-  
-  * {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-  }
-  
-  body {
-    background-color: #f6f6f6;
-    margin: 0 auto;
-    font: 20px/1.4 'Open Sans', sans-serif;
-    font-weight: 400;
-    text-align: left;
-    
-  }
-  html {
-    scroll-behavior: smooth;
-  }
-  
-  ::selection {
-    color: white;
-    background: #ee4444;
-  }
-  
-  pre,
-  code {
-    display: inline;
-    padding: 10px 10px 10px 10px;
-    border-radius: 3px;
-    color: #ffcd57;
-    background-color: #0D0D0D;
-  }
-  
-  .grid-container {
-    display: grid;
-    justify-content: center;
-    align-content: center;
-    
-  }
-  
-  .page-container {
-    display: grid;
-    grid-template-columns: 140px 2em minmax(200px, 730px);
-    grid-template-rows: 1fr;
-    grid-template-areas:
-      "sidepane . info";
-    margin-left: 70px;
-    margin-right: 70px;
-  }
-  
-  h1 {
-    font: 240% 'Roboto Slab', serif;
-    font-weight: 500;
-    margin-bottom: 10px;
-    margin-top: 0;
-  }
-  
-  h2 {
-    font: 170% 'Roboto Slab', serif;
-    font-weight: 500;
-    margin: 0;
-  }
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('../fonts/opensans/open-sans-v18-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/opensans/open-sans-v18-latin-regular.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
-  .sidepane {
-    grid-area: sidepane;
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 1fr;
-    align-self: center;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    scrollbar-width: none;
-    position: sticky;
-  }
-  
-  .sidepane::-webkit-scrollbar {
-    display: none;
-    /* Safari and Chrome */
-  }
-  
-  .sidepane-links {
-    color:  #BACBD9;
-    text-decoration: none;
-  }
-  
-  .posts-scroll-bar {
-    overflow-y: scroll;
-    overflow-x: hidden;
-  }
-  
-  .post-bg {
-    position: absolute;
-    height: 100vh;
-    background-color: rgba(24, 24, 24, .97)
-  }
-  
-  .posts {
-    width: 300px;
-  }
-  
-  .posts>a {
-    display: inline-block;
-    max-width: 47vw;
-    text-decoration: none;
-    color: #f1faee;
-    margin: 0;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    font: 150%/1.5 'Source Sans', sans-serif;
-  }
-  
-  .posts>a:hover {
-    transition: color 0.5s ease;
-    color: #a8dadc;
-  }
-  
-  .material-icons.md-38 {
-    font-size: 38px;
-    color: #BACBD9;
-    position: relative;
-    top: 7px;
-    margin-left: 5px;
-    cursor: pointer;
-  }
-  
-  #blog-menu:hover {
-    transition: color 0.5s ease;
-    color: #e63946 !important; 
-  }
-  
-  #blog-close {
-    color: #e63946;
-  }
-  
-  .menu-hover:hover{
-    transition: color 0.5s ease;
-    color: #595959 !important;
-  }
-  
-  
-  .home-side {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 1;
-    grid-row-end: 2;
-  }
-  
-  .blog-side {
-    grid-column-start: 1;
-    grid-column-end: 2;
-    grid-row-start: 2;
-    grid-row-end: 3;
-  }
-  
-  .blog-posts>span {
-    display: none;
-  }
-  
-  .posts:first-child {
-    margin-top: 55px;
-  }
-  
-  .blog-side>p {
-    cursor: pointer;
-  }
-  
-  .home-side>p,
-  .blog-side>p {
-    margin: 0;
-    font: 34px 'Roboto Slab', sans-serif;
-    font-weight: 700;
-    margin-bottom: 0;
-  }
+/* open-sans-italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 400;
+  src: local(''),
+    url('../fonts/opensans/open-sans-v18-latin-italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/opensans/open-sans-v18-latin-italic.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* open-sans-600 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+    url('../fonts/opensans/open-sans-v18-latin-600.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/opensans/open-sans-v18-latin-600.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* open-sans-600italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 600;
+  src: local(''),
+    url('../fonts/opensans/open-sans-v18-latin-600italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/opensans/open-sans-v18-latin-600italic.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* open-sans-700 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+    url('../fonts/opensans/open-sans-v18-latin-700.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/opensans/open-sans-v18-latin-700.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* open-sans-700italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 700;
+  src: local(''),
+    url('../fonts/opensans/open-sans-v18-latin-700italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/opensans/open-sans-v18-latin-700italic.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* open-sans-800 - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 800;
+  src: local(''),
+    url('../fonts/opensans/open-sans-v18-latin-800.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/opensans/open-sans-v18-latin-800.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* open-sans-800italic - latin */
+@font-face {
+  font-family: 'Open Sans';
+  font-style: italic;
+  font-weight: 800;
+  src: local(''),
+    url('../fonts/opensans/open-sans-v18-latin-800italic.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/opensans/open-sans-v18-latin-800italic.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-500 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 500;
+  src: local(''),
+    url('../fonts/robotoslab/roboto-slab-v12-latin-500.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/robotoslab/roboto-slab-v12-latin-500.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-regular - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+    url('../fonts/robotoslab/roboto-slab-v12-latin-regular.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/robotoslab/roboto-slab-v12-latin-regular.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-600 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 600;
+  src: local(''),
+    url('../fonts/robotoslab/roboto-slab-v12-latin-600.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/robotoslab/roboto-slab-v12-latin-600.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-700 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 700;
+  src: local(''),
+    url('../fonts/robotoslab/roboto-slab-v12-latin-700.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/robotoslab/roboto-slab-v12-latin-700.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-800 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 800;
+  src: local(''),
+    url('../fonts/robotoslab/roboto-slab-v12-latin-800.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/robotoslab/roboto-slab-v12-latin-800.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
+
+/* roboto-slab-900 - latin */
+@font-face {
+  font-family: 'Roboto Slab';
+  font-style: normal;
+  font-weight: 900;
+  src: local(''),
+    url('../fonts/robotoslab/roboto-slab-v12-latin-900.woff2') format('woff2'),
+    /* Chrome 26+, Opera 23+, Firefox 39+ */
+    url('../fonts/robotoslab/roboto-slab-v12-latin-900.woff') format('woff');
+  /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+}
 
 
-  
-  .info {
-    grid-area: info;
-    color: #594D42;
-    height: 100vh;
-    overflow-y: auto;
-    overflow-x: auto;
-    scrollbar-width: none; 
-    padding-top: 30px;
 
-  }
-  
-  /* For chrome */
-  ::-webkit-scrollbar {
-    width: 0px;  /* Remove scrollbar space */
-    background: transparent;  /* Optional: just make scrollbar invisible */
-  }
-  .blog-entries {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    min-height: 97vh;
-  }
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-  .blog-entries > p > a {
-    color: #226473;
-    text-decoration: none;
-    border-bottom: 1px dotted #226473;
-  }
+body {
+  background-color: #f6f6f6;
+  margin: 0 auto;
+  font: 20px/1.4 'Open Sans', sans-serif;
+  font-weight: 400;
+  text-align: left;
 
-  .blog-entries > p > a:visited {
-    color: #226473;
-  }
-  
-  .blog-entries > p > a:hover {
-    transition: color 1s ease;
-    transition: border-bottom 0.5s ease;
-    color: #733B36;
-    border-bottom: 1px solid #733B36;
-  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  color: white;
+  background: #ee4444;
+}
+
+pre,
+code {
+  display: inline;
+  padding: 10px 10px 10px 10px;
+  border-radius: 3px;
+  color: #ffcd57;
+  background-color: #0D0D0D;
+}
+
+.grid-container {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+
+}
+
+.page-container {
+  display: grid;
+  grid-template-columns: 140px 2em minmax(200px, 730px);
+  grid-template-rows: 1fr;
+  grid-template-areas:
+    "sidepane . info";
+  margin-left: 70px;
+  margin-right: 70px;
+}
+
+h1 {
+  font: 240% 'Roboto Slab', serif;
+  font-weight: 500;
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+h2 {
+  font: 170% 'Roboto Slab', serif;
+  font-weight: 500;
+  margin: 0;
+}
+
+.sidepane {
+  grid-area: sidepane;
+  display: grid;
+  grid-template-rows: auto;
+  grid-template-columns: 1fr;
+  align-self: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  scrollbar-width: none;
+  position: sticky;
+}
+
+.sidepane::-webkit-scrollbar {
+  display: none;
+  /* Safari and Chrome */
+}
+
+.sidepane-links {
+  color: #BACBD9;
+  text-decoration: none;
+}
+
+.posts-scroll-bar {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+.post-bg {
+  position: absolute;
+  height: 100vh;
+  background-color: rgba(24, 24, 24, .97)
+}
+
+.posts {
+  width: 300px;
+}
+
+
+
+.posts>a {
+  display: inline-block;
+  max-width: 47vw;
+  text-decoration: none;
+  color: #f1faee;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font: 20px/1.5 'Source Sans', sans-serif;
+}
+
+.posts>a:hover {
+  transition: color 0.5s ease;
+  color: #a8dadc;
+}
+
+.current-post>a {
+  background-color: #e63946;
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.material-icons.md-38 {
+  font-size: 38px;
+  color: #BACBD9;
+  position: relative;
+  top: 7px;
+  margin-left: 5px;
+  cursor: pointer;
+}
+
+#blog-menu:hover {
+  transition: color 0.5s ease;
+  color: #e63946 !important;
+}
+
+#blog-close {
+  color: #e63946;
+}
+
+.menu-hover:hover {
+  transition: color 0.5s ease;
+  color: #595959 !important;
+}
+
+
+.home-side {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 1;
+  grid-row-end: 2;
+}
+
+.blog-side {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 3;
+}
+
+.blog-posts>span {
+  display: none;
+}
+
+.posts:first-child {
+  margin-top: 55px;
+}
+
+.blog-side>p {
+  cursor: pointer;
+}
+
+.home-side>p,
+.blog-side>p {
+  margin: 0;
+  font: 34px 'Roboto Slab', sans-serif;
+  font-weight: 700;
+  margin-bottom: 0;
+}
+
+.current-post {
+  color: red;
+}
+
+.info {
+  grid-area: info;
+  color: #594D42;
+  height: 100vh;
+  overflow-y: auto;
+  overflow-x: auto;
+  scrollbar-width: none;
+  padding-top: 30px;
+
+}
+
+/* For chrome */
+::-webkit-scrollbar {
+  width: 0px;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+.blog-entries {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 97vh;
+}
+
+.blog-entries>p>a {
+  color: #226473;
+  text-decoration: none;
+  border-bottom: 1px dotted #226473;
+}
+
+.blog-entries>p>a:visited {
+  color: #226473;
+}
+
+.blog-entries>p>a:hover {
+  transition: color 1s ease;
+  transition: border-bottom 0.5s ease;
+  color: #733B36;
+  border-bottom: 1px solid #733B36;
+}
