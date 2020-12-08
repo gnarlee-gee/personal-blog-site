@@ -261,12 +261,14 @@ h2 {
 
 .post-bg {
   position: absolute;
-  height: 100vh;
+  width: 100vw;
   background-color: rgba(24, 24, 24, .97)
 }
 
 .posts {
-  width: 300px;
+  /* width: 300px; */
+  margin-left: 25.5px;
+  border: 1px solid transparent;
 }
 
 
@@ -275,24 +277,41 @@ h2 {
   display: inline-block;
   max-width: 47vw;
   text-decoration: none;
-  color: #f1faee;
+  color: rgb(186, 203, 217);
   margin: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
   font: 20px/1.5 'Source Sans', sans-serif;
+  border: 1px solid transparent;
 }
 
 .posts>a:hover {
   transition: color 0.5s ease;
+  transition: border-bottom 0.5s ease;
+  border-bottom: solid 1px #a8dadc;
   color: #a8dadc;
 }
 
-.current-post>a {
-  background-color: #e63946;
-  border-radius: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
+.current-post>p {
+  color: #e63946;
+  display: inline-block;
+  max-width: 47vw;
+  text-decoration: none;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font: 20px/1.5 'Source Sans', sans-serif;
+  /* border-radius: 2px; */
+  /* padding-left: 10px; */
+  /* padding-right: 10px; */
+  /* padding-bottom: 4px; */
+}
+
+.current-post>p:hover {
+  transition: color 0.5s ease;
+  color: #e61a2b;
 }
 
 .material-icons.md-38 {
@@ -300,8 +319,21 @@ h2 {
   color: #BACBD9;
   position: relative;
   top: 7px;
-  margin-left: 5px;
   cursor: pointer;
+}
+
+.material-icons.md-32 {
+  font-size: 28px;
+  color: #e63946;
+  position: relative;
+  top: 1px;
+  display: inline-block;
+  /* left: -10px; */
+}
+
+#blog-menu {
+  float: right;
+  right: -10px;
 }
 
 #blog-menu:hover {
@@ -309,8 +341,14 @@ h2 {
   color: #e63946 !important;
 }
 
+#blog-side-text {
+  position: relative;
+  left: 23px;
+}
+
 #blog-close {
   color: #e63946;
+  margin-left: 25.5px;
 }
 
 .menu-hover:hover {
@@ -324,6 +362,7 @@ h2 {
   grid-column-end: 2;
   grid-row-start: 1;
   grid-row-end: 2;
+  text-align: right;
 }
 
 .blog-side {
@@ -353,9 +392,9 @@ h2 {
   margin-bottom: 0;
 }
 
-.current-post {
+/* .current-post {
   color: red;
-}
+} */
 
 .info {
   grid-area: info;

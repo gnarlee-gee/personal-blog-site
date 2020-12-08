@@ -3,7 +3,7 @@ window.onload = function () {
     const blogPosts = document.querySelector('.blog-posts');
     let numOfPosts = blogPosts.children.length;
     numOfPosts /= 2;
-    addCurrentPostColor();
+    // addCurrentPostColor();
     blogClick(numOfPosts);
     resizeSidepane();
 }
@@ -38,30 +38,7 @@ function addHoverClass() {
 
 // Moves ".html" items and their icons down according to number of posts
 // when the drop down folder is clicked
-function moveGridItems(operation) {
-    // let projectsRowStartNum = (numOfPosts + 3).toString();
-    // let projectsRowEndNum = projectsRowStartNum.toString(projectsRowStartNum++);
-    // let resumeRowStartNum = (numOfPosts + 4).toString();
-    // let resumeRowEndNum = resumeRowStartNum.toString(resumeRowStartNum++);
-    // let contactRowStartNum = (numOfPosts + 5).toString();
-    // let contactRowEndNum = contactRowStartNum.toString(contactRowStartNum++);
 
-    // const projects = document.querySelector('.projects-side');
-    // const resume = document.querySelector('.resume-side');
-    // const contact = document.querySelector('.contact-side');
-
-    if (operation == 'change') {
-        // projects.style.visibility = 'hidden';
-        // resume.style.visibility = 'hidden';
-        // contact.style.visibility = 'hidden';
-        // projects.style.gridRowStart = projectsRowStartNum;
-        // projects.style.gridRowEnd = projectsRowEndNum;
-        // resume.style.gridRowStart = resumeRowStartNum;
-        // resume.style.gridRowEnd = resumeRowEndNum;
-        // contact.style.gridRowStart = contactRowStartNum;
-        // contact.style.gridRowEnd = contactRowEndNum;
-    }
-}
 
 // Adds and removes grid items on click
 function setBlogPostsGrid(operation) {
@@ -81,11 +58,17 @@ function setBlogPostsGrid(operation) {
             document.getElementById("sidepane-div").appendChild(postBox);
             postBox = document.querySelector(`#post-box-${i+1}`);
             postBox.innerHTML = postUrl[0] + posts[i].textContent.trim() + "</a>"
-            
+            postBox.innerHTML
+            // console.log(post_title);
+            // console.log(postBox.innerHTML)
             if (i == 0) postBox.style.marginTop = '10px';
             postBox.setAttribute('class', 'posts')
-            if (post_title == posts[i].textContent.trim()){
-                postBox.classList.add('current-post')
+            if (post_title == posts[i].textContent.split('-')[1].trim()) {
+                postBox.innerHTML = '<i class="material-icons material-icons-round md-32">arrow_right</i>';
+                postBox.innerHTML += '<p>' + posts[i].textContent.trim() + "</p>"
+                // postBox.innerHTML += postUrl[0] + posts[i].textContent.trim() + "</a>"
+                document.querySelector(`#post-box-${i+1}`).style.marginLeft = '-2.5px';
+                postBox.classList.add('current-post');
             }
         }
     } else if (operation == 'default') {
@@ -128,6 +111,7 @@ function blogClick(numOfPosts) {
 
     blogMenu.addEventListener('click', () => {
         if (!dropDown) {
+            document.querySelector('#home-menu').style.visibility = 'hidden';
 
             blogMenuColor = blogText.style.color;
 
@@ -136,19 +120,18 @@ function blogClick(numOfPosts) {
                 var selectedEffect = 'fade';
 
                 // Run the effect
-                $(blogMenu).hide(selectedEffect, 500);
+                $(blogMenu).hide(selectedEffect, 0);
             };
 
             function callback() {
                 setTimeout(function () {
                     $(blogClose, blogText).removeAttr("style").hide().fadeIn();
-                }, 500);
+                }, 250);
             };
             callback();
             runEffect();
 
             blogText.classList.remove("menu-hover");
-            document.querySelector('#home-menu').style.visibility = 'hidden';
             // document.querySelector('#projects-side-text').style.visibility = 'hidden';
             // document.querySelector('#resume-side-text').style.visibility = 'hidden';
             // document.querySelector('#contact-side-text').style.visibility = 'hidden';
@@ -159,10 +142,9 @@ function blogClick(numOfPosts) {
             sidePane.style.zIndex = 2;
 
             posts.style.display = 'block';
-
-            moveGridItems('change', numOfPosts);
             setBlogPostsGrid('change', numOfPosts)
-            
+
+
         }
     });
 
@@ -176,7 +158,7 @@ function blogClick(numOfPosts) {
                 var selectedEffect = 'fade';
 
                 // Run the effect
-                $(blogMenu).hide(selectedEffect, 500);
+                $(blogMenu).hide(selectedEffect, 0);
             };
 
             function callback() {
@@ -186,7 +168,7 @@ function blogClick(numOfPosts) {
                     } else {
                         $(blogClose, blogText).removeAttr("style").hide().fadeIn();
                     }
-                }, 500);
+                }, 250);
             };
             callback();
             runEffect();
@@ -203,10 +185,10 @@ function blogClick(numOfPosts) {
             sidePane.className += ' posts-scroll-bar';
             sidePane.style.zIndex = 2;
 
+
             posts.style.display = 'block';
 
 
-            moveGridItems('change', numOfPosts);
             setBlogPostsGrid('change', numOfPosts)
         }
     });
@@ -266,10 +248,10 @@ function blogClick(numOfPosts) {
 // Implements ability to resize sidepane
 function resizeSidepane() {
     $(function () {
-        $("#blog-menu, #blog-side-text").on("click", function () {
+        $("#blog-menu, #blog-side-text, #blog-close").on("click", function () {
             if (!dropDown) {
                 $(".post-bg").animate({
-                    width: "100vw",
+                    height: "100vh",
                 }, 500);
                 $(".sidepane").animate({
                     width: "47vw",
@@ -277,10 +259,10 @@ function resizeSidepane() {
                 dropDown = true;
             } else {
                 $(".sidepane").animate({
-                    width: 225,
+                    width: 140,
                 }, 500);
                 $(".post-bg").animate({
-                    width: 0,
+                    height: 0,
                 }, 500);
                 dropDown = false;
             }
@@ -288,7 +270,7 @@ function resizeSidepane() {
         $("#blog-close").on("click", function () {
             if (dropDown) {
                 $(".sidepane").animate({
-                    width: 225,
+                    width: 140,
                 }, 500);
                 $(".post-bg").animate({
                     width: 0,

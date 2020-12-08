@@ -9,7 +9,7 @@
 {% block menuitems %}
 <div class="home-side menu-collapse">
     <p>
-        <a class="sidepane-links" id="home-menu" href="{% url 'home' %}">back</a>
+        <a class="sidepane-links menu-hover" id="home-menu" href="{% url 'home' %}">back</a>
     </p>
 </div>
 {% block postlist %}
@@ -19,12 +19,12 @@
     </p>
     <i class="material-icons material-icons-round md-38" id="blog-menu">expand_more</i>
     <i class="material-icons material-icons-round md-38" id="blog-close" style="display: none;">expand_less</i>
-
+    
     <div class="blog-posts" style="display: none;">
         {% for posts in post_list %}
         <p class="posts" style="display:none;">
             <a href="{% url 'post-detail' posts.date|date:"Y" posts.date|date:"M"|lower posts.date|date:"d" posts.slug %}">
-                {{ posts.title }}
+                {{ posts.date|date:"M d, Y" }} - {{ posts.title }}
             </a>
         </p>
         <span style="display: none;"> {{ posts.date }}</span>
