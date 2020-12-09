@@ -64,11 +64,17 @@ function setBlogPostsGrid(operation) {
             if (i == 0) postBox.style.marginTop = '10px';
             postBox.setAttribute('class', 'posts')
             if (post_title == posts[i].textContent.split('-')[1].trim()) {
-                postBox.innerHTML = '<i class="material-icons material-icons-round md-32">arrow_right</i>';
-                postBox.innerHTML += '<p>' + posts[i].textContent.trim() + "</p>"
+                // <i class="material-icons material-icons-round md-38-right">chevron_right</i>
+                postBox.innerHTML = '<div class="post-title">' + 
+                                    '<p>' + posts[i].textContent.trim() + "</p></div>";
+                // console.log(document.querySelector('.post-title').offsetWidth);
+                // console.log(postBox)
                 // postBox.innerHTML += postUrl[0] + posts[i].textContent.trim() + "</a>"
-                document.querySelector(`#post-box-${i+1}`).style.marginLeft = '-2.5px';
+                // postBox.style.marginLeft = '-2.5px';
+                document.querySelector('.post-title').style.width = document.querySelector('.post-title').offsetWidth + 15 + 'px';
                 postBox.classList.add('current-post');
+            } else {
+                postBox.classList.add('other-posts');
             }
         }
     } else if (operation == 'default') {
@@ -228,7 +234,7 @@ function blogClick(numOfPosts) {
                 sidePane.className = 'sidepane';
 
                 setBlogPostsGrid('default', numOfPosts);
-                moveGridItems('default', numOfPosts);
+                // moveGridItems('default', numOfPosts);
                 //Used in the resizeSidepane function
                 dropDown = true;
                 setTimeout(function () {
