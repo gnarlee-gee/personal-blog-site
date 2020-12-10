@@ -250,7 +250,7 @@ h2 {
 }
 
 .sidepane-links {
-  color: #BACBD9;
+  color: #D7D9D9;
   text-decoration: none;
 }
 
@@ -262,7 +262,8 @@ h2 {
 .post-bg {
   position: absolute;
   width: 100vw;
-  background-color: rgba(24, 24, 24, .97)
+  background-color:#0D0D0D;
+  opacity: .989;
 }
 
 .posts {
@@ -281,23 +282,28 @@ h2 {
   display: inline-block;
   max-width: 47vw;
   text-decoration: none;
-  color: #A7DDF2;
+  color:#D7D9D9;
+  opacity: .4;
   margin: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font: 20px/1.5 'Source Sans', sans-serif;
+  font: 20px/1.5 'Open Sans', sans-serif;
+  font-weight: 600;
   border: 1px solid transparent;
-  border-bottom: 1px dotted #A7DDF2;
+  /* border-bottom: 1px dotted #fff; */
 }
 
 .posts>a:hover {
   transition: color 0.3s ease;
-  transition: border-bottom 0.3s ease;
+  /* transition: opacity 0.3s ease; */
+  /* transition: border-bottom 0.3s ease; */
   /* transition: text-decoration 0.5s ease;
   text-decoration: underline; */
-  border-bottom: solid 1px #3FB2BF;
-  color: #3FB2BF;
+  /* border-bottom: solid 1px #fff; */
+  color: #D7D9D9;
+  opacity: .7;
+  /* opacity: .7; */
 }
 
 .post-title {
@@ -306,65 +312,28 @@ h2 {
 }
 
 .post-title > p {
+  /* background-color: rgb(24, 24, 24); */
   display: inline-block;
-  color:  #A7DDF2;
+  color:  #F2F2F2;
   text-decoration: none;
   margin: 0;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  font: 20px/1.5 'Source Sans', sans-serif;
+  font: 20px/1.5 'Open Sans', sans-serif;
+  font-weight: 600;
   /* border-radius: 2px; */
-  border-bottom: 1px solid #e61a2b;
+  border-bottom: 3px solid #e61a2b;
+  padding-bottom: 5px;
+  /* border-left: 3px solid #e61a2b; */
   /* text-decoration: underline;
   text-decoration-color: #e61a2b; */
   
 }
 
-.test {
-  display: inline-block;
-  background-color: #e61a2b;
-  border-radius: 10px;
-}
-
-.test > p {
-  display: inline-block;
-  color: white;
-  text-decoration: none;
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font: 20px/1.5 'Source Sans', sans-serif;
-  border-radius: 2px;
-  
-}
-
-.current-post>p {
-  /* color: white ;
-  /* background-color: #e61a2b;
-  display: inline-block;
-  max-width: 47vw;
-  text-decoration: none;
-  margin: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  font: 20px/1.5 'Source Sans', sans-serif;
-  border-radius: 2px;  */
-  /* padding-left: 10px;
-  padding-right: 10px;
-  padding-bottom: 4px; */
-}
-
-/* .current-post>p:hover {
-  transition: color 0.5s ease;
-  color: #e61a2b;
-} */
-
 .material-icons.md-38 {
   font-size: 38px;
-  color: #BACBD9;
+  color: #D7D9D9;
   position: relative;
   top: 7px;
   cursor: pointer;

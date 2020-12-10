@@ -34,32 +34,32 @@ const menuSection = [homeSection, blogSection, projectSection, resumeSection];
 function changeMenuItemColor(menuItem) {
     switch (menuItem) {
         case 'about-me':
-            homeMenuText.style.color = "#252526";
+            homeMenuText.style.color = "#090B0D";
             homeMenuText.classList.remove("menu-hover");
-            blogMenuText.style.color = "#BACBD9";
-            projectsMenuText.style.color = "#BACBD9";
-            resumeMenuText.style.color = "#BACBD9";
+            blogMenuText.style.color = "#D7D9D9";
+            projectsMenuText.style.color = "#D7D9D9";
+            resumeMenuText.style.color = "#D7D9D9";
             break;
         case 'blog-section':
-            homeMenuText.style.color = "#BACBD9";
-            blogMenuText.style.color = "#252526";
+            homeMenuText.style.color = "#D7D9D9";
+            blogMenuText.style.color = "#090B0D";
             blogMenuText.classList.remove("menu-hover");
-            projectsMenuText.style.color = "#BACBD9";
-            resumeMenuText.style.color = "#BACBD9";
+            projectsMenuText.style.color = "#D7D9D9";
+            resumeMenuText.style.color = "#D7D9D9";
             break;
         case 'projects-section':
-            projectsMenuText.style.color = "#252526";
+            projectsMenuText.style.color = "#090B0D";
             projectsMenuText.classList.remove("menu-hover");
-            resumeMenuText.style.color = "#BACBD9";
-            blogMenuText.style.color = "#BACBD9";
-            homeMenuText.style.color = "#BACBD9";
+            resumeMenuText.style.color = "#D7D9D9";
+            blogMenuText.style.color = "#D7D9D9";
+            homeMenuText.style.color = "#D7D9D9";
             break;
         case 'resume-section':
-            resumeMenuText.style.color = "#252526";
+            resumeMenuText.style.color = "#090B0D";
             resumeMenuText.classList.remove("menu-hover");
-            projectsMenuText.style.color = "#BACBD9";
-            blogMenuText.style.color = "#BACBD9";
-            homeMenuText.style.color = "#BACBD9";
+            projectsMenuText.style.color = "#D7D9D9";
+            blogMenuText.style.color = "#D7D9D9";
+            homeMenuText.style.color = "#D7D9D9";
             break;
     }
 }
@@ -250,7 +250,7 @@ function scrollTo() {
 //         document.querySelector('#resume-side-text').style.visibility = 'hidden';
 //         document.querySelector('.contact-side').style.visibility = 'hidden';
 
-//         blogMenuText.style.color = "#BACBD9";
+//         blogMenuText.style.color = "#D7D9D9";
 
 //         sidePane.className += ' posts-scroll-bar';
 //         sidePane.style.zIndex = 2;

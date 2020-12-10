@@ -291,16 +291,16 @@ h2 {
   color: #a8dadc;
 }
 
-.material-icons.md-38 {
+/* .material-icons.md-38 {
   font-size: 38px;
   color: #BACBD9;
   position: relative;
   top: 7px;
-  /* margin-left: 5px; */
+  /* margin-left: 5px; 
   cursor: pointer;
   float: right;
   margin-left:auto; right:0;
-}
+} */
 
 #blog-menu:hover {
   transition: color 0.5s ease;

@@ -21,7 +21,7 @@ const blogMenuBurger = document.querySelector("#blog-menu");
 
 
 function addHoverClass() {
-    blogMenuText.style.color = "#252526";
+    blogMenuText.style.color = "#090B0D";
     blogMenuBurger.style.color = "#e63946"
     homeMenuText.style.color = "#BACBD9";
     homeMenuText.classList.add("menu-hover");
@@ -142,7 +142,7 @@ function blogClick(numOfPosts) {
             // document.querySelector('#resume-side-text').style.visibility = 'hidden';
             // document.querySelector('#contact-side-text').style.visibility = 'hidden';
 
-            blogMenuText.style.color = "#BACBD9";
+            blogMenuText.style.color = "#F2F2F2";
 
             sidePane.className += ' posts-scroll-bar';
             sidePane.style.zIndex = 2;
@@ -186,7 +186,7 @@ function blogClick(numOfPosts) {
             // document.querySelector('#resume-side-text').style.visibility = 'hidden';
             // document.querySelector('#contact-side-text').style.visibility = 'hidden';
 
-            blogMenuText.style.color = "#BACBD9";
+            blogMenuText.style.color = "#F2F2F2";
 
             sidePane.className += ' posts-scroll-bar';
             sidePane.style.zIndex = 2;
@@ -238,11 +238,11 @@ function blogClick(numOfPosts) {
                 //Used in the resizeSidepane function
                 dropDown = true;
                 setTimeout(function () {
-                    if (blogMenuText.style.color != 'rgb(186, 203, 217)' && blogMenuBurger.style.color != "#e63946") {
+                    if (blogMenuText.style.color != '#F2F2F2' && blogMenuBurger.style.color != "#e63946") {
                         blogMenuBurger.setAttribute('style', 'color: #e63946');
                     } else {
                         // blogText.classList.add("menu-hover");
-                        blogText.style.color = "#252526"
+                        blogText.style.color = "#090B0D"
                     }
                 }, 500);
             }
