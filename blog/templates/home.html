@@ -1,217 +1,233 @@
 {% extends 'base.html' %}
+
 {% load static %}
+
 {% block css %}
 <link rel="stylesheet" href="{% static 'blog/css/home_style.css' %}">
 {% endblock %}
 {% block content %}
+
 {% load markdown_deux_tags %}
 
-<div class="grid-container">
-    <div class="page-container">
-        <div class="sidepane" id="sidepane-div">
-            {% block menuitems %}
-            <div class="home-side">
-                <p id="home-side-text">
-                    home
-                </p>
-            </div>
-            {% block postlist %}
-            <div class="blog-side ">
-                
-                <!-- <i class="material-icons material-icons-round md-38" id="blog-menu">expand_more</i>
-                <i class="material-icons material-icons-round md-38" id="blog-close"
-                    style="display: none;">expand_less</i> -->
-                    <p style="color: #D7D9D9;" id="blog-side-text"> blog</p>
 
-                <!-- <div class="blog-posts" style="display: none;">
-                    {% for post in post_list %}
-                    <p class="posts" style="display:none;">
-                        <a
-                            href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
-                            {{ post.title }}
-                        </a>
-                    </p>
-                    <span style="display: none;"> {{ post.date }}</span>
-                    {% endfor %}
-                </div> -->
-            </div>
-            {% endblock %}
+<div class="post-bg">
+</div>
+<div class="container">
 
-            <div class="projects-side">
-                <p id="projects-side-text" style="color: #D7D9D9;">
-                    projects
-                </p>
-            </div>
+    <div class="sidepane" id="sidepane-div">
+        {% block menuitems %}
+        <div class="home-side">
+            <p id="home-side-text">
+                home
+            </p>
+        </div>
+        {% block postlist %}
+        <div class="blog-side ">
 
-            <div class="resume-side">
-                <p id="resume-side-text" style="color: #D7D9D9;">
-                    resume
-                </p>
-            </div>
+            <!-- <i class="material-icons material-icons-round md-38" id="blog-menu">expand_more</i>
+        <i class="material-icons material-icons-round md-38" id="blog-close"
+            style="display: none;">expand_less</i> -->
+            <p style="color: #D7D9D9;" id="blog-side-text"> blog</p>
 
-            <div class="contact-side">
-                <a style="text-decoration: none;" href="https://github.com/gnarlee-gee" target="_blank">
-                    <div class="contact-links">
-                        <i class="fab fa-github-square"></i>
-                    </div>
+            <!-- <div class="blog-posts" style="display: none;">
+            {% for post in post_list %}
+            <p class="posts" style="display:none;">
+                <a
+                    href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
+                    {{ post.title }}
                 </a>
-                <a style="text-decoration: none;" href="https://www.linkedin.com/in/charlesgrealy/" target="_blank">
-                    <div class="contact-links" style="margin-left: 7px;">
-                        <i class="fab fa-linkedin"></i>
-                    </div>
-                </a>
-                <a style="text-decoration: none;" href="mailto:charlesgrealy@gmail.com">
-                    <div class="contact-links" style="margin-left: 7px;"><i class="fas fa-envelope-square"></i>
-                    </div>
-                </a>
-            </div>
+            </p>
+            <span style="display: none;"> {{ post.date }}</span>
+            {% endfor %}
+        </div> -->
         </div>
         {% endblock %}
 
-        <div id="info-box" class="info">
-            {% block posts %}
-            <div class="about-me" id="home">
-                <h1>Welcome to the world of <br> Charles Grealy! </h1>
-                <p>I graduated from the University of Houston in May 2020 with a Bachelors
-                    of Science in mathematics. My career plan going into college was to become a programmer.
-                    In order to achieve programming experience, I set out to minor in computer science.
-                </p>
-                <p>
-                    
-                    The first computer science class I took was an introductory course about Python and computer science
-                    fundamentals. I quickly learned that computer science was
-                    a subject that felt rather natural. In the computer science courses, I felt less inclined to take
-                    notes as the material was in a crystal clear language that I could comfortably decipher. The
-                    adbundance of material on any
-                    given subject is shocking compared to that of mathematics. There's YouTube, books, articles,
-                    StackOverflow, open source projects like FreeCodeCamp and TheOdinProject and many, many, other
-                    sources. So finding assistance was a few clicks away (Thanks, StackOverflow!).
-                    Wow, does programming inject serotonin in my viens!
-                </p>
-                <p>
-                    I'm now applying to various entry level programming positions in hopes of gaining employment. Once
-                    I lock down a job, I will pursue a Masters and a PhD in computer science.
-                </p>
-                <p>
-                    FAQ: Why didn't you just major in computer science? I chose mathematics over computer science as
-                    math
-                    was my strongest subject throughout primary school and
-                    the focus on logic would strengthen my programming abilities.
-                </p>
-            </div>
+        <div class="projects-side">
+            <p id="projects-side-text" style="color: #D7D9D9;">
+                projects
+            </p>
+        </div>
 
-            <div class="blog-section" id="blog">
+        <div class="resume-side">
+            <p id="resume-side-text" style="color: #D7D9D9;">
+                resume
+            </p>
+        </div>
 
-                <h2>Blog Entries</h1>
-                    <ul>
-                        {% for post in post_list %}
-                        <li style="list-style-type: circle;">
-                            <p class="post-descriptions">
-                                <span> {{ post.date|date:"M d, Y" }} - </span>
-
-                                <a class="links"
-                                    href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
-                                    {{ post.title }}
-                                </a>
-                            </p>
-                        </li>
-                        {% endfor %}
-                    </ul>
-
-
-            </div>
-
-            <div class="projects-section" style="padding-bottom: 30px;">
-                <div class="projects-container">
-                    <div class="projects" id="project-calc">
-                        <a class="project-title" href="https://github.com/gnarlee-gee/JavaScript-Calculator" target="#">
-                            <h2>A Calculator on the Web</h2>
-                        </a>
-                        <p class="project-description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Debitis asperiores ipsa sint sed, deleniti saepe tempore,
-                            suscipit reprehenderit quaerat harum error delectus perferendis
-                            vel totam molestias vero, ullam tenetur. Voluptatibus.
-                        </p>
-                        <a class="project-links" href="https://github.com/gnarlee-gee/JavaScript-Calculator"
-                            target="#">GitHub</a>
-                        <a class="project-links" href="https://gnarlee-gee.github.io/JavaScript-Calculator/"
-                            target="#">Live Website</a>
-                    </div>
-                    <div class="projects" id="project-etch">
-                        <a class="project-title" href="https://github.com/gnarlee-gee/Etch-A-Sketch" target="#">
-                            <h2>Online Etch A Sketch</h2>
-                        </a>
-                        <p class="project-description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Debitis asperiores ipsa sint sed, deleniti saepe tempore,
-                            suscipit reprehenderit quaerat harum error delectus perferendis
-                            vel totam molestias vero, ullam tenetur. Voluptatibus.
-                        </p>
-                        <a class="project-links" href="https://github.com/gnarlee-gee/Etch-A-Sketch"
-                            target="#">GitHub</a>
-                        <a class="project-links" href="https://gnarlee-gee.github.io/Etch-A-Sketch/" target="#">Live
-                            Website</a>
-                    </div>
-                    <div class="projects" id="project-personalsite">
-                        <a class="project-title" href="https://github.com/gnarlee-gee/personal-blog-site" target="#">
-                            <h2>
-                                Personal Website
-                            </h2>
-                        </a>
-                        <p class="project-description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Debitis asperiores ipsa sint sed, deleniti saepe tempore,
-                            suscipit reprehenderit quaerat harum error delectus perferendis
-                            vel totam molestias vero, ullam tenetur. Voluptatibus.
-                        </p>
-                        <a class="project-links" href="https://github.com/gnarlee-gee/personal-blog-site"
-                            target="#">GitHub</a>
-                    </div>
-                    <div class="projects" id="project-chatbot">
-                        <a class="project-title" href="https://github.com/gnarlee-gee/WhatsApp-Stock-Portfolio-Chatbot"
-                            target="#">
-                            <h2>
-                                Stock Portfolio Chatbot
-                            </h2>
-                        </a>
-                        <p class="project-description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Debitis asperiores ipsa sint sed, deleniti saepe tempore,
-                            suscipit reprehenderit quaerat harum error delectus perferendis
-                            vel totam molestias vero, ullam tenetur. Voluptatibus.
-                        </p>
-                        <a class="project-links" href="https://github.com/gnarlee-gee/WhatsApp-Stock-Portfolio-Chatbot"
-                            target="#">GitHub</a>
-                    </div>
-                    <div class="projects" id="project-interpreter">
-                        <a class="project-title" href="https://github.com/gnarlee-gee/Python-Interpreter" target="#">
-                            <h2>
-                                Python Interpreter in C++
-                            </h2>
-                        </a>
-                        <p class="project-description">
-                            Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                            Debitis asperiores ipsa sint sed, deleniti saepe tempore,
-                            suscipit reprehenderit quaerat harum error delectus perferendis
-                            vel totam molestias vero, ullam tenetur. Voluptatibus.
-                        </p>
-                        <a class="project-links" href="https://github.com/gnarlee-gee/Python-Interpreter"
-                            target="#">GitHub</a>
-                    </div>
+        <div class="contact-side">
+            <a style="text-decoration: none;" href="https://github.com/gnarlee-gee" target="_blank">
+                <div class="contact-links">
+                    <i class="fab fa-github-square"></i>
                 </div>
-            </div>
-
-            <div class="resume-section" id="resume">
-                <h1>This is the resume section! </h1>
-            </div>
-            {% endblock %}
+            </a>
+            <a style="text-decoration: none;" href="https://www.linkedin.com/in/charlesgrealy/" target="_blank">
+                <div class="contact-links" style="margin-left: 7px;">
+                    <i class="fab fa-linkedin"></i>
+                </div>
+            </a>
+            <a style="text-decoration: none;" href="mailto:charlesgrealy@gmail.com">
+                <div class="contact-links" style="margin-left: 7px;"><i class="fas fa-envelope-square"></i>
+                </div>
+            </a>
         </div>
     </div>
 
-    <div class="post-bg">
+    {% endblock %}
+
+    {% block posts %}
+    <div id="info-box" class="info">
+
+
+
+        <div class="about-me" id="home">
+            <h1>Welcome to the world of <br> Charles Grealy! </h1>
+            <p>I graduated from the University of Houston in May 2020 with a Bachelors
+                of Science in mathematics. My career plan going into college was to become a programmer.
+                In order to achieve programming experience, I set out to minor in computer science.
+            </p>
+            <p>
+
+                The first computer science class I took was an introductory course about Python and computer science
+                fundamentals. I quickly learned that computer science was
+                a subject that felt rather natural. In the computer science courses, I felt less inclined to take
+                notes as the material was in a crystal clear language that I could comfortably decipher. The
+                adbundance of material on any
+                given subject is shocking compared to that of mathematics. There's YouTube, books, articles,
+                StackOverflow, open source projects like FreeCodeCamp and TheOdinProject and many, many, other
+                sources. So finding assistance was a few clicks away (Thanks, StackOverflow!).
+                Wow, does programming inject serotonin in my viens!
+            </p>
+            <p>
+                I'm now applying to various entry level programming positions in hopes of gaining employment. Once
+                I lock down a job, I will pursue a Masters and a PhD in computer science.
+            </p>
+            <p>
+                FAQ: Why didn't you just major in computer science? I chose mathematics over computer science as
+                math
+                was my strongest subject throughout primary school and
+                the focus on logic would strengthen my programming abilities.
+            </p>
+        </div>
+
+        <div class="blog-section" id="blog">
+
+            <h2>Blog Entries</h1>
+                <ul>
+                    {% for post in post_list %}
+                    <li style="list-style-type: circle;">
+                        <p class="post-descriptions">
+                            <span> {{ post.date|date:"M d, Y" }} - </span>
+
+                            <a class="links"
+                                href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
+                                {{ post.title }}
+                            </a>
+                        </p>
+                    </li>
+                    {% endfor %}
+                </ul>
+
+
+        </div>
+
+        <div class="projects-section" style="padding-bottom: 30px;">
+            <div class="projects-container">
+                <div class="projects" id="project-calc">
+                    <a class="project-title" href="https://github.com/gnarlee-gee/JavaScript-Calculator" target="#">
+                        <h2>A Calculator on the Web</h2>
+                    </a>
+                    <p class="project-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Debitis asperiores ipsa sint sed, deleniti saepe tempore,
+                        suscipit reprehenderit quaerat harum error delectus perferendis
+                        vel totam molestias vero, ullam tenetur. Voluptatibus.
+                    </p>
+                    <a class="project-links" href="https://github.com/gnarlee-gee/JavaScript-Calculator"
+                        target="#">GitHub</a>
+                    <a class="project-links" href="https://gnarlee-gee.github.io/JavaScript-Calculator/" target="#">Live
+                        Website</a>
+                </div>
+                <div class="projects" id="project-etch">
+                    <a class="project-title" href="https://github.com/gnarlee-gee/Etch-A-Sketch" target="#">
+                        <h2>Online Etch A Sketch</h2>
+                    </a>
+                    <p class="project-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Debitis asperiores ipsa sint sed, deleniti saepe tempore,
+                        suscipit reprehenderit quaerat harum error delectus perferendis
+                        vel totam molestias vero, ullam tenetur. Voluptatibus.
+                    </p>
+                    <a class="project-links" href="https://github.com/gnarlee-gee/Etch-A-Sketch" target="#">GitHub</a>
+                    <a class="project-links" href="https://gnarlee-gee.github.io/Etch-A-Sketch/" target="#">Live
+                        Website</a>
+                </div>
+                <div class="projects" id="project-personalsite">
+                    <a class="project-title" href="https://github.com/gnarlee-gee/personal-blog-site" target="#">
+                        <h2>
+                            Personal Website
+                        </h2>
+                    </a>
+                    <p class="project-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Debitis asperiores ipsa sint sed, deleniti saepe tempore,
+                        suscipit reprehenderit quaerat harum error delectus perferendis
+                        vel totam molestias vero, ullam tenetur. Voluptatibus.
+                    </p>
+                    <a class="project-links" href="https://github.com/gnarlee-gee/personal-blog-site"
+                        target="#">GitHub</a>
+                </div>
+                <div class="projects" id="project-chatbot">
+                    <a class="project-title" href="https://github.com/gnarlee-gee/WhatsApp-Stock-Portfolio-Chatbot"
+                        target="#">
+                        <h2>
+                            Stock Portfolio Chatbot
+                        </h2>
+                    </a>
+                    <p class="project-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Debitis asperiores ipsa sint sed, deleniti saepe tempore,
+                        suscipit reprehenderit quaerat harum error delectus perferendis
+                        vel totam molestias vero, ullam tenetur. Voluptatibus.
+                    </p>
+                    <a class="project-links" href="https://github.com/gnarlee-gee/WhatsApp-Stock-Portfolio-Chatbot"
+                        target="#">GitHub</a>
+                </div>
+                <div class="projects" id="project-interpreter">
+                    <a class="project-title" href="https://github.com/gnarlee-gee/Python-Interpreter" target="#">
+                        <h2>
+                            Python Interpreter in C++
+                        </h2>
+                    </a>
+                    <p class="project-description">
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                        Debitis asperiores ipsa sint sed, deleniti saepe tempore,
+                        suscipit reprehenderit quaerat harum error delectus perferendis
+                        vel totam molestias vero, ullam tenetur. Voluptatibus.
+                    </p>
+                    <a class="project-links" href="https://github.com/gnarlee-gee/Python-Interpreter"
+                        target="#">GitHub</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="resume-section" id="resume">
+            <h1>This is the resume section! </h1>
+        </div>
+
+        <div class="footer">
+            <p>© Charles Grealy 2020 | Powered by <a class="footer-links" href="https://www.djangoproject.com/" target="_blank">django</a>
+            | <a class="footer-links" href="https://github.com/gnarlee-gee/personal-blog-site" target="_blank">Source code</a></p>
+        </div>
+        {% endblock %}
     </div>
+
 </div>
+
+
+
+
+
 
 {% endblock %}
 

@@ -49,13 +49,18 @@ function setBlogPostsGrid(operation) {
     children = Math.floor(children.length / 2);
 
     if (operation == 'change') {
+        let postContainer = document.createElement('div');
+        postContainer.setAttribute("id", "post-container");
+        document.querySelector(".post-bg").prepend(postContainer);
+        document.querySelector(".post-bg").prepend(document.querySelector('#sidepane-div'));
+        // document.querySelector('.blog-entries').style.display = 'none';
         let i = 0;
         for (; i < children; i++) {
             let postBox = document.createElement('div');
             // Matches url for each post (/post/5)
             let postUrl = posts[i].firstElementChild.outerHTML.match(/\<(.*?)\>/g)
             postBox.setAttribute('id', `post-box-${i+1}`);
-            document.getElementById("sidepane-div").appendChild(postBox);
+            document.getElementById("post-container").appendChild(postBox);
             postBox = document.querySelector(`#post-box-${i+1}`);
             postBox.innerHTML = postUrl[0] + posts[i].textContent.trim() + "</a>"
             postBox.innerHTML
@@ -65,8 +70,8 @@ function setBlogPostsGrid(operation) {
             postBox.setAttribute('class', 'posts')
             if (post_title == posts[i].textContent.split('-')[1].trim()) {
                 // <i class="material-icons material-icons-round md-38-right">chevron_right</i>
-                postBox.innerHTML = '<div class="post-title">' + 
-                                    '<p>' + posts[i].textContent.trim() + "</p></div>";
+                postBox.innerHTML = '<div class="post-title">' +
+                    '<p>' + posts[i].textContent.trim() + "</p></div>";
                 // console.log(document.querySelector('.post-title').offsetWidth);
                 // console.log(postBox)
                 // postBox.innerHTML += postUrl[0] + posts[i].textContent.trim() + "</a>"
@@ -77,9 +82,12 @@ function setBlogPostsGrid(operation) {
                 postBox.classList.add('other-posts');
             }
         }
+
     } else if (operation == 'default') {
         for (let i = 0; i < children; i++) {
             let post = document.querySelector(`#post-box-${i+1}`);
+            // document.querySelector('.blog-entries').style.display = '';
+            document.querySelector(".container").prepend(document.querySelector('#sidepane-div'));
 
             function runEffect() {
                 // get effect type from
@@ -90,14 +98,13 @@ function setBlogPostsGrid(operation) {
             runEffect();
         }
 
-        setTimeout(function () {
-            for (let i = 0; i < children; i++) {
-                let post = document.querySelector(`#post-box-${i+1}`);
-                if (post != null) {
-                    post.remove();
-                }
+        for (let i = 0; i < children; i++) {
+            let post = document.querySelector(`#post-box-${i+1}`);
+            if (post != null) {
+                post.remove();
             }
-        }, 500);
+        }
+        document.getElementById('post-container').remove();
     }
 }
 
@@ -117,22 +124,23 @@ function blogClick(numOfPosts) {
 
     blogMenu.addEventListener('click', () => {
         if (!dropDown) {
+
             document.querySelector('#home-menu').style.visibility = 'hidden';
 
             blogMenuColor = blogText.style.color;
 
             function runEffect() {
                 // get effect type from
-                var selectedEffect = 'fade';
+                // var selectedEffect = 'fade';
 
                 // Run the effect
-                $(blogMenu).hide(selectedEffect, 0);
+                $(blogMenu).hide();
             };
 
             function callback() {
                 setTimeout(function () {
                     $(blogClose, blogText).removeAttr("style").hide().fadeIn();
-                }, 250);
+                });
             };
             callback();
             runEffect();
@@ -148,8 +156,7 @@ function blogClick(numOfPosts) {
             sidePane.style.zIndex = 2;
 
             posts.style.display = 'block';
-            setBlogPostsGrid('change', numOfPosts)
-
+            setBlogPostsGrid('change', numOfPosts);
 
         }
     });
@@ -164,7 +171,7 @@ function blogClick(numOfPosts) {
                 var selectedEffect = 'fade';
 
                 // Run the effect
-                $(blogMenu).hide(selectedEffect, 0);
+                $(blogMenu).hide();
             };
 
             function callback() {
@@ -187,6 +194,7 @@ function blogClick(numOfPosts) {
             // document.querySelector('#contact-side-text').style.visibility = 'hidden';
 
             blogMenuText.style.color = "#F2F2F2";
+            // document.getElementById('post-container').style.display = '';
 
             sidePane.className += ' posts-scroll-bar';
             sidePane.style.zIndex = 2;
@@ -208,12 +216,14 @@ function blogClick(numOfPosts) {
     [blogClose, blogText].forEach((item) => {
         item.addEventListener('click', () => {
             if (dropDown) {
+                blogMenuText.style.color = "#090B0D";
+                // document.getElementById('post-container').style.display = 'none';
                 function runEffect() {
                     // get effect type from
                     var selectedEffect = 'fade';
 
                     // Run the effect
-                    $(blogClose).hide(selectedEffect, 500);
+                    $(blogClose).hide();
                 };
 
                 function callback() {
@@ -223,7 +233,7 @@ function blogClick(numOfPosts) {
                         // document.querySelector('#projects-side-text').style.visibility = 'visible';
                         // document.querySelector('#resume-side-text').style.visibility = 'visible';
                         // document.querySelector('#contact-side-text').style.visibility = 'visible';
-                        blogMenuText.style.color = blogMenuColor;
+
                     }, 500);
                 };
                 runEffect();
@@ -256,21 +266,49 @@ function resizeSidepane() {
     $(function () {
         $("#blog-menu, #blog-side-text, #blog-close").on("click", function () {
             if (!dropDown) {
+                // $("body, html").css("padding", "0");
+                $("body, html").css("overflow", "hidden");
+                $('.blog-side').css("margin-bottom", "10px");
+                $('#sidepane-div').toggleClass("sidepane", false);
+                $('#sidepane-div').toggleClass("sidepane-click", true);
+                $('.blog-side').toggleClass("blog-side-clicked", true);
+                $('.post-bg').toggleClass("post-bg-border", true);
+
                 $(".post-bg").animate({
                     height: "100vh",
                 }, 500);
                 $(".sidepane").animate({
                     width: "47vw",
-                }, 500);
+                }, 0);
                 dropDown = true;
+                $('.post-bg').animate({
+                    scrollTop: $(".current-post").offset().top - 95
+                }, 1000);
+
             } else {
-                $(".sidepane").animate({
-                    width: 140,
-                }, 500);
+                $('.post-bg').toggleClass("post-bg-border", false);
+
+                $("body, html").css("overflow", "");
+
+                $('.blog-side').css("margin-bottom", "0");
+                $('#sidepane-div').toggleClass("sidepane-click", false);
+                $('#sidepane-div').toggleClass("sidepane", true);
+                $('.blog-side').toggleClass("blog-side-clicked", false);
+
+
+
+                // $(".sidepane").animate({
+                //     width: 140,
+                // }, 500);
                 $(".post-bg").animate({
                     height: 0,
                 }, 500);
                 dropDown = false;
+                setTimeout(function () {
+                    // $("body, html").css("padding", "12px");
+                }, 550)
+
+
             }
         });
         $("#blog-close").on("click", function () {
