@@ -10,8 +10,8 @@
 {% load markdown_deux_tags %}
 
 
-<div class="post-bg">
-</div>
+{% block postbg %}
+{% endblock %}
 <div class="container">
 
     <div class="sidepane" id="sidepane-div">
@@ -76,7 +76,7 @@
     {% endblock %}
 
     {% block posts %}
-    <div id="info-box" class="info">
+    <div id="main-box" class="main">
 
 
 
@@ -131,7 +131,7 @@
 
         </div>
 
-        <div class="projects-section" style="padding-bottom: 30px;">
+        <div class="projects-section" id="projects" style="padding-bottom: 30px;">
             <div class="projects-container">
                 <div class="projects" id="project-calc">
                     <a class="project-title" href="https://github.com/gnarlee-gee/JavaScript-Calculator" target="#">

@@ -5,8 +5,13 @@
 {% endblock %}
 {% load markdown_deux_tags %}
 
-
+{% block postbg %}
+<div class="post-bg">
+    
+</div>
+{% endblock %}
 {% block menuitems %}
+
 <div class="home-side menu-collapse">
     <p>
         <a class="sidepane-links menu-hover" id="home-menu" href="{% url 'home' %}">back</a>
@@ -33,6 +38,7 @@
 </div>
 
 {% endblock %}
+
 <!-- <div class="projects-side">
     <p id="projects-side-text">
         projects
@@ -55,6 +61,7 @@
 
 {% endblock %}
 {% block posts %}
+
 <div class="blog-entries">
 
     <h1 id="current-post">{{ post.title }}</h1>
