@@ -255,10 +255,6 @@ background: transparent;
   margin-right: 100px;
 }
 
-.sidepane>div>p {
-  text-align: right;
-}
-
 .sidepane::-webkit-scrollbar {
   display: none;
 }
@@ -283,6 +279,7 @@ background: transparent;
 .blog-side>p,
 .projects-side>p,
 .resume-side>p {
+  float: right;
   cursor: pointer;
 }
 

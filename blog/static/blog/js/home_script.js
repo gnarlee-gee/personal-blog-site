@@ -81,7 +81,7 @@ function addScrollToEvent() {
     })
 
     blogSection.scrollIntoView({
-        behavior: 'smooth', // block: 'end', inline: 'end' 
+        behavior: 'smooth',
     })
     menuText.forEach((item) => {
         item.classList.add("menu-hover");
@@ -103,7 +103,7 @@ function scrollTo() {
                 })
 
                 menuSection[index].scrollIntoView({
-                    behavior: 'smooth', // block: 'end', inline: 'end' 
+                    behavior: 'smooth',
                 })
 
                 menuText.forEach((item) => {
