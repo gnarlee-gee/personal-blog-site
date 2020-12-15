@@ -330,6 +330,14 @@ background: transparent;
   padding: 0 10px 0 10px;
 }
 
+.blog-section {
+  display: flex;
+  justify-content: start;
+  flex-direction: column;
+  /* min-height: 30vh; */
+  padding-top: 30px;
+}
+
 .post-descriptions {
   font-family: 'Source Sans', sans-serif;
   margin: 0;
@@ -343,6 +351,14 @@ background: transparent;
 
 .projects {
   margin-bottom: 25px;
+}
+
+.projects-section {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  min-height: 60vh;
+  padding-top: 30px;
 }
 
 .projects:last-child {
@@ -422,19 +438,10 @@ background: transparent;
   line-height: 1.4em;
 }
 
-.blog-section,
-.projects-section {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  min-height: 60vh;
-  padding-top: 30px;
-}
-
 .footer {
-  padding-top: 1rem;
-  padding-bottom: 2rem;
-  margin-top: 1rem;
+  padding-top: 30px;
+  margin-bottom: 30px;
+  /* margin-top: 1em; */
   border-top: 1px solid #D7D9D9;
 }
 

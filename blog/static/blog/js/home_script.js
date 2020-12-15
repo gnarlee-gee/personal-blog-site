@@ -58,7 +58,7 @@ var observer = new IntersectionObserver(function (entries) {
     // isIntersecting is true when element and viewport are overlapping
     // isIntersecting is false when element and viewport don't overlapc
     [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText].forEach((item) => {
-        if (entries[0]['intersectionRatio'] > 0.80) {
+        if (entries[0]['intersectionRatio'] > 0.60) {
             item.classList.add("menu-hover");
         }
     })
