@@ -349,6 +349,7 @@ body, html {
 }
 
 #blog-side-text {
+  color: #090B0D;
   position: relative;
   left: 23px;
 }

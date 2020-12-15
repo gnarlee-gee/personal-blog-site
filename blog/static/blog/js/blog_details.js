@@ -55,6 +55,7 @@ function getBlogPosts(operation) {
         for (let i = 0; i < children; i++) {
             let post = document.querySelector(`#post-box-${i+1}`);
             document.querySelector(".container").prepend(document.querySelector('#sidepane-div'));
+
             function runEffect() {
                 // get effect type from
                 var selectedEffect = 'fade';
@@ -94,21 +95,20 @@ function blogClick() {
             };
 
             function callback() {
-                setTimeout(function () {
-                    $(blogClose, blogText).removeAttr("style").hide().fadeIn();
-                });
+                $(blogClose, blogText).removeAttr("style").hide().fadeIn();
             };
-            callback();
-            runEffect();
+        };
+        callback();
+        runEffect();
 
-            blogText.classList.remove("menu-hover");
-            blogMenuText.style.color = "#F2F2F2";
+        blogText.classList.remove("menu-hover");
+        blogMenuText.style.color = "#F2F2F2";
 
-            sidePane.className += ' posts-scroll-bar';
+        sidePane.className += ' posts-scroll-bar';
 
-            posts.style.display = 'block';
-            getBlogPosts('change');
-        }
+        posts.style.display = 'block';
+        getBlogPosts('change');
+
     });
 
     blogText.addEventListener('click', () => {
@@ -146,6 +146,7 @@ function blogClick() {
         item.addEventListener('click', () => {
             if (dropDown) {
                 blogMenuText.style.color = "#090B0D";
+
                 function runEffect() {
                     // get effect type from
 
@@ -167,7 +168,7 @@ function blogClick() {
                 sidePane.className = 'sidepane';
 
                 getBlogPosts('default');
-   
+
                 //Used in the resizeSidepane function
                 dropDown = true;
             }
@@ -201,14 +202,6 @@ function resizeSidepane() {
                 $('.blog-side').toggleClass("blog-side-clicked", false);
                 $(".post-bg").animate({
                     height: 0,
-                }, 500);
-                dropDown = false;
-            }
-        });
-        $("#blog-close").on("click", function () {
-            if (dropDown) {
-                $(".post-bg").animate({
-                    width: 0,
                 }, 500);
                 dropDown = false;
             }
