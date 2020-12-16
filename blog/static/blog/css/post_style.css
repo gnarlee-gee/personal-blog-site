@@ -235,6 +235,16 @@ body, html {
   background: transparent;
 }
 
+.show {
+  opacity: 1;
+  transition: opacity 1000ms;
+}
+
+.hide {
+  opacity: 0;
+  transition: opacity 1000ms;
+}
+
 .post-bg {
   position: fixed;
   width: 100vw;
@@ -418,7 +428,7 @@ body, html {
   overflow-x: hidden;
 }
 
-.blog-side-clicked {
+.blog-side-click {
   position: fixed;
 }
 

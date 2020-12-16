@@ -1,12 +1,13 @@
 // after page loads activate function
 window.onload = function () {
     blogClick();
-    resizeSidepane();
-}
+    dropDownStatus();
+};
 
 const homeMenuText = document.querySelector('#home-menu');
 const blogMenuText = document.querySelector("#blog-side-text");
 const blogMenuBurger = document.querySelector("#blog-menu");
+const blogMenuClose = document.querySelector('#blog-close');
 
 let dropDown = false;
 
@@ -16,7 +17,9 @@ function addHoverClass() {
     blogMenuBurger.style.color = "#e63946"
     homeMenuText.style.color = "#D7D9D9";
     homeMenuText.classList.add("menu-hover");
-}
+};
+
+
 
 function getBlogPosts(operation) {
     let parent = document.querySelector('.blog-posts');
@@ -56,11 +59,14 @@ function getBlogPosts(operation) {
             let post = document.querySelector(`#post-box-${i+1}`);
             document.querySelector(".container").prepend(document.querySelector('#sidepane-div'));
 
+
+            //https://stackoverflow.com/questions/6121203/how-to-do-fade-in-and-fade-out-with-javascript-and-css
             function runEffect() {
                 // get effect type from
-                var selectedEffect = 'fade';
+                // var selectedEffect = 'fade';
                 // Run the effect
-                $(post).hide(selectedEffect, 500);
+                fadeOutElement(post);
+                // $(post).hide(selectedEffect, 500);
             };
             runEffect();
         }
@@ -72,7 +78,52 @@ function getBlogPosts(operation) {
         }
         document.getElementById('post-container').remove();
     }
+};
+
+function enlargeBackground() {
+    const postbg = document.querySelector('.post-bg');
+    let height = 0;
+    let id = setInterval(frame, 20);
+
+    function frame() {
+        if (height == 100) {
+            clearInterval(id);
+        } else {
+            height += 5;
+            postbg.style.height = height + "vh";
+        }
+    }
+};
+
+function recedeBackground() {
+    const postbg = document.querySelector('.post-bg');
+    let height = 100;
+    let id = setInterval(frame, 20);
+
+    function frame() {
+        if (height == 0) {
+            clearInterval(id);
+        } else {
+            height -= 5;
+            postbg.style.height = height + "vh";
+        }
+    }
+};
+
+function fadeInElement(element) {
+    element.classList.add('show');
+    element.classList.remove('hide');
 }
+
+function fadeOutElement(element) {
+    element.classList.add('hide');
+    element.classList.remove('show');
+}
+
+function toggleOverflow(element, value) {
+    element.style.overflow = value;
+}
+
 
 // Change right arrow to a down arrow on click and vice versa
 // Modifies behavior when clicking blog
@@ -84,84 +135,80 @@ function blogClick() {
     const blogClose = document.querySelector('#blog-close');
     const posts = document.querySelector('.blog-posts');
 
-    blogMenu.addEventListener('click', () => {
-        if (!dropDown) {
-            document.querySelector('#home-menu').style.visibility = 'hidden';
-            blogMenuColor = blogText.style.color;
+    const bodyTag = document.querySelector('body');
+    const htmlTag = document.querySelector('html');
+    const sidepaneDiv = document.querySelector('#sidepane-div');
+    const blogSide = document.querySelector('.blog-side');
+    const postBg = document.querySelector('.post-bg');
 
-            function runEffect() {
-                // Run the effect
-                $(blogMenu).hide();
-            };
+    //first click
+    [blogMenu, blogText].forEach((item) => {
+        item.addEventListener('click', () => {
+            if (!dropDown) {
+                enlargeBackground();
+                toggleOverflow(bodyTag, 'hidden');
+                toggleOverflow(htmlTag, 'hidden');
+                sidepaneDiv.classList.remove('sidepane');
+                sidepaneDiv.classList.add('sidepane-click');
+                blogSide.classList.add('blog-side-click');
 
-            function callback() {
-                $(blogClose, blogText).removeAttr("style").hide().fadeIn();
-            };
-        };
-        callback();
-        runEffect();
-
-        blogText.classList.remove("menu-hover");
-        blogMenuText.style.color = "#F2F2F2";
-
-        sidePane.className += ' posts-scroll-bar';
-
-        posts.style.display = 'block';
-        getBlogPosts('change');
-
-    });
-
-    blogText.addEventListener('click', () => {
-        if (!dropDown) {
-            blogMenuColor = blogText.style.color;
-
-            function runEffect() {
-                // Run the effect
-                $(blogMenu).hide();
-            };
-
-            function callback() {
                 setTimeout(function () {
-                    if (!dropDown) {
-                        document.querySelector('#blog-close').style.visibility = 'hidden';
-                    } else {
-                        $(blogClose, blogText).removeAttr("style").hide().fadeIn();
+                    postBg.classList.add('post-bg-border');
+                }, 250);
+
+                document.querySelector('#home-menu').style.visibility = 'hidden';
+                blogMenuColor = blogText.style.color;
+                fadeOutElement(blogMenu);
+                blogMenu.style.visibility = 'hidden';
+                fadeOutElement(blogClose);
+
+                setTimeout(function () {
+                    if (dropDown) {
+                        blogClose.removeAttribute("style");
+                        fadeInElement(blogClose);
                     }
                 }, 0);
+
+                blogText.classList.remove("menu-hover");
+                blogMenuText.style.color = "#F2F2F2";
+                document.querySelector('#home-menu').style.visibility = 'hidden';
+
+                sidePane.className += ' posts-scroll-bar';
+                setTimeout(function () {
+                    getBlogPosts('change');
+                }, 275)
+
+                setTimeout(function () {
+                    document.querySelector('.current-post').scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }, 500);
             };
-            callback();
-            runEffect();
-
-            blogText.classList.remove("menu-hover");
-            document.querySelector('#home-menu').style.visibility = 'hidden';
-            blogMenuText.style.color = "#F2F2F2";
-            sidePane.className += ' posts-scroll-bar';
-            sidePane.style.zIndex = 2;
-            posts.style.display = 'block';
-            getBlogPosts('change')
-        }
+        });
     });
-
+    //2nd click
     [blogClose, blogText].forEach((item) => {
         item.addEventListener('click', () => {
             if (dropDown) {
+                recedeBackground()
                 blogMenuText.style.color = "#090B0D";
+                toggleOverflow(bodyTag, 'auto');
+                toggleOverflow(htmlTag, 'auto');
+                sidepaneDiv.classList.add('sidepane');
+                sidepaneDiv.classList.remove('sidepane-click');
+                blogSide.classList.remove('blog-side-click');
 
-                function runEffect() {
-                    // get effect type from
+                setTimeout(function () {
+                    postBg.classList.remove('post-bg-border');
+                }, 250);
 
-                    // Run the effect
-                    $(blogClose).hide();
-                };
+                fadeOutElement(blogClose)
 
-                function callback() {
-                    setTimeout(function () {
-                        $(blogMenu).removeAttr("style").hide().fadeIn();
-                        document.querySelector('#home-menu').style.visibility = 'visible';
-                    }, 350);
-                };
-                runEffect();
-                callback();
+                setTimeout(function () {
+                    blogMenu.removeAttribute("style");
+                    fadeInElement(blogMenu)
+                    document.querySelector('#home-menu').style.visibility = 'visible';
+                }, 350);
 
                 posts.style.display = 'none';
 
@@ -169,40 +216,20 @@ function blogClick() {
 
                 getBlogPosts('default');
 
-                //Used in the resizeSidepane function
+                //Used in the dropDownStatus function
                 dropDown = true;
             }
         });
-    })
+    });
 }
 
-// Implements ability to resize sidepane
-function resizeSidepane() {
-    $(function () {
-        $("#blog-menu, #blog-side-text, #blog-close").on("click", function () {
-            if (!dropDown) {
-                $("body, html").css("overflow", "hidden");
-                $('.blog-side').css("margin-bottom", "10px");
-                $('#sidepane-div').toggleClass("sidepane", false);
-                $('#sidepane-div').toggleClass("sidepane-click", true);
-                $('.blog-side').toggleClass("blog-side-clicked", true);
-                $('.post-bg').toggleClass("post-bg-border", true);
-                $(".post-bg").animate({
-                    height: "100vh",
-                }, 500);
+// Switches dropDown state on click
+function dropDownStatus() {
+    [blogMenuBurger, blogMenuText, blogMenuClose].forEach((item) => {
+        item.addEventListener('click', () => {
+            if (!dropDown) { //first click
                 dropDown = true;
-                $('.post-bg').animate({
-                    scrollTop: $(".current-post").offset().top - 95
-                }, 1000);
-            } else {
-                $("body, html").css("overflow", "auto");
-                $('.post-bg').toggleClass("post-bg-border", false);
-                $('#sidepane-div').toggleClass("sidepane-click", false);
-                $('#sidepane-div').toggleClass("sidepane", true);
-                $('.blog-side').toggleClass("blog-side-clicked", false);
-                $(".post-bg").animate({
-                    height: 0,
-                }, 500);
+            } else { //2nd click
                 dropDown = false;
             }
         });
