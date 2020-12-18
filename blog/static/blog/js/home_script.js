@@ -19,7 +19,6 @@ const resumeSection = document.querySelector(".resume-section");
 const menuText = [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText];
 const menuSection = [homeSection, blogSection, projectSection, resumeSection];
 
-
 function changeMenuItemColor(menuItem) {
     switch (menuItem) {
         case 'about-me':
@@ -53,71 +52,53 @@ function changeMenuItemColor(menuItem) {
     }
 }
 
-// Intersection Observer API
-var observer = new IntersectionObserver(function (entries) {
-    // isIntersecting is true when element and viewport are overlapping
-    // isIntersecting is false when element and viewport don't overlapc
-    [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText].forEach((item) => {
-        if (entries[0]['intersectionRatio'] > 0.60) {
-            item.classList.add("menu-hover");
+function addObs(element) {
+    // function addObs(element, value) {
+    let observer = new IntersectionObserver(function (entries) {
+        // isIntersecting is true when element and viewport are overlapping
+        // isIntersecting is false when element and viewport don't overlap
+        [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText].forEach((item) => {
+            if (entries[0]['intersectionRatio'] > (value + .5)) {
+                item.classList.add("menu-hover");
+            }
+        })
+        if (entries[0].isIntersecting) {
+            changeMenuItemColor(entries[0]['target'].className)
+            // we can then remove menu hover here
+            // then also we can add menu hover to all other items that arent intrscting
         }
-    })
-    if (entries[0].isIntersecting) {
-        changeMenuItemColor(entries[0]['target'].className)
-    }
-}, {
-    threshold: [.60]
-});
-
-function connect() {
-    menuSection.forEach((item) => {
-        observer.observe(item);
-    })
+    }, {
+        threshold: [value]
+    });
+    observer.observe(element);
 }
 
-function addScrollToEvent() {
+let value = 0;
+
+function connect() {
+
     menuSection.forEach((item) => {
-        observer.unobserve(item);
-    })
+        if (item.id == 'home') {
+            value = 0.9;
+        } else if (item.id == 'blog') {
+            value = 0.9;
+        } else if (item.id == 'projects') {
+            value = 0.7;
+        } else if (item.id == 'resume') {
+            value = 0.4;
+        }
 
-    blogSection.scrollIntoView({
-        behavior: 'smooth',
+        addObs(item);
     })
-    menuText.forEach((item) => {
-        item.classList.add("menu-hover");
-    })
-    changeMenuItemColor(blogSection.className);
-
-    setTimeout(function () {
-        connect();
-    }, 500)
 }
 
 function scrollTo() {
 
     menuText.forEach((item, index) => {
-        if (item != blogMenuText) {
-            item.addEventListener('click', () => {
-                menuSection.forEach((item) => {
-                    observer.unobserve(item);
-                })
-
-                menuSection[index].scrollIntoView({
-                    behavior: 'smooth',
-                })
-
-                menuText.forEach((item) => {
-                    item.classList.add("menu-hover");
-                })
-
-                setTimeout(function () {
-                    connect();
-                }, 500)
-
-                changeMenuItemColor(menuSection[index].className)
-            });
-        } else {
-            item.addEventListener('click', addScrollToEvent);
-        }
-    })
+        item.addEventListener('click', () => {
+            menuSection[index].scrollIntoView({
+                behavior: 'smooth',
+            })
+        })
+    });
 }

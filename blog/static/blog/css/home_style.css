@@ -305,19 +305,41 @@ background: transparent;
   color: #594D42;
 }
 
-.home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* grid-area: home; */
-  padding: 0 10px 0 10px;
+/* .menu-active {
+  color: #090B0D;
+}
+
+.menu-inactive {
+  color: #D7D9D9;
+} */
+
+.main > div:nth-child(-n+4){
+  margin-bottom: 20%;
 }
 
 .about-me {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  min-height: 100vh;
+  min-height: 50vh;
+}
+
+#about-link {
+  color: #226473;
+  text-decoration: none;
+  border-bottom: 1px dotted #226473;
+}
+
+#about-link:visited {
+  color: #226473;
+  text-decoration: none;
+  border-bottom: 1px dotted #226473;
+}
+
+#about-link:hover {
+  transition: border-bottom 0.5s ease;
+  color: #733B36;
+  border-bottom: 1px solid #733B36;
 }
 
 .blog {
@@ -405,6 +427,79 @@ background: transparent;
   flex-direction: column;
   min-height: 100vh;
   padding-top: 30px;
+}
+
+#ck-link {
+  color: #226473;
+  text-decoration: none;
+  border-bottom: 1px dotted #226473;
+}
+
+#ck-link:visited {
+  color: #226473;
+  text-decoration: none;
+  border-bottom: 1px dotted #226473;
+}
+
+#ck-link:hover {
+  transition: border-bottom 0.5s ease;
+  color: #733B36;
+  border-bottom: 1px solid #733B36;
+}
+
+#resume-link {
+  color: #226473;
+  text-decoration: none;
+  border-bottom: 1px dotted #226473;
+  float: right;
+  margin-top: 14px;
+}
+
+#resume-link:visited {
+  color: #226473;
+  text-decoration: none;
+  border-bottom: 1px dotted #226473;
+}
+
+#resume-link:hover {
+  transition: border-bottom 0.5s ease;
+  color: #733B36;
+  border-bottom: 1px solid #733B36;
+}
+
+#introduction {
+  margin-bottom: 60px;
+}
+
+#coder-kids {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.job-title,
+.job-desc {
+  margin-bottom: 50px;
+}
+
+.job-title {
+  font: 20px 'Roboto Slab', serif;
+  font-weight: 500;
+}
+
+.job-desc > ul {
+  margin-top: 0;
+}
+
+.job-desc > ul > li {
+  margin-bottom: 5px;
+}
+
+.col-2-5 {
+  width: 40%;
+}
+
+.col-3-5 {
+  width: 60%;
 }
 
 .contact {

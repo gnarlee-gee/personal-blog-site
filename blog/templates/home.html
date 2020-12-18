@@ -23,23 +23,7 @@
         </div>
         {% block postlist %}
         <div class="blog-side ">
-
-            <!-- <i class="material-icons material-icons-round md-38" id="blog-menu">expand_more</i>
-        <i class="material-icons material-icons-round md-38" id="blog-close"
-            style="display: none;">expand_less</i> -->
             <p style="color: #D7D9D9;" id="blog-side-text"> blog</p>
-
-            <!-- <div class="blog-posts" style="display: none;">
-            {% for post in post_list %}
-            <p class="posts" style="display:none;">
-                <a
-                    href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
-                    {{ post.title }}
-                </a>
-            </p>
-            <span style="display: none;"> {{ post.date }}</span>
-            {% endfor %}
-        </div> -->
         </div>
         {% endblock %}
 
@@ -77,48 +61,42 @@
 
     {% block posts %}
     <div id="main-box" class="main">
-
-
-
         <div class="about-me" id="home">
             <h1>Welcome to the world of <br> Charles Grealy! </h1>
-            <p>I graduated from the University of Houston in May 2020 with a Bachelors
-                of Science in mathematics. My career plan going into college was to become a programmer.
-                In order to achieve programming experience, I set out to minor in computer science.
+            <p>I am an adult, cat dad, and billionaire. One of these, believe it or not, happens to be a lie. In May
+                2020 I graduated from the University of Houston with a bachelor’s in Mathematics. All through primary
+                school math was both my favorite and strongest subject so it felt fitting to study it in college.
             </p>
             <p>
-
-                The first computer science class I took was an introductory course about Python and computer science
-                fundamentals. I quickly learned that computer science was
-                a subject that felt rather natural. In the computer science courses, I felt less inclined to take
-                notes as the material was in a crystal clear language that I could comfortably decipher. The
-                adbundance of material on any
-                given subject is shocking compared to that of mathematics. There's YouTube, books, articles,
-                StackOverflow, open source projects like FreeCodeCamp and TheOdinProject and many, many, other
-                sources. So finding assistance was a few clicks away (Thanks, StackOverflow!).
-                Wow, does programming inject serotonin in my viens!
+                Before attending college, I decided my career plan would be to become a programmer. I came to this
+                decision after discovering certain programming fields require a strong math background. I researched
+                what math graduates were doing in their career and quite a lot had successful careers
+                as a programmer. Including my dad, who was a programmer for 40 years and coincidentally a math major!
             </p>
             <p>
-                I'm now applying to various entry level programming positions in hopes of gaining employment. Once
-                I lock down a job, I will pursue a Masters and a PhD in computer science.
+                In order to gain programming experience, I chose to minor in Computer Science. Well, after the first
+                introductory to programming course I would quickly learn that computer science would be a subject that
+                feels rather natural. I felt less inclined to take class notes as the material spoke to me fluently. The
+                abundance of material (ex: books, articles, StackOverflow, and FreeCodeCamp) available is absolutely
+                shocking.
+                Programming sure does inject serotinin into my veins.
             </p>
             <p>
-                FAQ: Why didn't you just major in computer science? I chose mathematics over computer science as
-                math
-                was my strongest subject throughout primary school and
-                the focus on logic would strengthen my programming abilities.
+                I’m now applying to various entry level positions and I am eager to start my career in programming. Once
+                I obtain employment, my goal is to pursue a masters and a doctorate in computer science. If I could
+                offer you only one tip, <a id="about-link"
+                    href="https://www.chicagotribune.com/columns/chi-schmich-sunscreen-column-column.html"
+                    target="_blank">wear sunscreen</a>.
             </p>
         </div>
 
         <div class="blog-section" id="blog">
-
             <h2>Blog Entries</h1>
                 <ul>
                     {% for post in post_list %}
                     <li style="list-style-type: circle;">
                         <p class="post-descriptions">
                             <span> {{ post.date|date:"M d, Y" }} - </span>
-
                             <a class="links"
                                 href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
                                 {{ post.title }}
@@ -127,8 +105,6 @@
                     </li>
                     {% endfor %}
                 </ul>
-
-
         </div>
 
         <div class="projects-section" id="projects" style="padding-bottom: 30px;">
@@ -212,12 +188,106 @@
         </div>
 
         <div class="resume-section" id="resume">
-            <h1>This is the resume section! </h1>
+            <div id="introduction">
+                <div id="intro-title">
+                    <h2 style="display: inline-block; margin-bottom: 10px;">Introduction</h2>
+                    <a id="resume-link" href="../static/blog/CharlesGrealy-Resume.pdf"
+                        download="CharlesGrealy-Resume">Download formal resume (.pdf)</a>
+                </div>
+                <p>
+                    I am currently an Instructor at <a id="ck-link" href="https://www.coderkids.com/"
+                        target="_blank">Coder Kids</a> where I teach programming
+                    to kids using languages like Scratch and Python.
+                    In the last 4 years I focused on my academics at the
+                    University of Houston where I obtained a bachelor’s in Mathematics
+                    in May 2020.
+                </p>
+            </div>
+            <div id="work-experience">
+                <h2 style="margin-bottom: 10px;">Work Experience</h2>
+                <div id="coder-kids">
+                    <div class="job-title col-2-5">
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius veritatis, amet harum maiores
+                            alias iste officiis qui placeat libero, obcaecati eligendi odit dolores, magni numquam ipsum
+                            aspernatur quisquam nostrum ratione.
+                        </p>
+                    </div>
+                    <div class="job-desc col-3-5">
+                        <ul>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, minima earum id modi
+                                molestiae, similique pariatur, quis dicta tenetur ut quia quaerat voluptate velit cum
+                                nobis
+                                magnam! Exercitationem, porro beatae!
+                            </li>
+                            <li>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime sapiente nemo iste
+                                omnis
+                                vero quasi molestias. Rerum illo quidem obcaecati nam possimus consequatur doloremque
+                                repellat, facere magni explicabo odio sunt?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, natus! Repellat
+                                dignissimos officia nihil necessitatibus modi, eum a mollitia? Velit ut temporibus,
+                                aliquam
+                                consequuntur quas officiis eaque labore neque quisquam.
+                            </li>
+                            <li>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero commodi repellat
+                                veritatis
+                                aspernatur fugiat, esse ex tempora quia sed eum consectetur. Sed nostrum, ab molestias
+                                non
+                                modi laudantium! Dolor, debitis.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="job-title col-2-5">
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius veritatis, amet harum maiores
+                            alias iste officiis qui placeat libero, obcaecati eligendi odit dolores, magni numquam ipsum
+                            aspernatur quisquam nostrum ratione.
+                        </p>
+                    </div>
+                    <div class="job-desc col-3-5">
+                        <ul>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, minima earum id modi
+                                molestiae, similique pariatur, quis dicta tenetur ut quia quaerat voluptate velit cum
+                                nobis
+                                magnam! Exercitationem, porro beatae!
+                            </li>
+                            <li>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime sapiente nemo iste
+                                omnis
+                                vero quasi molestias. Rerum illo quidem obcaecati nam possimus consequatur doloremque
+                                repellat, facere magni explicabo odio sunt?
+                            </li>
+                            <li>
+                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, natus! Repellat
+                                dignissimos officia nihil necessitatibus modi, eum a mollitia? Velit ut temporibus,
+                                aliquam
+                                consequuntur quas officiis eaque labore neque quisquam.
+                            </li>
+                            <li>
+                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero commodi repellat
+                                veritatis
+                                aspernatur fugiat, esse ex tempora quia sed eum consectetur. Sed nostrum, ab molestias
+                                non
+                                modi laudantium! Dolor, debitis.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
         <div class="footer">
-            <p>© Charles Grealy 2020 | Powered by <a class="footer-links" href="https://www.djangoproject.com/" target="_blank">django</a>
-            | <a class="footer-links" href="https://github.com/gnarlee-gee/personal-blog-site" target="_blank">Source code</a></p>
+            <p>© Charles Grealy 2020 | Powered by <a class="footer-links" href="https://www.djangoproject.com/"
+                    target="_blank">django</a>
+                | <a class="footer-links" href="https://github.com/gnarlee-gee/personal-blog-site"
+                    target="_blank">Source code</a></p>
         </div>
         {% endblock %}
     </div>
