@@ -19,6 +19,7 @@ const resumeSection = document.querySelector(".resume-section");
 const menuText = [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText];
 const menuSection = [homeSection, blogSection, projectSection, resumeSection];
 
+
 function changeMenuItemColor(menuItem) {
     switch (menuItem) {
         case 'about-me':
@@ -52,53 +53,57 @@ function changeMenuItemColor(menuItem) {
     }
 }
 
-function addObs(element) {
-    // function addObs(element, value) {
-    let observer = new IntersectionObserver(function (entries) {
-        // isIntersecting is true when element and viewport are overlapping
-        // isIntersecting is false when element and viewport don't overlap
-        [homeMenuText, blogMenuText, projectsMenuText, resumeMenuText].forEach((item) => {
-            if (entries[0]['intersectionRatio'] > (value + .5)) {
-                item.classList.add("menu-hover");
-            }
-        })
-        if (entries[0].isIntersecting) {
-            changeMenuItemColor(entries[0]['target'].className)
-            // we can then remove menu hover here
-            // then also we can add menu hover to all other items that arent intrscting
-        }
-    }, {
-        threshold: [value]
-    });
-    observer.observe(element);
-}
+// Intersection Observer API
+let observer = new IntersectionObserver(function (entries) {
+    // isIntersecting is true when element and viewport are overlapping
+    // isIntersecting is false when element and viewport don't overlapc
 
-let value = 0;
+    if (entries[0].isIntersecting) {
+        changeMenuItemColor(entries[0].target.className);
+        addHoverMenu(entries[0].target.id);
+    }
+
+}, {
+    rootMargin: '0px 0px -70% 0px',
+});
 
 function connect() {
-
     menuSection.forEach((item) => {
-        if (item.id == 'home') {
-            value = 0.9;
-        } else if (item.id == 'blog') {
-            value = 0.9;
-        } else if (item.id == 'projects') {
-            value = 0.7;
-        } else if (item.id == 'resume') {
-            value = 0.4;
-        }
-
-        addObs(item);
+        observer.observe(item);
     })
 }
+
 
 function scrollTo() {
 
     menuText.forEach((item, index) => {
         item.addEventListener('click', () => {
+            menuSection.forEach((menuItem) => {
+                if (!item.id.includes(menuItem.id)) {
+                    console.log(menuItem.id)
+                    observer.unobserve(menuItem);
+                }
+            });
+
             menuSection[index].scrollIntoView({
                 behavior: 'smooth',
-            })
-        })
+            });
+
+            menuSection.forEach((menuItem) => {
+                if (!item.id.includes(menuItem.id)) {
+                    setTimeout(function(){
+                        observer.observe(menuItem);
+                    }, 750);
+                }
+            });
+        });
+    })
+}
+
+function addHoverMenu(element) {
+    menuText.forEach((item) => {
+        if (!item.id.includes(element)) {
+            item.classList.add('menu-hover');
+        }
     });
 }

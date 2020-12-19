@@ -275,6 +275,13 @@ background: transparent;
   margin-bottom: 0;
 }
 
+.blog-side>p,
+.projects-side>p,
+.resume-side>p,
+.projects-side>p {
+  color: #D7D9D9;
+}
+
 #home-side-text,
 .blog-side>p,
 .projects-side>p,
@@ -282,6 +289,10 @@ background: transparent;
   float: right;
   cursor: pointer;
 }
+
+/* .menu-hover {
+  color: #D7D9D9;
+} */
 
 .menu-hover:hover {
   transition: color 0.5s ease;
@@ -304,14 +315,6 @@ background: transparent;
   margin-top: 30px;
   color: #594D42;
 }
-
-/* .menu-active {
-  color: #090B0D;
-}
-
-.menu-inactive {
-  color: #D7D9D9;
-} */
 
 .main > div:nth-child(-n+4){
   margin-bottom: 20%;
