@@ -53,6 +53,25 @@ function changeMenuItemColor(menuItem) {
     }
 }
 
+// let scrollPool = 500;
+
+// function resetScrollPool() {
+//   scrollPool = 500;
+// }
+
+// function scrollThrottle(event) {
+//   window.requestAnimationFrame(resetScrollPool);
+//   if (scrollPool < 0) {
+//     return false;
+//   }
+//   const scrollDistance = event.deltaY * 50;
+//   scrollPool = scrollPool - Math.abs(scrollDistance);
+//   document.querySelector('html').scrollTop += scrollDistance;
+// }
+
+// window.addEventListener('wheel', scrollThrottle);
+
+
 // Intersection Observer API
 let observer = new IntersectionObserver(function (entries) {
     // isIntersecting is true when element and viewport are overlapping
@@ -64,7 +83,7 @@ let observer = new IntersectionObserver(function (entries) {
     }
 
 }, {
-    rootMargin: '0px 0px -70% 0px',
+    rootMargin: '0px 0px -95% 0px',
 });
 
 function connect() {
@@ -93,7 +112,7 @@ function scrollTo() {
                 if (!item.id.includes(menuItem.id)) {
                     setTimeout(function(){
                         observer.observe(menuItem);
-                    }, 750);
+                    }, 500);
                 }
             });
         });
@@ -107,3 +126,4 @@ function addHoverMenu(element) {
         }
     });
 }
+

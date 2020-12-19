@@ -290,10 +290,6 @@ background: transparent;
   cursor: pointer;
 }
 
-/* .menu-hover {
-  color: #D7D9D9;
-} */
-
 .menu-hover:hover {
   transition: color 0.5s ease;
   color: #595959 !important;
