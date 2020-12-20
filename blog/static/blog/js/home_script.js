@@ -53,25 +53,6 @@ function changeMenuItemColor(menuItem) {
     }
 }
 
-// let scrollPool = 500;
-
-// function resetScrollPool() {
-//   scrollPool = 500;
-// }
-
-// function scrollThrottle(event) {
-//   window.requestAnimationFrame(resetScrollPool);
-//   if (scrollPool < 0) {
-//     return false;
-//   }
-//   const scrollDistance = event.deltaY * 50;
-//   scrollPool = scrollPool - Math.abs(scrollDistance);
-//   document.querySelector('html').scrollTop += scrollDistance;
-// }
-
-// window.addEventListener('wheel', scrollThrottle);
-
-
 // Intersection Observer API
 let observer = new IntersectionObserver(function (entries) {
     // isIntersecting is true when element and viewport are overlapping
@@ -92,14 +73,12 @@ function connect() {
     })
 }
 
-
 function scrollTo() {
 
     menuText.forEach((item, index) => {
         item.addEventListener('click', () => {
             menuSection.forEach((menuItem) => {
                 if (!item.id.includes(menuItem.id)) {
-                    console.log(menuItem.id)
                     observer.unobserve(menuItem);
                 }
             });
