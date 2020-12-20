@@ -379,32 +379,16 @@ background: transparent;
   padding-top: 30px;
 }
 
+.project-title {
+  margin-bottom: 10px;
+}
+
 .projects:last-child {
   margin-bottom: 0;
 }
 
 .project-description {
   margin-bottom: 0;
-}
-
-.project-title {
-  text-decoration: none;
-  color: #594D42;
-  display: inline-block;
-}
-
-.project-title>h2 {
-  border-bottom: 1px dotted #594D42;
-
-}
-
-.project-title:visited {
-  color: #594D42;
-}
-
-.project-title:hover>h2 {
-  transition: border-bottom 1s ease;
-  border-bottom: 1px solid #594D42;
 }
 
 .project-links {
