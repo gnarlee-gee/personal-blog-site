@@ -61,18 +61,22 @@
 
     {% block posts %}
     <div id="main-box" class="main">
-        <div class="about-me" id="home">
+        <div class="about-me">
             <h1>Welcome to the world of <br> Charles Grealy! </h1>
             <p>I am an adult, cat dad, and billionaire. One of these, believe it or not, happens to be a lie. In May
                 2020 I graduated from the University of Houston with a bachelor’s in Mathematics. All through primary
                 school math was both my favorite and strongest subject so it felt fitting to study it in college.
             </p>
+            <div class="home observer-box">
+
+            </div>
             <p>
                 Before attending college, I decided my career plan would be to become a programmer. I came to this
                 decision after discovering certain programming fields require a strong math background. I researched
                 what math graduates were doing in their career and quite a lot had successful careers
                 as a programmer. Including my dad, who was a programmer for 40 years and coincidentally a math major!
             </p>
+
             <p>
                 In order to gain programming experience, I chose to minor in Computer Science. Well, after the first
                 introductory to programming course I would quickly learn that computer science would be a subject that
@@ -90,32 +94,31 @@
             </p>
         </div>
 
-        <div class="blog-section" id="blog">
-            <h2>Blog Entries</h1>
-                <ul>
-                    {% for post in post_list %}
-                    <li style="list-style-type: circle;">
-                        <p class="post-descriptions">
-                            <span> {{ post.date|date:"M d, Y" }} - </span>
-                            <a class="links"
-                                href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
-                                {{ post.title }}
-                            </a>
-                        </p>
-                    </li>
-                    {% endfor %}
-                </ul>
+        <div class="blog-section">
+            <div class="blog observer-box">
+                <h2>Blog Entries</h1>
+            </div>
+            <ul>
+                {% for post in post_list %}
+                <li style="list-style-type: circle;">
+                    <p class="post-descriptions">
+                        <span> {{ post.date|date:"M d, Y" }} - </span>
+                        <a class="links"
+                            href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
+                            {{ post.title }}
+                        </a>
+                    </p>
+                </li>
+                {% endfor %}
+            </ul>
         </div>
-
-        <div class="projects-section" id="projects" style="padding-bottom: 30px;">
+        <div class="projects-section">
             <div class="projects-container">
                 <div class="projects" id="project-calc">
                     <h2 class="project-title">A Calculator on the Web</h2>
-
                     <p class="project-description">
-                        A mathematical calculator that follows the order of operations (PEMDAS, but without the PE) and
-                        features keyboard support. HTML/CSS were used to develop the style and layout. JavaScript is
-                        used for the overall functionality.
+                        A mathematical calculator that features keyboard support. HTML/CSS is used to develop the style
+                        and layout. JavaScript is used for the overall functionality.
                     </p>
                     <a class="project-links" href="https://github.com/gnarlee-gee/JavaScript-Calculator"
                         target="#">GitHub</a>
@@ -123,78 +126,84 @@
                         Website</a>
                 </div>
                 <div class="projects" id="project-etch">
+                    <div class="project observer-box">
                         <h2 class="project-title">Online Etch A Sketch</h2>
-                   
+                    </div>
                     <p class="project-description">
                         Remember Etch A Sketches from your childhood? Here's one online featuring an assortment of
-                        colors including a random color generator. Entirely developed from JavaScript with a mostyle
-                        empty HTML file for the live website.
-                        Option to change the size of the board upon clicking erase.
+                        colors including a random color generator. Entirely developed with JavaScript and an empty HTML
+                        file in order to push to a live website. Option to change the size of the board upon clicking
+                        erase.
                     </p>
                     <a class="project-links" href="https://github.com/gnarlee-gee/Etch-A-Sketch" target="#">GitHub</a>
                     <a class="project-links" href="https://gnarlee-gee.github.io/Etch-A-Sketch/" target="#">Live
                         Website</a>
                 </div>
                 <div class="projects" id="project-personalsite">
-                        <h2 class="project-title">
-                            Personal Website
-                        </h2>
-                    
+                    <h2 class="project-title">
+                        Personal Website
+                    </h2>
+
                     <p class="project-description">
-                        A quarantine project was to create my own website from the ground up. I'll say
-                        it's the most fun I have yet to date! The goal in the beginning was to only develop a blog, but
-                        that later changed when I wanted to expand on the challenge. First acclimated myself with
-                        django (Python),
-                        where I learned about about url mapping, how to create views, and configure a database powered
-                        by PostgreSQL.
-                        Then I would create a layout from HTML/CSS and implement JavaScript to create pleasent features
-                        such as smooth scrolling
-                        and a drop down menu in the blog posts.
+                        A quarantine project of mine was to create my personal website from scratch. I'll say it's the
+                        most fun I have had to date! The goal in the beginning was to only develop a blog, but that
+                        later changed when I wanted to expand on the challenge. First I acclimated myself with django
+                        (Python). I learned about url mapping, creating views, configuring a database powered by
+                        PostgreSQL, and template tagging. Then I created a layout from HTML/CSS and implemented
+                        JavaScript to create pleasant features such as smooth scrolling and a drop down menu in the blog
+                        posts. Finally, I was able to learn how to push into production via Heroku and transfer to a
+                        proper domain.
                     </p>
                     <a class="project-links" href="https://github.com/gnarlee-gee/personal-blog-site"
                         target="#">GitHub</a>
                 </div>
                 <div class="projects" id="project-chatbot">
-                    
-                        <h2 class="project-title">
-                            Stock Portfolio Chatbot
-                        </h2>
+
+                    <h2 class="project-title">
+                        Stock Portfolio Chatbot
+                    </h2>
                     <p class="project-description">
                         Another quarantine project based upon an interest of mine, the stock market. Yep, I am
-                        completely invested in the stock market - pun intended.
-                        With Flask (Python) and the help of the Twilio API came a chat bot used in WhatsApp. Since I
-                        became sort of
-                        acclimated with django by now, Flask
-                        felt more natural - in fact maybe quite easy to setup. Searches for stock prices
+                        completely invested in the stock market - pun intended. With Flask (Python) and the help of the
+                        Twilio API arose a chat bot used in WhatsApp. Since I became familiar with django by now, Flask
+                        felt more natural - in fact maybe quite easy to configure. The program searches for stock prices
                         using a stock market API and stores user data in a PostgreSQL database.
                     </p>
                     <a class="project-links" href="https://github.com/gnarlee-gee/WhatsApp-Stock-Portfolio-Chatbot"
                         target="#">GitHub</a>
                 </div>
                 <div class="projects" id="project-interpreter">
+                    <div class="project observer-box">
                         <h2 class="project-title">
                             Python Interpreter in C++
                         </h2>
+                    </div>
                     <p class="project-description">
-                        One of the final projects for a class project was to create a Python interpreter in C++. One of
-                        my favorite projects during my undergrad. Paired with a great partner, together we would be
-                        victorious.
-                        The objective was to take a Python (.py) file as input, parse variables and lists, and output
-                        list contents.
-                        So it's as if Python ran the program, but it's all C++ behind the scenes.
+                        An interpreter reads and executes code. Therefore, a Python interpreter reads and executes
+                        Python code.
+                        The final project for a class during my undergrad was to build a basic Python interpreter in
+                        C++. One of my
+                        favorite projects! The objective was to take a Python (.py) file as input, parse each
+                        statement, and produce
+                        Python-like output. The statements included variables, lists, or a combination of both. Output
+                        consisted
+                        of the list contents. It's as if you typed 'python' in the terminal, but C++ would become the
+                        interpreter.
+
                     </p>
                     <a class="project-links" href="https://github.com/gnarlee-gee/Python-Interpreter"
                         target="#">GitHub</a>
                 </div>
             </div>
         </div>
-
-        <div class="resume-section" id="resume">
+        <div class="resume-section">
             <div id="introduction">
                 <div id="intro-title">
                     <h2 style="display: inline-block; margin-bottom: 10px;">Introduction</h2>
                     <a id="resume-link" href="../static/blog/CharlesGrealy-Resume.pdf"
                         download="CharlesGrealy-Resume">Download formal resume (.pdf)</a>
+                </div>
+                <div class="resume observer-box">
                 </div>
                 <p>
                     I am currently an Instructor at <a id="ck-link" href="https://www.coderkids.com/"

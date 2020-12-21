@@ -233,6 +233,11 @@ background: transparent;
   border-bottom: 1px solid #733B36;
 }
 
+.empty-row {
+  width: 100%;
+  height: 200px;
+}
+
 
 /* Section contains main classes */
 
@@ -339,13 +344,6 @@ background: transparent;
   transition: border-bottom 0.5s ease;
   color: #733B36;
   border-bottom: 1px solid #733B36;
-}
-
-.blog {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0 10px 0 10px;
 }
 
 .blog-section {
