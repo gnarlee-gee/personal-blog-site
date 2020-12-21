@@ -56,26 +56,23 @@ function changeMenuItemColor(menuItem) {
             break;
     }
 }
-
+let previousY = 0
+let previousRatio = 0
 // Intersection Observer API
 let observer = new IntersectionObserver(function (entries) {
     // isIntersecting is true when element and viewport are overlapping
     // isIntersecting is false when element and viewport don't overlapc
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            let firstClass = entry.target.className;
-            // console.log(str.substr(0,str.indexOf(' ')));
-            changeMenuItemColor(firstClass.substr(0, firstClass.indexOf(' ')));
-            addHoverMenu(firstClass.substr(0, firstClass.indexOf(' ')));
-        }
-    })
-    // if (entries[0].isIntersecting) {
-    //     console.log(entries[0].target.className)
-    //     // changeMenuItemColor(entries[0].target.className);
-    //     // addHoverMenu(entries[0].target.id);
-    // }
+    if (entries[0].isIntersecting) {
+        let firstClass = entries[0].target.className;
+        // console.log(str.substr(0,str.indexOf(' ')));
+        changeMenuItemColor(firstClass.substr(0, firstClass.indexOf(' ')));
+        addHoverMenu(firstClass.substr(0, firstClass.indexOf(' ')));
+    }
+
+
 }, {
-    rootMargin: '0px 0px -50% 0px',
+    // root: document.querySelector('.html'),
+    rootMargin: '-42% 0px -52% 0px',
 });
 
 function connect() {
@@ -88,27 +85,27 @@ function scrollTo() {
 
     menuText.forEach((item, index) => {
         item.addEventListener('click', () => {
-            ioDivs.forEach((menuItem) => {
-                let menuItemText = menuItem.className;
-                menuItemText = menuItemText.substr(0, menuItemText.indexOf(' '));
-                if (!item.id.includes(menuItemText)) {
-                    observer.unobserve(menuItem);
-                }
-            });
+            // ioDivs.forEach((menuItem) => {
+            //     let menuItemText = menuItem.className;
+            //     menuItemText = menuItemText.substr(0, menuItemText.indexOf(' '));
+            //     if (!item.id.includes(menuItemText)) {
+            //         observer.unobserve(menuItem);
+            //     }
+            // });
 
             menuSection[index].scrollIntoView({
                 behavior: 'smooth',
             });
 
-            ioDivs.forEach((menuItem) => {
-                let menuItemText = menuItem.className;
-                menuItemText = menuItemText.substr(0, menuItemText.indexOf(' '));
-                if (!item.id.includes(menuItemText)) {
-                    setTimeout(function () {
-                        observer.observe(menuItem);
-                    }, 500);
-                }
-            });
+            // ioDivs.forEach((menuItem) => {
+            //     let menuItemText = menuItem.className;
+            //     menuItemText = menuItemText.substr(0, menuItemText.indexOf(' '));
+            //     if (!item.id.includes(menuItemText)) {
+            //         setTimeout(function () {
+            //             observer.observe(menuItem);
+            //         }, 500);
+            //     }
+            // });
         });
     })
 }
