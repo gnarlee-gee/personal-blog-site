@@ -1,5 +1,5 @@
 // after page loads activate function
-window.onload = function () {
+onload = function () {
     connect();
     scrollTo();
 }
@@ -63,11 +63,14 @@ function changeMenuItemColor(menuItem) {
 let observer = new IntersectionObserver(function (entries) {
     // isIntersecting is true when element and viewport are overlapping
     // isIntersecting is false when element and viewport don't overlapc
+    let firstClass = entries[0].target.className;
     if (entries[0].isIntersecting) {
-        let firstClass = entries[0].target.className;
         // console.log(str.substr(0,str.indexOf(' ')));
         changeMenuItemColor(firstClass.substr(0, firstClass.indexOf(' ')));
         addHoverMenu(firstClass.substr(0, firstClass.indexOf(' ')));
+    } else {
+        changeMenuItemColor(firstClass.substr(0, firstClass.indexOf(' ')));
+
     }
 }, {
     // root: document.querySelector('.html'),
