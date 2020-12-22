@@ -328,6 +328,16 @@ background: transparent;
   min-height: 50vh;
 }
 
+/* intersection observer div */
+#home-observer {
+  position: absolute;
+  /* background-color: red; */
+  height: 200px;
+  z-index: -10;
+  min-width: 730px;
+  top: 383px;
+}
+
 #about-link {
   color: #226473;
   text-decoration: none;
@@ -346,12 +356,40 @@ background: transparent;
   border-bottom: 1px solid #733B36;
 }
 
+#blog-observer {
+  position: absolute;
+  min-width: 730px;
+  height: 200px;
+  /* background-color: blue; */
+  z-index: -10;
+  top: 999px;
+}
+
+
 .blog-section {
   display: flex;
   justify-content: start;
   flex-direction: column;
   min-height: 30vh;
   padding-top: 30px;
+}
+
+#project-observer {
+  position: absolute;
+  min-width: 730px;
+  height: 200px;
+  /* background-color: red; */
+  z-index: -10;
+  top: 1428px;
+}
+
+#project-observer-2 {
+  position: absolute;
+  min-width: 730px;
+  height: 200px;
+  /* background-color: green; */
+  z-index: -10;
+  top: 2394px;
 }
 
 .post-descriptions {
@@ -400,6 +438,15 @@ background: transparent;
   transition: border-bottom 0.5s ease;
   color: #733B36;
   border-bottom: 1px solid #733B36;
+}
+
+#resume-observer {
+  position: absolute;
+  min-width: 730px;
+  height: 200px;
+  /* background-color: blue; */
+  z-index: -10;
+  top: 2903px;
 }
 
 .resume-section {

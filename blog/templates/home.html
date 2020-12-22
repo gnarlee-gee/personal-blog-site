@@ -74,7 +74,7 @@
                 what math graduates were doing in their career and quite a lot had successful careers
                 as a programmer. Including my dad, who was a programmer for 40 years and coincidentally a math major!
             </p>
-            <div class="home observer-box">
+            <div id="home-observer" class="home observer-box">
 
             </div>
             <p>
@@ -85,9 +85,9 @@
                 shocking.
                 Programming sure does inject serotinin into my veins.
             </p>
-            <div class="home observer-box">
+            <!-- <div class="home observer-box">
 
-            </div>
+            </div> -->
             <p>
                 I’m now applying to various entry level positions and I am eager to start my career in programming. Once
                 I obtain employment, my goal is to pursue a masters and a doctorate in computer science. If I could
@@ -98,9 +98,10 @@
         </div>
 
         <div class="blog-section">
-            <div class="blog observer-box">
-                <h2>Blog Entries</h1>
+            <div id="blog-observer" class="blog observer-box">
             </div>
+                <h2>Blog Entries</h1>
+
             <ul>
                 {% for post in post_list %}
                 <li style="list-style-type: circle;">
@@ -128,7 +129,7 @@
                     <a class="project-links" href="https://gnarlee-gee.github.io/JavaScript-Calculator/" target="#">Live
                         Website</a>
                 </div>
-                <div class="project observer-box"></div>
+                <div id="project-observer" class="project observer-box"></div>
                 <div class="projects" id="project-etch">
                     
                         <h2 class="project-title">Online Etch A Sketch</h2>
@@ -174,7 +175,7 @@
                     <a class="project-links" href="https://github.com/gnarlee-gee/WhatsApp-Stock-Portfolio-Chatbot"
                         target="#">GitHub</a>
                 </div>
-                <div class="project observer-box"></div>
+                <div id="project-observer-2" class="project observer-box"></div>
 
                 <div class="projects" id="project-interpreter">
                     <h2 class="project-title">
@@ -200,12 +201,12 @@
         </div>
         <div class="resume-section">
             <div id="introduction">
+                <div id="resume-observer" class="resume observer-box">
+                </div>
                 <div id="intro-title">
                     <h2 style="display: inline-block; margin-bottom: 10px;">Introduction</h2>
                     <a id="resume-link" href="../static/blog/CharlesGrealy-Resume.pdf"
                         download="CharlesGrealy-Resume">Download formal resume (.pdf)</a>
-                </div>
-                <div class="resume observer-box">
                 </div>
                 <p>
                     I am currently an Instructor at <a id="ck-link" href="https://www.coderkids.com/"
@@ -217,10 +218,8 @@
                 </p>
             </div>
             <div id="work-experience">
-                <div class="resume observer-box">
 
                 <h2 style="margin-bottom: 10px;">Work Experience</h2>
-                </div>
                 <div id="coder-kids">
                     <div class="job-title col-2-5">
                         <p>

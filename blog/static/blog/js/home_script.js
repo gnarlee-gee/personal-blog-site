@@ -5,7 +5,7 @@ onload = function () {
 }
 
 const homeMenuText = document.querySelector('#home-side-text');
-const homeSection = document.querySelector(".about-me");
+const homeSection = document.querySelector("html"); // use html to get to tippy top
 
 const blogMenuText = document.querySelector("#blog-side-text");
 const blogSection = document.querySelector(".blog-section");
@@ -65,15 +65,10 @@ let observer = new IntersectionObserver(function (entries) {
     // isIntersecting is false when element and viewport don't overlapc
     let firstClass = entries[0].target.className;
     if (entries[0].isIntersecting) {
-        // console.log(str.substr(0,str.indexOf(' ')));
         changeMenuItemColor(firstClass.substr(0, firstClass.indexOf(' ')));
         addHoverMenu(firstClass.substr(0, firstClass.indexOf(' ')));
-    } else {
-        changeMenuItemColor(firstClass.substr(0, firstClass.indexOf(' ')));
-
     }
 }, {
-    // root: document.querySelector('.html'),
     rootMargin: '-42% 0px -52% 0px',
 });
 
@@ -89,35 +84,26 @@ function scrollTo() {
         item.addEventListener('click', () => {
             let itemClicked = menuSection[index].className;
             itemClicked = itemClicked.substr(0, itemClicked.indexOf('-'));
-            console.log(itemClicked)
             ioDivs.forEach((menuItem) => {
-                let menuItemText = menuItem.className;
-                menuItemText = menuItemText.substr(0, menuItemText.indexOf(' '));
-                if (!item.id.includes(menuItemText)) {
-                    observer.unobserve(menuItem);
-                }
-            });
+                observer.unobserve(menuItem);
+                });
             menuSection[index].scrollIntoView({
                 behavior: 'smooth',
                 inline: 'end'
             });
-
             ioDivs.forEach((menuItem) => {
-                let menuItemText = menuItem.className;
-                menuItemText = menuItemText.substr(0, menuItemText.indexOf(' '));
-                if (!item.id.includes(menuItemText)) {
                     setTimeout(function () {
-                        changeMenuItemColor(itemClicked)
                         observer.observe(menuItem);
-                        addHoverMenu(menuItem);
-                    }, 250);
-                }
+                    }, 500);
             });
+            addHoverMenu(itemClicked);
+            changeMenuItemColor(itemClicked);
         });
     })
 }
 
 function addHoverMenu(element) {
+
     menuText.forEach((item) => {
         if (!item.id.includes(element)) {
             item.classList.add('menu-hover');
