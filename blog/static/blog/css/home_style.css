@@ -350,7 +350,7 @@ background: transparent;
   display: flex;
   justify-content: start;
   flex-direction: column;
-  /* min-height: 30vh; */
+  min-height: 30vh;
   padding-top: 30px;
 }
 
@@ -369,7 +369,7 @@ background: transparent;
   margin-bottom: 25px;
 }
 
-.projects-section {
+.project-section {
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -503,7 +503,7 @@ background: transparent;
 }
 
 .about-me>p,
-.projects-section>p,
+.project-section>p,
 .resume-section>p {
   margin-top: 17px;
   margin-bottom: 0;

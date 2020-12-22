@@ -11,7 +11,7 @@ const blogMenuText = document.querySelector("#blog-side-text");
 const blogSection = document.querySelector(".blog-section");
 
 const projectsMenuText = document.querySelector("#projects-side-text");
-const projectSection = document.querySelector(".projects-section");
+const projectSection = document.querySelector(".project-section");
 
 const resumeMenuText = document.querySelector("#resume-side-text");
 const resumeSection = document.querySelector(".resume-section");
@@ -25,7 +25,9 @@ const menuSection = [homeSection, blogSection, projectSection, resumeSection];
 function changeMenuItemColor(menuItem) {
     switch (menuItem) {
         case 'home':
-            homeMenuText.style.color = "#090B0D";
+            if (homeMenuText.style.color != "#090B0D") {
+                homeMenuText.style.color = "#090B0D";
+            }
             homeMenuText.classList.remove("menu-hover");
             blogMenuText.style.color = "#D7D9D9";
             projectsMenuText.style.color = "#D7D9D9";
@@ -56,8 +58,7 @@ function changeMenuItemColor(menuItem) {
             break;
     }
 }
-let previousY = 0
-let previousRatio = 0
+
 // Intersection Observer API
 let observer = new IntersectionObserver(function (entries) {
     // isIntersecting is true when element and viewport are overlapping
@@ -68,8 +69,6 @@ let observer = new IntersectionObserver(function (entries) {
         changeMenuItemColor(firstClass.substr(0, firstClass.indexOf(' ')));
         addHoverMenu(firstClass.substr(0, firstClass.indexOf(' ')));
     }
-
-
 }, {
     // root: document.querySelector('.html'),
     rootMargin: '-42% 0px -52% 0px',
@@ -85,27 +84,32 @@ function scrollTo() {
 
     menuText.forEach((item, index) => {
         item.addEventListener('click', () => {
-            // ioDivs.forEach((menuItem) => {
-            //     let menuItemText = menuItem.className;
-            //     menuItemText = menuItemText.substr(0, menuItemText.indexOf(' '));
-            //     if (!item.id.includes(menuItemText)) {
-            //         observer.unobserve(menuItem);
-            //     }
-            // });
-
+            let itemClicked = menuSection[index].className;
+            itemClicked = itemClicked.substr(0, itemClicked.indexOf('-'));
+            console.log(itemClicked)
+            ioDivs.forEach((menuItem) => {
+                let menuItemText = menuItem.className;
+                menuItemText = menuItemText.substr(0, menuItemText.indexOf(' '));
+                if (!item.id.includes(menuItemText)) {
+                    observer.unobserve(menuItem);
+                }
+            });
             menuSection[index].scrollIntoView({
                 behavior: 'smooth',
+                inline: 'end'
             });
 
-            // ioDivs.forEach((menuItem) => {
-            //     let menuItemText = menuItem.className;
-            //     menuItemText = menuItemText.substr(0, menuItemText.indexOf(' '));
-            //     if (!item.id.includes(menuItemText)) {
-            //         setTimeout(function () {
-            //             observer.observe(menuItem);
-            //         }, 500);
-            //     }
-            // });
+            ioDivs.forEach((menuItem) => {
+                let menuItemText = menuItem.className;
+                menuItemText = menuItemText.substr(0, menuItemText.indexOf(' '));
+                if (!item.id.includes(menuItemText)) {
+                    setTimeout(function () {
+                        changeMenuItemColor(itemClicked)
+                        observer.observe(menuItem);
+                        addHoverMenu(menuItem);
+                    }, 250);
+                }
+            });
         });
     })
 }
