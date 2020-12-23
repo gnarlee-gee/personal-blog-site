@@ -212,7 +212,7 @@ body {
   color: #594D42;
 }
 
-html {
+html, body {
   scroll-behavior: smooth;
 }
 
@@ -225,14 +225,6 @@ body, html {
 ::selection {
   color: white;
   background: #ee4444;
-}
-
-/* For chrome */
-::-webkit-scrollbar {
-  /* Remove scrollbar space */
-  width: 0px;
-  /* Optional: just make scrollbar invisible */
-  background: transparent;
 }
 
 .show {

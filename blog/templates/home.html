@@ -100,21 +100,21 @@
         <div class="blog-section">
             <div id="blog-observer" class="blog observer-box">
             </div>
-                <h2>Blog Entries</h1>
+            <h2>Blog Entries</h1>
 
-            <ul>
-                {% for post in post_list %}
-                <li style="list-style-type: circle;">
-                    <p class="post-descriptions">
-                        <span> {{ post.date|date:"M d, Y" }} - </span>
-                        <a class="links"
-                            href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
-                            {{ post.title }}
-                        </a>
-                    </p>
-                </li>
-                {% endfor %}
-            </ul>
+                <ul>
+                    {% for post in post_list %}
+                    <li style="list-style-type: circle;">
+                        <p class="post-descriptions">
+                            <span> {{ post.date|date:"M d, Y" }} - </span>
+                            <a class="links"
+                                href="{% url 'post-detail' post.date|date:"Y" post.date|date:"M"|lower post.date|date:"d" post.slug %}">
+                                {{ post.title }}
+                            </a>
+                        </p>
+                    </li>
+                    {% endfor %}
+                </ul>
         </div>
         <div class="project-section">
             <div class="projects-container">
@@ -131,8 +131,8 @@
                 </div>
                 <div id="project-observer" class="project observer-box"></div>
                 <div class="projects" id="project-etch">
-                    
-                        <h2 class="project-title">Online Etch A Sketch</h2>
+
+                    <h2 class="project-title">Online Etch A Sketch</h2>
                     <p class="project-description">
                         Remember Etch A Sketches from your childhood? Here's one online featuring an assortment of
                         colors including a random color generator. Entirely developed with JavaScript and an empty HTML
@@ -162,9 +162,9 @@
                         target="#">GitHub</a>
                 </div>
                 <div class="projects" id="project-chatbot">
-                        <h2 class="project-title">
-                            Stock Portfolio Chatbot
-                        </h2>
+                    <h2 class="project-title">
+                        Stock Portfolio Chatbot
+                    </h2>
                     <p class="project-description">
                         Another quarantine project based upon an interest of mine, the stock market. Yep, I am
                         completely invested in the stock market - pun intended. With Flask (Python) and the help of the
@@ -205,11 +205,11 @@
                 </div>
                 <div id="intro-title">
                     <h2 style="display: inline-block; margin-bottom: 10px;">Introduction</h2>
-                    <a id="resume-link" href="../static/blog/CharlesGrealy-Resume.pdf"
+                    <a id="download-link" href="../static/blog/CharlesGrealy-Resume.pdf"
                         download="CharlesGrealy-Resume">Download formal resume (.pdf)</a>
                 </div>
                 <p>
-                    I am currently an Instructor at <a id="ck-link" href="https://www.coderkids.com/"
+                    I am currently an Instructor at <a class="resume-links" href="https://www.coderkids.com/"
                         target="_blank">Coder Kids</a> where I teach programming
                     to kids using languages like Scratch and Python.
                     In the last 4 years I focused on my academics at the
@@ -217,82 +217,108 @@
                     in May 2020.
                 </p>
             </div>
-            <div id="work-experience">
+            <h2 style="margin-bottom: 10px;">Education</h2>
 
-                <h2 style="margin-bottom: 10px;">Work Experience</h2>
-                <div id="coder-kids">
-                    <div class="job-title col-2-5">
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius veritatis, amet harum maiores
-                            alias iste officiis qui placeat libero, obcaecati eligendi odit dolores, magni numquam ipsum
-                            aspernatur quisquam nostrum ratione.
-                        </p>
-                    </div>
-                    <div class="job-desc col-3-5">
-                        <ul>
-                            <li>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, minima earum id modi
-                                molestiae, similique pariatur, quis dicta tenetur ut quia quaerat voluptate velit cum
-                                nobis
-                                magnam! Exercitationem, porro beatae!
-                            </li>
-                            <li>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime sapiente nemo iste
-                                omnis
-                                vero quasi molestias. Rerum illo quidem obcaecati nam possimus consequatur doloremque
-                                repellat, facere magni explicabo odio sunt?
-                            </li>
-                            <li>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, natus! Repellat
-                                dignissimos officia nihil necessitatibus modi, eum a mollitia? Velit ut temporibus,
-                                aliquam
-                                consequuntur quas officiis eaque labore neque quisquam.
-                            </li>
-                            <li>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero commodi repellat
-                                veritatis
-                                aspernatur fugiat, esse ex tempora quia sed eum consectetur. Sed nostrum, ab molestias
-                                non
-                                modi laudantium! Dolor, debitis.
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="job-title col-2-5">
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius veritatis, amet harum maiores
-                            alias iste officiis qui placeat libero, obcaecati eligendi odit dolores, magni numquam ipsum
-                            aspernatur quisquam nostrum ratione.
-                        </p>
-                    </div>
-                    <div class="job-desc col-3-5">
-                        <ul>
-                            <li>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi, minima earum id modi
-                                molestiae, similique pariatur, quis dicta tenetur ut quia quaerat voluptate velit cum
-                                nobis
-                                magnam! Exercitationem, porro beatae!
-                            </li>
-                            <li>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Maxime sapiente nemo iste
-                                omnis
-                                vero quasi molestias. Rerum illo quidem obcaecati nam possimus consequatur doloremque
-                                repellat, facere magni explicabo odio sunt?
-                            </li>
-                            <li>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos, natus! Repellat
-                                dignissimos officia nihil necessitatibus modi, eum a mollitia? Velit ut temporibus,
-                                aliquam
-                                consequuntur quas officiis eaque labore neque quisquam.
-                            </li>
-                            <li>
-                                Lorem ipsum dolor, sit amet consectetur adipisicing elit. Vero commodi repellat
-                                veritatis
-                                aspernatur fugiat, esse ex tempora quia sed eum consectetur. Sed nostrum, ab molestias
-                                non
-                                modi laudantium! Dolor, debitis.
-                            </li>
-                        </ul>
-                    </div>
+            <div id="uh-container">
+
+                <div class="uh-title col-1-3">
+                    <p>
+                        University of Houston
+                    </p>
+                    <p>
+                        Houston, TX
+                    </p>
+                    <p>
+                        Jan 2016 — May 2020
+                    </p>
+                </div>
+                <div class="uh-desc col-2-3">
+                    <p>B.Sc in Mathematics</p>
+                    <ul>
+                        <li>
+                            Overall GPA of 3.26
+                        </li>
+                        <li>
+                            Minor in Computer Science
+                        </li>
+                        <li>
+                            Noteable coursework: Discrete Mathematics, Data Mining, Introduction to Computer Graphics,
+                            Numerical Linear Algebra, Advanced Linear Algebra (1 & 2), Data Structures and Algorithms,
+                            Programming Languages, Statistics for the Sciences
+                        </li>
+                        <li>
+                            Programming Experience : C++, Python, MATLAB, R
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h2 style="margin-bottom: 10px;">Work Experience</h2>
+            <div id="coder-kids">
+                <div class="job-title col-1-3">
+                    <p>
+                        Coder Kids
+                    </p>
+                    <p>
+                        Instructor
+                    </p>
+                    <p>
+                        January 2020 — Present
+                    </p>
+                    <p>
+                        Houston, TX
+                    </p>
+                </div>
+                <div class="job-desc col-2-3">
+                    <ul>
+                        <li>
+                            Educated 50+ students in first through eigth grade programming fundamentals in Python and <a
+                                class="resume-links" href="https://scratch.mit.edu/" target="_blan">Scratch</a>.
+                        </li>
+                        <li>
+                            Introduced object oriented programming and other complex topics in a feasible manner
+                        </li>
+                        <li>
+                            Provided an open learning environment to increase engagement and encouragement
+                        </li>
+                        <li>
+                            Organized free lessons to those absent or for those extra interested
+                        </li>
+                    </ul>
+                </div>
+                <div class="job-title col-1-3">
+                    <p>
+                        Lennar (formerly Ryland Homes)
+                    </p>
+                    <p>
+                        IT Technical Support
+                    </p>
+                    <p>
+                        February 2012 — September 2014
+                    </p>
+                    <p>
+                        Houston, TX
+                    </p>
+                </div>
+                <div class="job-desc col-2-3">
+                    <ul>
+                        <li>
+                            Managed new office configurations and ongoing maintenance of the offices
+                            for over 150 employees
+                        </li>
+                        <li>
+                            Managed technology inventory to ensure surplus available in case of
+                            irrepairable devices or onboarding new hires
+                        </li>
+                        <li>
+                            Ensured model homes and construction trailers always had internet access by installing
+                            wireless 4G devices when necessary or communicating with cable companies
+                        </li>
+                        <li>
+                            Troubleshot hardware and software issues at the main office or model homes around Houston
+                            and surrounding areas
+                        </li>
+                    </ul>
                 </div>
             </div>
 

@@ -1,8 +1,10 @@
 // after page loads activate function
 onload = function () {
+
     connect();
     scrollTo();
 }
+
 
 const homeMenuText = document.querySelector('#home-side-text');
 const homeSection = document.querySelector("html"); // use html to get to tippy top
@@ -79,22 +81,21 @@ function connect() {
 }
 
 function scrollTo() {
-
     menuText.forEach((item, index) => {
         item.addEventListener('click', () => {
             let itemClicked = menuSection[index].className;
             itemClicked = itemClicked.substr(0, itemClicked.indexOf('-'));
             ioDivs.forEach((menuItem) => {
                 observer.unobserve(menuItem);
-                });
+            });
             menuSection[index].scrollIntoView({
                 behavior: 'smooth',
                 inline: 'end'
             });
             ioDivs.forEach((menuItem) => {
-                    setTimeout(function () {
-                        observer.observe(menuItem);
-                    }, 500);
+                setTimeout(function () {
+                    observer.observe(menuItem);
+                }, 500);
             });
             addHoverMenu(itemClicked);
             changeMenuItemColor(itemClicked);
