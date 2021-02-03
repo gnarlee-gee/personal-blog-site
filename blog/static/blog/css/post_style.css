@@ -490,6 +490,12 @@ body, html {
 
 /* Posts markdown css */
 
+#post-date {
+  color: #a0a0a0;
+  margin-bottom: 40px;
+  margin-top: 0;
+}
+
 h1 {
   font: 240% 'Roboto Slab', serif;
   font-weight: 500;
@@ -517,6 +523,17 @@ blockquote>p {
   margin-left: 20px;
 }
 
+code {
+  font-family: 'JetBrains Mono', monospace;
+  color: #BACBD9;
+  border: 2px solid transparent;
+  background-color: #0D0D0D;
+  padding-left: .25em;
+  padding-right: .25em;
+  border-radius: 10px;
+
+}
+
 pre {
   display: block;
   border: 2px solid #BACBD9;
@@ -524,7 +541,7 @@ pre {
   word-wrap: normal;
   word-spacing: normal;
   word-break: normal;
-  border-radius: 4px;
+  border-radius: 7px;
   overflow: auto;
   color: #ffcd57;
   background-color: #0D0D0D;
@@ -533,7 +550,7 @@ pre {
   padding: 1em;
 }
 
-code {
+pre > code {
   white-space: pre-wrap !important;
   word-wrap: break-word;
   font-family: 'JetBrains Mono', monospace;

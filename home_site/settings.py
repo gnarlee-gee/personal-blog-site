@@ -22,12 +22,12 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, 'templates')
 # Add .env variables anywhere before SECRET_KEY
 
 # Update secret key
-SECRET_KEY = os.environ.get('SECRET_KEY') # Instead of your actual secret key
+SECRET_KEY = 'l=yy+3a5r^t_^qzjevi7xf_b^8$kfpi)(%h)9&=r$_3bb7&u6p' # Instead of your actual secret key
 
 # SECURITY WARNING: don't run with debug turned on in production!
 # DEBUG = False
 
-DEBUG = os.environ.get('DEBUG_VALUE', '') == 'True'
+DEBUG = 'True'
 
 ALLOWED_HOSTS = ['charles-grealy.herokuapp.com', '127.0.0.1',]
 
