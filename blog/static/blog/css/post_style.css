@@ -526,11 +526,14 @@ blockquote>p {
 code {
   font-family: 'JetBrains Mono', monospace;
   color: #BACBD9;
-  border: 2px solid transparent;
+  /* border: .5px solid transparent; */
   background-color: #0D0D0D;
-  padding-left: .25em;
-  padding-right: .25em;
+  padding-left: .5em;
+  padding-right: .5em;
   border-radius: 10px;
+  white-space: pre;
+  word-break: normal;
+  word-wrap: normal;
 
 }
 
